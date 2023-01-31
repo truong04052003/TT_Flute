@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Group;
+use App\Services\User\UserServiceInterface;
+use App\Services\Group\GroupServiceInterface;
 class UserController extends Controller
 {
+    private $userService;
+    private $GroupService;
+    public function __construct(UserServiceInterface $UserService, GroupServiceInterface $GroupService)
+    {
+        $this->GroupService = $GroupService;
+        $this->userService = $UserService;
+    }
    
     public function index()
     {

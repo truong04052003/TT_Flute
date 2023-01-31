@@ -56,7 +56,7 @@
                 </li>
                 </li>
                 <li>
-                    <a href="#" class="fas">
+                    <a href="{{route('group.index')}}" class="fas">
                         Quản Lí Quyền</a>
                 </li>
 
