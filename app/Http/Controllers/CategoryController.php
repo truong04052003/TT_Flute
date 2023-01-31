@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Services\Category\CategoryServiceInterface;
+use App\Http\Requests\StoreCategoryRequest;
 class CategoryController extends Controller
 {
     protected $categoryService;
@@ -29,7 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -38,9 +39,10 @@ class CategoryController extends Controller
      * @param  \App\Http\Requests\StoreCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(StoreCategoryRequest $request)
     {
-        //
+        $items = $this->categoryService->store($request);
+        return redirect()->route('categories.index');
     }
 
     /**

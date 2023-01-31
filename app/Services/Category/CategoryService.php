@@ -23,7 +23,6 @@ class CategoryService implements CategoryServiceInterface {
     public function create($data){
         return $this->categoryRepository->create($data);
     }
-
     public function update($id, $data){
         return $this->categoryRepository->update($id, $data);
     }
@@ -31,8 +30,8 @@ class CategoryService implements CategoryServiceInterface {
     public function delete($id){
         return $this->categoryRepository->delete($id);
     }
-    public function store($data){
-        return $this->categoryRepository->store($data);
+    public function store($request){
+        return $this->categoryRepository->store($request);
     }
    
 }

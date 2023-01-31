@@ -19,8 +19,15 @@ class BaseService implements ServiceInterface {
     public function create($data){
         return $this->repository->create($data);
     }
+    
+    public function store($request){
+        return $this->postRepository->store($request);
+    }
 
     public function update($id, $data){
         return $this->repository->update($id, $data);
+    }
+    public function delete($id){
+
     }
 }
