@@ -8,26 +8,26 @@ use App\Repositories\BaseRepository;
 class CustomerRepository extends BaseRepository implements CustomerRepositoryInterface
 {
 
-    function getModel()
+    protected $model;
+
+    public function getModel()
     {
-      
+        return Customer::class;
     }
+
+    public function __construct()
+    {
+        $this->setModel();
+    }
+    public function setModel()
+    {
+        $this->model = app()->make($this->getModel());
+    }
+
 
     public function all($request)
     {
-     
+        $customers = Customer::select('*');
+        return $customers->get();
     }
-    public function getTrash()
-    {
-     
-    }
-    public function restore($id)
-    {
-    
-    }
-    public function forceDelete($id)
-    {
-      
-    }
-
 }
