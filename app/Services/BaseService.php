@@ -28,6 +28,6 @@ class BaseService implements ServiceInterface {
         return $this->repository->update($id, $data);
     }
     public function delete($id){
-
+        return $this->repository->delete($id);
     }
 }
