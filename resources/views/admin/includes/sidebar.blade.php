@@ -25,7 +25,7 @@
                         Quản Lí Khách Hàng</a>
                 </li>
                 <li>
-                    <a href="#" class="fas">
+                    <a href="{{ route('categories.index') }}" class="fas">
                         Quản Lí Loại Sản Phẩm</a>
                 </li>
                 <li>

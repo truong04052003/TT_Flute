@@ -19,6 +19,8 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $items = $this->categoryService->all($request);
+        // dd($items);
+        return view('admin.categories.index',compact('items'));
     }
     /**
      * Show the form for creating a new resource.

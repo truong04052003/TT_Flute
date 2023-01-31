@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('admin.dashboard');
 });
 Route::group(['prefix' => 'categories'], function () {
-    Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
 });

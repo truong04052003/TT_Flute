@@ -39,7 +39,9 @@
 <!-- ======= Sidebar ======= -->
 @include('admin.includes.sidebar')
 <!-- End Sidebar-->
-@yield('content')
+<main id="main" class="main">
+    @yield('content')
+</main>
 <!-- ======= Footer ======= -->
 @include('admin.includes.footer')
 <!-- End Footer -->
