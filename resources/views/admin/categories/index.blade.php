@@ -7,7 +7,7 @@
                     <div class="container-fluid">
                         <table class="table">
                             <a href="{{ route('categories.create') }}" class="btn btn-primary">Add</a>
-                            <a href="" class="btn btn-primary">Add</a>
+                            
                             <thead>
                                 <tr>
                                     <th colspan="2">id</th>
