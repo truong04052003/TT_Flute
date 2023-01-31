@@ -7,6 +7,7 @@
                     <div class="container-fluid">
                         <table class="table">
                             <a href="{{ route('categories.create') }}" class="btn btn-primary">Add</a>
+                            
                             <thead>
                                 <tr>
                                     <th colspan="2">id</th>
@@ -20,8 +21,14 @@
                                         <th scope="row">{{ $key++ }}</th>
                                         <td colspan="2">{{ $item->name }}</td>
                                         <td colspan="2">
-                                            <a href="" class="btn btn-danger">Edit</a>
-                                            <a href="" class="btn btn-info">Delete</a>
+                                            <form action="{{ route('categories.delete', $item->id) }}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
+                                                    class="btn btn-danger">Delete</button>
+                                                <a href="{{ route('categories.edit',[$item->id]) }}" class="btn btn-primary">Edit</a>
+
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
