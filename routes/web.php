@@ -24,5 +24,7 @@ Route::group(['prefix' => 'categories'], function () {
     Route::put('/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.delete');
     //thùng rác
-    
+    Route::get('/trash', [CategoryController::class, 'trash'])->name('categories.trash');
+    Route::get('/restore/{id}', [CategoryController::class, 'restore'])->name('categories.restore');
+    Route::delete('/deleteforever/{id}', [CategoryController::class, 'deleteforever'])->name('categories.deleteforever');
 });
