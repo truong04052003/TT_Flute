@@ -6,13 +6,14 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <table class="table">
-                            <a href="{{ route('categories.create') }}" class="btn btn-primary">Add</a>
-                            <a href="{{ route('categories.trash') }}" class="btn btn-primary">Thùng Rác</a>
                             <thead>
+                                <h2 style="text-align: center">Danh Sách Khách Hàng</h2>
                                 <tr>
                                     <th colspan="2">id</th>
                                     <th colspan="2">Name</th>
-                                    <th colspan="2">Handle</th>
+                                    <th colspan="2">Address</th>
+                                    <th colspan="2">Email</th>
+                                    <th colspan="2">Phone</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -20,18 +21,11 @@
                                     <tr>
                                         <th scope="row">{{ ++$key }}</th>
                                         <td colspan="2">{{ $item->name }}</td>
-                                        <td colspan="2">
-                                            <form action="{{ route('categories.delete', $item->id) }}" method="post">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                    class="btn btn-danger">Delete</button>
-                                                <a href="{{ route('categories.edit',[$item->id]) }}" class="btn btn-primary">Edit</a>
-                                            </form>
-                                        </td>
+                                        <td colspan="2">{{ $item->address }}</td>
+                                        <td colspan="2">{{ $item->email }}</td>
+                                        <td colspan="2">{{ $item->phone }}</td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>

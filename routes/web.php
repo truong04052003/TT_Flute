@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,5 @@ Route::group(['prefix' => 'categories'], function () {
     Route::get('/restore/{id}', [CategoryController::class, 'restore'])->name('categories.restore');
     Route::delete('/deleteforever/{id}', [CategoryController::class, 'deleteforever'])->name('categories.deleteforever');
 });
+//khách hàng
+Route::get('/', [CustomerController::class, 'index'])->name('customers.index');

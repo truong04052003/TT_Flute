@@ -21,7 +21,7 @@
                         Quản Lí Đơn Hàng</a>
                 </li>
                 <li>
-                    <a href="#" class="fas">
+                    <a href="{{ route('customers.index') }}" class="fas">
                         Quản Lí Khách Hàng</a>
                 </li>
                 <li>
