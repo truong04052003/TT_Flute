@@ -29,8 +29,31 @@
                         Quản Lí Loại Sản Phẩm</a>
                 </li>
                 <li>
-                    <a href="#" class="fas">
+                    <a href="{{route('users.index')}}" class="fas">
                         Quản Lí Nhân Viên</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#charts-navs" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-person-lines-fill"></i><span>Quản Lí Nhân Viên </span><i
+                            class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                <li class="nav-item">
+                    <ul id="charts-navs" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="{{ route('users.index') }}">
+                                <i class="bi bi-circle"></i><span>Danh Sách Nhân Viên </span>
+                            </a>
+                        </li>
+                        {{-- @if (Auth::user()->hasPermission('User_create')) --}}
+                            <li>
+                                <a href="{{ route('users.create') }}">
+                                    <i class="bi bi-circle"></i><span>Đăng Kí Tài Khoản</span>
+                                </a>
+                            </li>
+                        {{-- @endif --}}
+                    </ul>
+                </li>
                 </li>
                 <li>
                     <a href="#" class="fas">
