@@ -33,5 +33,13 @@ class CategoryService implements CategoryServiceInterface {
     public function store($request){
         return $this->categoryRepository->store($request);
     }
-   
+    public function getTrash(){
+        return $this->categoryRepository->getTrash();
+    }
+    public function restore($id){
+        return $this->categoryRepository->restore($id);
+    }
+    public function deleteforever($id){
+        return $this->categoryRepository->deleteforever($id);
+    }
 }

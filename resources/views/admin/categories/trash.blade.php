@@ -6,8 +6,6 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <table class="table">
-                            <a href="{{ route('categories.create') }}" class="btn btn-primary">Add</a>
-                            <a href="{{ route('categories.trash') }}" class="btn btn-primary">Thùng Rác</a>
                             <thead>
                                 <tr>
                                     <th colspan="2">id</th>
@@ -21,18 +19,17 @@
                                         <th scope="row">{{ $key++ }}</th>
                                         <td colspan="2">{{ $item->name }}</td>
                                         <td colspan="2">
-                                            <form action="{{ route('categories.delete', $item->id) }}" method="post">
+                                            <form action="{{ route('categories.deleteforever', $item->id) }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                    class="btn btn-danger">Delete</button>
-                                                <a href="{{ route('categories.edit',[$item->id]) }}" class="btn btn-primary">Edit</a>
+                                                    class="btn btn-danger">Delete Forever</button>
+                                                <a href="{{ route('categories.restore',[$item->id]) }}" class="btn btn-primary">restore</a>
 
                                             </form>
                                         </td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>

@@ -51,4 +51,18 @@ class CategoryController extends Controller
         $items = $this->categoryService->delete($id);
         return redirect()->route('categories.index');
     }
+    public function trash()
+    {
+        $items = $this->categoryService->getTrash();
+        // dd($items);
+        return view('admin.categories.trash', compact('items'));
+    }
+    public function restore($id){
+        $items = $this->categoryService->restore($id);
+        return redirect()->route('categories.index');
+    }
+    public function deleteforever($id){
+        $items = $this->categoryService->deleteforever($id);
+        return redirect()->route('categories.index');
+    }
 }
