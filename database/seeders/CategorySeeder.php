@@ -4,10 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\DB;
->>>>>>> 11d9bbf8840514c064fd962db8586376723c37f6
 
 class CategorySeeder extends Seeder
 {
@@ -18,9 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        //
-=======
         DB::table('categories')->insert([
             [
                 'name' => 'Quần',
@@ -41,6 +35,5 @@ class CategorySeeder extends Seeder
                 'name' => 'Phụ kiện',
             ],
         ]);
->>>>>>> 11d9bbf8840514c064fd962db8586376723c37f6
     }
 }

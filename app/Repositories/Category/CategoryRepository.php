@@ -20,15 +20,15 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     }
     public function setModel()
     {
-        
+        $this->model = app()->make($this->getModel());
     }
 
     public function all($request)
     {
         $query = Category::select('*');
-        return $query->paginate(5);
+        return $query->get();
     }
-
+    
     public function find($id)
     {
         
@@ -36,7 +36,9 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 
     public function store($data)
     {
-       
+       $categories = $this->model;
+       $categories->name = $data['name'];
+       $categories->save();
     }
 
     public function update($request, $id)
