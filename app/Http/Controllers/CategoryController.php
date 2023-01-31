@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Services\Category\CategoryServiceInterface;
 use App\Http\Requests\category\StoreCategoryRequest;
+use App\Http\Requests\category\UpdateCategoryRequest;
 class CategoryController extends Controller
 {
     protected $categoryService;
@@ -12,81 +13,42 @@ class CategoryController extends Controller
     {
         $this->categoryService = $categoryService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index(Request $request)
     {
         $items = $this->categoryService->all($request);
         // dd($items);
         return view('admin.categories.index',compact('items'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('admin.categories.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreCategoryRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(StoreCategoryRequest $request)
     {
         $items = $this->categoryService->store($request);
         return redirect()->route('categories.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
+    public function edit($id)
     {
-        //
+        $items = $this->categoryService->find($id);
+        return view('admin.categories.edit', compact('items'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
+    
+    public function update(UpdateCategoryRequest $request,$id )
     {
-        //
+        $items = $this->categoryService->update($request,$id);
+        return redirect()->route('categories.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCategoryRequest  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
-    {
-        //
+        $items = $this->categoryService->delete($id);
+        return redirect()->route('categories.index');
     }
 }

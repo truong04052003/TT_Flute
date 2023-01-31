@@ -30,8 +30,8 @@ class StoreCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => ':attribute bắt buộc nhập',
-            'name.unique' => ':attribute đã tồn tại',
+            'name.required' => ':Tên thuộc tính  bắt buộc nhập',
+            'name.unique' => ':Tên thuộc tính  đã tồn tại',
         ];
     }
 }

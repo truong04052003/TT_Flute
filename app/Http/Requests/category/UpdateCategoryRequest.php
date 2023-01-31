@@ -11,20 +11,16 @@ class UpdateCategoryRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
     public function rules()
     {
         return [
-            //
+            'name' => 'required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => ':Tên thuộc tính bắt buộc nhập',
         ];
     }
 }

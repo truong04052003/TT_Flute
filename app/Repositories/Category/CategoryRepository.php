@@ -32,6 +32,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 
     public function find($id)
     {
+        return $this->model->find($id);
     }
 
     public function store($data)
@@ -49,9 +50,23 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 
     public function update($request, $id)
     {
+        $categories = $this->model->find($id);
+        $categories->name = $request->name;
+        try {
+            $categories->save();
+        } catch (\exception $e) {
+            Log::error('message:' . $e->getMessage());
+            return redirect()->route('categories.index');
+        }
     }
 
     public function delete($id)
     {
+        try {
+            return $this->model->where('id',$id)->delete();
+        } catch (\exception $e) {
+            Log::error('message:' . $e->getMessage());
+            return redirect()->route('categories.index');
+        }
     }
 }
