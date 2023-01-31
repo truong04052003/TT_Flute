@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,14 @@ class StoreCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:categories'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => ':attribute bắt buộc nhập',
+            'name.unique' => ':attribute đã tồn tại',
         ];
     }
 }

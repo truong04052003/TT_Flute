@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Services\Category\CategoryServiceInterface;
-use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\category\StoreCategoryRequest;
 class CategoryController extends Controller
 {
     protected $categoryService;
