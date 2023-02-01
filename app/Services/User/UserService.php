@@ -37,10 +37,7 @@ class UserService extends BaseService implements UserServiceInterface
     {
         return $this->repository->trash($request);
     }
-    public function deletes($id)
-    {
-        return $this->repository->deletes($id);
-    }
+   
     public function loginProcessing($data)
     {
         return $this->repository->loginProcessing($data);
@@ -49,16 +46,5 @@ class UserService extends BaseService implements UserServiceInterface
     {
         return $this->repository->logout();
     }
-    public function provinces()
-    {
-        return $this->repository->provinces();
-    }
-    public function districts()
-    {
-        return $this->repository->districts();
-    }
-    public function wards()
-    {
-        return $this->repository->wards();
-    }
+ 
 }

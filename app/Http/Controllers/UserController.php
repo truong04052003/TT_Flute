@@ -17,20 +17,26 @@ class UserController extends Controller
         $this->userService = $UserService;
     }
    
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.users.index');
+        $groups = Group::get();
+        $users = $this->userService->all($request);
+        // dd($users);
+        return view('admin.users.index',compact('users', 'groups'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.users.create');
+        $groups = $this->GroupService->all($request);
+        $users = $this->userService->all($request);
+        return view('admin.users.create',compact('users', 'groups'));
     }
 
   
     public function store(Request $request)
     {
-        //
+        $this->userService->create($request);
+        return redirect()->route('users.index');
     }
 
     public function show($id)
@@ -41,18 +47,22 @@ class UserController extends Controller
   
     public function edit($id)
     {
-        //
+        $users = $this->userService->find($id);
+        $groups = $this->GroupService->all($id);
+        return view('admin.users.edit', compact('groups', 'users'));
     }
 
     
     public function update(Request $request, $id)
     {
-        //
+        $this->userService->update($request, $id);
+        return redirect()->route('users.index');
     }
 
     
     public function destroy($id)
     {
-        //
+        $user = $this->userService->delete($id);
+        return redirect()->route('users.index');
     }
 }

@@ -87,9 +87,9 @@
                                                         name="Trường bắt buộc">*</abbr></label>
                                                 <select name="group_id" id="" class="form-control">
                                                     <option value="">--Vui lòng chọn--</option>
-                                                    {{-- @foreach ($groups as $group) --}}
-                                                        {{-- <option value="{{ $group->id }}">{{ $group->name }}</option> --}}
-                                                    {{-- @endforeach --}}
+                                                    @foreach ($groups as $group)
+                                                        <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                                    @endforeach
                                                 </select>
                                                 @error('group_id')
                                                     <div class="text text-danger">{{ $message }}</div>
@@ -192,7 +192,6 @@
                                                 <img type="hidden" width="120px" height="120px" id="blah"
                                                     src="" alt="" />
                                             </div>
-
                                         </div>
                                         <div class="form-actions">
                                             <br><br><br><br>
@@ -209,6 +208,21 @@
     </section>
 </div>
 </body>
+<script>
+    jQuery(document).ready(function() {
+        if ($('#blah').hide()) {
+            $('#blah').hide();
+        }
+        jQuery('#inputFile').change(function() {
+            $('#blah').show();
+            const file = jQuery(this)[0].files;
+            if (file[0]) {
+                jQuery('#blah').attr('src', URL.createObjectURL(file[0]));
+                jQuery('#blah1').attr('src', URL.createObjectURL(file[0]));
+            }
+        });
+    });
+</script>
 </html>
 {{-- @section('content') --}}
   

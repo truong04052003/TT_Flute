@@ -21,19 +21,22 @@ class GroupController extends Controller
     {
        
         $groups = $this->groupService->all($request);
+        dd($groups);
         return view('admin.groups.index', compact('groups'));
     }
 
   
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.groups.create');
+        $groups = $this->groupService->all($request);
+        return view('admin.groups.create' ,compact('groups'));
     }
 
     
     public function store(Request $request)
     {
-      
+        $this->groupService->create($request);
+        return redirect()->route('group.index');
     }
    
     public function show($id)
@@ -50,12 +53,15 @@ class GroupController extends Controller
 
     public function update(Request $request, $id)
     {
-      
+        $this->groupService->update($id, $request);
+        return redirect()->route('group.index');
     }
 
    
     public function destroy($id)
     {
+        $group = $this->groupService->delete($id);
+        return redirect()->route('group.index');
      
     }
     public function trash()
