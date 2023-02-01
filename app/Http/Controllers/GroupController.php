@@ -21,7 +21,6 @@ class GroupController extends Controller
     {
        
         $groups = $this->groupService->all($request);
-        dd($groups);
         return view('admin.groups.index', compact('groups'));
     }
 
