@@ -12,7 +12,6 @@ use App\Services\User\UserServiceInterface;
 use App\Repositories\User\UserRepositoryInterface;
 
 use Illuminate\Support\ServiceProvider;
-<<<<<<< HEAD
 /* CategoryService */
 use App\Services\Category\CategoryServiceInterface;
 use App\Services\Category\CategoryService;
@@ -31,13 +30,11 @@ use App\Services\Product\ProductService;
 /* ProductRepository */
 use App\Repositories\Product\ProductRepositoryInterface;
 use App\Repositories\Product\ProductRepository;
-=======
 
 use App\Services\User\UserService;
 use App\Repositories\User\UserRepository;
 
 
->>>>>>> f9541a9b6c4327e88c547ea7a06d3793514f2bf3
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -47,7 +44,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-<<<<<<< HEAD
         /* singleton Services*/
         $this->app->singleton(CategoryServiceInterface::class, CategoryService::class);
         $this->app->singleton(CustomerServiceInterface::class, CustomerService::class);     
@@ -56,14 +52,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->singleton(CustomerRepositoryInterface::class, CustomerRepository::class);
         $this->app->singleton(ProductRepositoryInterface::class, ProductRepository::class);
-=======
         // đăng ký group
         $this->app->bind(GroupServiceInterface::class, GroupService::class);
         $this->app->bind(GroupRepositoryInterface::class, GroupRepository::class);
         // đăng ký user
         $this->app->bind(UserServiceInterface::class, UserService::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
->>>>>>> f9541a9b6c4327e88c547ea7a06d3793514f2bf3
     }
 
     /**
