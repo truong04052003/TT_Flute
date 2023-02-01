@@ -42,8 +42,6 @@ class GroupController extends Controller
     {
         //
     }
-
-  
     public function edit($id)
     {
         $group = $this->groupService->find($id);

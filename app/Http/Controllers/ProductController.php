@@ -62,4 +62,17 @@ class ProductController extends Controller
         $items = $this->productService->delete($id);
         return redirect()->route('products.index');
     }
+    public function trash()
+    {
+        $items = $this->productService->getTrash();
+        return view('admin.product.trash', compact('items'));
+    }
+    public function restore($id){
+        $items = $this->productService->restore($id);
+        return redirect()->route('products.index');
+    }
+    public function deleteforever($id){
+        $items = $this->productService->deleteforever($id);
+        return redirect()->route('products.index');
+    }
 }
