@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,15 @@ Route::group(['prefix' => 'categories'], function () {
 });
 //khách hàng
 Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+Route::group(['prefix' => 'products'], function () {
+    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/store', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('/update/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/delete/{id}', [ProductController::class, 'destroy'])->name('products.delete');
+    //thùng rác
+    Route::get('/trash', [ProductController::class, 'trash'])->name('products.trash');
+    Route::get('/restore/{id}', [ProductController::class, 'restore'])->name('products.restore');
+    Route::delete('/deleteforever/{id}', [ProductController::class, 'deleteforever'])->name('products.deleteforever');
+});
