@@ -34,6 +34,11 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return $this->model->find($id);
     }
 
+    public function show($id){
+        $products = $this->model->find($id);
+        return $products;
+    }
+
     public function store($data)
     {
         $products = $this->model;

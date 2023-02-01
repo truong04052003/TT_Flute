@@ -36,9 +36,11 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $items = $this->productService->show($id);
+        // dd($items);
+        return view('admin.product.show',compact('items'));
     }
 
     public function edit($id)

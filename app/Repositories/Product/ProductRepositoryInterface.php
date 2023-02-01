@@ -7,4 +7,5 @@ interface ProductRepositoryInterface extends RepositoryInterface{
     function getTrash();
     function restore($id);
     function deleteforever($id);
+    function show($id);
 }

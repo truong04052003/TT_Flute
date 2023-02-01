@@ -16,7 +16,7 @@
                                     <th colspan="2">Quantity</th>
                                     <th colspan="2">Category</th>
                                     <th colspan="2">Manufacture</th>
-                                    <th >Description</th>
+                                    <th>Description</th>
                                     <th colspan="2">Image</th>
                                     <th colspan="2">Handle</th>
                                 </tr>
@@ -30,18 +30,23 @@
                                         <td colspan="2">{{ $item->quantity }}</td>
                                         <td colspan="2">{{ $item->category->name }}</td>
                                         <td colspan="2">{{ $item->manufacture }}</td>
-                                        <td colspan="2">{{ $item->description }}</td>   
+                                        <td colspan="2">{{ $item->description }}</td>
                                         <td>
-                                            <img src="{{ asset('public/uploads/' . $item->image) }}" alt="" style="width: 100px">
+                                            <img src="{{ asset('public/uploads/' . $item->image) }}" alt=""
+                                                style="width: 100px">
                                         </td>
+                                        
                                         <td colspan="2">
-                                            <form action="{{ route('products.delete',[$item->id]) }}" method="post">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
+                                            <a href="{{ route('products.edit', [$item->id]) }}"
+                                                class="btn btn-primary">Edit</a>
+                                            <a href="{{ route('products.detail', [$item->id]) }}"
+                                                class="btn btn-primary">Show</a>
+                                                <form action="{{ route('products.delete', [$item->id]) }}" method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
                                                     class="btn btn-danger">Delete</button>
-                                                <a href="{{ route('products.edit',[$item->id]) }}" class="btn btn-primary">Edit</a>
-                                            </form>
+                                                </form>
                                         </td>
                                     </tr>
                                 @endforeach
