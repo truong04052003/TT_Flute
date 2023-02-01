@@ -41,14 +41,20 @@ class ProductController extends Controller
         //
     }
 
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $items = $this->productService->find($id);
+        $categories = Category::all();
+        $product = $this->productService->find($id);
+        // dd($product);
+        return view('admin.product.edit', compact('items','categories','product'));
     }
 
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateProductRequest $request , $id)
     {
-        //
+        // dd(123);
+        $items = $this->productService->update($request , $id);
+        return redirect()->route('products.index');
     }
 
     public function destroy($id)

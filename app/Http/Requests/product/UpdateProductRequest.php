@@ -13,7 +13,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,27 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:products',
+            'category_id' => 'required',
+            'quantity' => 'required|min:1',
+            'price' => 'required',
+            'manufacture' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Tên sản phẩm bắt buộc phải nhập!',
+            'name.unique' => 'Tên sản phẩm đã tồn tại!',
+            'category_id.required' => 'Loại sản phẩm bắt buộc phải nhập!',
+            'quantity.required' => 'Số lượng Sản Phẩm bắt buộc nhập',
+            'quantity.min' => 'Số lượng Sản Phẩm lớn hơn hoặc bằng 1',
+            'manufacture.required' => 'sản xuất bắt buộc nhập',
+            'price.required' => 'Giá Sản Phẩm bắt buộc nhập',
+            'description.required' => 'Mô Tả Sản Phẩm bắt buộc nhập',
+            'image.required' => 'Ảnh sản phẩm bắt buộc nhập',
         ];
     }
 }
