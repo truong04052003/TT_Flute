@@ -33,7 +33,7 @@ Route::group(['prefix' => 'categories'], function () {
     Route::delete('/deleteforever/{id}', [CategoryController::class, 'deleteforever'])->name('categories.deleteforever');
 });
 //khách hàng
-Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+Route::get('/customer', [CustomerController::class, 'index'])->name('customers.index');
 Route::group(['prefix' => 'products'], function () {
     Route::get('/', [ProductController::class, 'index'])->name('products.index');
     Route::get('/create', [ProductController::class, 'create'])->name('products.create');
