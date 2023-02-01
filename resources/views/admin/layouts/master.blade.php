@@ -27,6 +27,7 @@
     <link href="{{ asset('admin/vendor/slick/slick.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
+    <script src="{{asset('admin/vendor/bootstrap-4.1/bootstrap.bundle.min.js')}}"></script>
 
     <link href="{{ asset('admin/css/theme.css') }}" rel="stylesheet" media="all">
     <meta name="robots" content="index, nofollow">
