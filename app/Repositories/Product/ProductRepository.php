@@ -70,16 +70,37 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     }
     public function update($request, $id)
     {
-        $categories = $this->model->find($id);
-        $categories->name = $request->name;
+        $products = $this->model->find($id);
+        $products->name = $request->name;
+        $products->price = $request->price;
+        $products->quantity = $request->quantity;
+        $products->category_id = $request->category_id;
+        $products->manufacture = $request->manufacture;
+        $products->description = $request->description;
+        if($request->hasFile('image')){
+            //lấy file
+            $get_image = $request->file('image');
+            //lấy tên file
+            $get_name_image = $get_image->getClientOriginalName();
+            $path = 'public/uploads/';
+            //xóa đuôi
+            $name_image = current(explode('.', $get_name_image));
+            //thay đuôi thành jpg
+            $new_image = $name_image . '.' . $get_image->getClientOriginalExtension();
+            //đưa ảnh vào thư mụa public/uploads
+            $get_image->move($path, $new_image);
+            //gán ảnh
+            $products->image = $new_image;
+            //lưu ảnh
+        }
         try {
-            $categories->save();
+            $products->save();
+            return redirect()->route('products.index');
         } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
+            Log::error($e->getMessage());
+            return redirect()->route('products.index');
         }
     }
-
     public function delete($id)
     {
         // dd($id);

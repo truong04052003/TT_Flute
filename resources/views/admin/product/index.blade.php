@@ -14,6 +14,7 @@
                                     <th colspan="2">Name</th>
                                     <th colspan="2">Price</th>
                                     <th colspan="2">Quantity</th>
+                                    <th colspan="2">Category</th>
                                     <th colspan="2">Manufacture</th>
                                     <th >Description</th>
                                     <th colspan="2">Image</th>
@@ -27,6 +28,7 @@
                                         <td colspan="2">{{ $item->name }}</td>
                                         <td colspan="2">{{ $item->price }}</td>
                                         <td colspan="2">{{ $item->quantity }}</td>
+                                        <td colspan="2">{{ $item->category->name }}</td>
                                         <td colspan="2">{{ $item->manufacture }}</td>
                                         <td colspan="2">{{ $item->description }}</td>   
                                         <td>
@@ -38,7 +40,7 @@
                                                 @csrf
                                                 <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
                                                     class="btn btn-danger">Delete</button>
-                                                <a href="" class="btn btn-primary">Edit</a>
+                                                <a href="{{ route('products.edit',[$item->id]) }}" class="btn btn-primary">Edit</a>
                                             </form>
                                         </td>
                                     </tr>
