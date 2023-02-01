@@ -7,7 +7,7 @@
                     <div class="container-fluid">
                         <table class="table">
                             <a href="{{ route('products.create') }}" class="btn btn-primary">Add</a>
-                            <a href="{{ route('group.trash') }}" class="btn btn-primary">Thùng Rác</a>
+                            <a href="{{ route('products.trash') }}" class="btn btn-primary">Thùng Rác</a>
                             <thead>
                                 <tr>
                                     <th colspan="2">id</th>

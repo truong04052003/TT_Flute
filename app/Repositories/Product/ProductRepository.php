@@ -120,4 +120,24 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             return redirect()->route('products.index');
         }
     }
+    public function restore($id)
+    {
+        try {
+            $result = $this->model->withTrashed()->find($id)->restore();
+            return $result;
+        } catch (\exception $e) {
+            Log::error('message:' . $e->getMessage());
+            return redirect()->route('products.index');
+        }
+    }
+    public function deleteforever($id)
+    {
+        try {
+            $result = $this->model->withTrashed()->find($id)->forceDelete();
+            return $result;
+        } catch (\exception $e) {
+            Log::error('message:' . $e->getMessage());
+            return redirect()->route('products.index');
+        }
+    }
 }

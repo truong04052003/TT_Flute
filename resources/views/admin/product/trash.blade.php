@@ -33,12 +33,12 @@
                                         <img src="{{ asset('public/uploads/' . $item->image) }}" alt="" style="width: 100px">
                                     </td>
                                     <td colspan="2">
-                                        <form action="" method="post">
+                                        <form action="{{ route('products.deleteforever',[$item->id]) }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                class="btn btn-danger">Delete</button>
-                                            <a href="" class="btn btn-primary">Edit</a>
+                                                class="btn btn-danger">Delete Forever</button>
+                                            <a href="{{ route('products.restore',[$item->id]) }}" class="btn btn-primary">Restore</a>
                                         </form>
                                     </td>
                                 </tr>
