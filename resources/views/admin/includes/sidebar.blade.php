@@ -22,7 +22,7 @@
                         Quản Lí Quyền</a>
                 </li>
                 <li>
-                    <a href="" class="fas">
+                    <a href="{{ route('orders.index') }}" class="fas">
                         Quản Lí Đơn Hàng</a>
                 </li>
                 <li>

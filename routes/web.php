@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,4 +70,7 @@ Route::prefix('users')->group(function () {
     Route::delete('/forcedelete/{id}', [GroupController::class, 'forcedelete'])->name('group.forcedelete');
     Route::get('/detail/{id}', [GroupController::class, 'detail'])->name('group.detail');
     Route::put('/group_detail/{id}', [GroupController::class, 'group_detail'])->name('group.group_detail');
+});
+Route::group(['prefix' => 'orders'], function () {
+    Route::get('/', [OrderController::class, 'index'])->name('orders.index');
 });
