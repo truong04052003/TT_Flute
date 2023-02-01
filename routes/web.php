@@ -62,6 +62,7 @@ Route::prefix('users')->group(function () {
     Route::get('/edit/{id}', [GroupController::class, 'edit'])->name('group.edit');
     Route::put('/update/{id}', [GroupController::class, 'update'])->name('group.update');
     Route::delete('/destroy/{id}', [GroupController::class, 'destroy'])->name('group.destroy');
+    //thùng rác
     Route::get('/trash', [GroupController::class, 'trash'])->name('group.trash');
     Route::put('/restore/{id}', [GroupController::class, 'restore'])->name('group.restore');
     Route::delete('/forcedelete/{id}', [GroupController::class, 'forcedelete'])->name('group.forcedelete');

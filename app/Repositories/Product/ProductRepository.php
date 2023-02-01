@@ -111,4 +111,13 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             return redirect()->route('products.index');
         }
     }
+    public function getTrash(){
+        try {
+            $result = $this->model->onlyTrashed()->get();
+            return $result;
+        } catch (\exception $e) {
+            Log::error('message:' . $e->getMessage());
+            return redirect()->route('products.index');
+        }
+    }
 }
