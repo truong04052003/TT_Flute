@@ -16,4 +16,10 @@ class OrderService extends BaseService implements OrderServiceInterface
     {
         return $this->groupRepository->all($request);
     }
+    public function show($id){
+        return $this->groupRepository->show($id);
+    }
+    public function find($id){
+        return $this->groupRepository->find($id);
+    }
 }
