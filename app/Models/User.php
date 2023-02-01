@@ -50,7 +50,7 @@ class User extends Authenticatable
     ];
     public function groups()
     {
-        return $this->belongsTo(Group::class, 'group_id', 'id');
+        return $this->belongsTo(Group::class, 'group_id', 'id')->withTrashed();
     }
     public function scopeNameuser($query, $request)
     {

@@ -8,6 +8,7 @@ use App\Http\Requests\product\StoreProductRequest;
 use App\Http\Requests\product\UpdateProductRequest;
 use App\Services\Product\ProductServiceInterface;
 use Illuminate\Http\Request;
+
 class ProductController extends Controller
 {
     protected $productService;
@@ -15,18 +16,18 @@ class ProductController extends Controller
     {
         $this->productService = $productService;
     }
-    
+
     public function index(Request $request)
     {
         $items = $this->productService->all($request);
         // dd($items);
-        return view('admin.product.index',compact('items'));
+        return view('admin.product.index', compact('items'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('admin.product.create',compact('categories'));
+        return view('admin.product.create', compact('categories'));
     }
 
     public function store(StoreProductRequest $request)
@@ -40,7 +41,7 @@ class ProductController extends Controller
     {
         $items = $this->productService->show($id);
         // dd($items);
-        return view('admin.product.show',compact('items'));
+        return view('admin.product.show', compact('items'));
     }
 
     public function edit($id)
@@ -49,13 +50,13 @@ class ProductController extends Controller
         $categories = Category::all();
         $product = $this->productService->find($id);
         // dd($product);
-        return view('admin.product.edit', compact('items','categories','product'));
+        return view('admin.product.edit', compact('items', 'categories', 'product'));
     }
 
-    public function update(UpdateProductRequest $request , $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         // dd(123);
-        $items = $this->productService->update($request , $id);
+        $items = $this->productService->update($request, $id);
         return redirect()->route('products.index');
     }
 
@@ -69,11 +70,13 @@ class ProductController extends Controller
         $items = $this->productService->getTrash();
         return view('admin.product.trash', compact('items'));
     }
-    public function restore($id){
+    public function restore($id)
+    {
         $items = $this->productService->restore($id);
         return redirect()->route('products.index');
     }
-    public function deleteforever($id){
+    public function deleteforever($id)
+    {
         $items = $this->productService->deleteforever($id);
         return redirect()->route('products.index');
     }

@@ -7,4 +7,6 @@ interface CategoryRepositoryInterface extends RepositoryInterface{
     function getTrash();
     function restore($id);
     function deleteforever($id);
+    public function store($data);
+
 }

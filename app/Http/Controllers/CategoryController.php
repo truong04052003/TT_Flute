@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Services\Category\CategoryServiceInterface;
 use App\Http\Requests\category\StoreCategoryRequest;
 use App\Http\Requests\category\UpdateCategoryRequest;
+
 class CategoryController extends Controller
 {
     protected $categoryService;
@@ -13,20 +15,20 @@ class CategoryController extends Controller
     {
         $this->categoryService = $categoryService;
     }
-    
+
     public function index(Request $request)
     {
         $items = $this->categoryService->all($request);
         // dd($items);
-        return view('admin.categories.index',compact('items'));
+        return view('admin.categories.index', compact('items'));
     }
-    
+
     public function create()
     {
         return view('admin.categories.create');
     }
 
-    
+
     public function store(StoreCategoryRequest $request)
     {
         $items = $this->categoryService->store($request);
@@ -39,10 +41,10 @@ class CategoryController extends Controller
         return view('admin.categories.edit', compact('items'));
     }
 
-    
-    public function update(UpdateCategoryRequest $request,$id )
+
+    public function update(UpdateCategoryRequest $request, $id)
     {
-        $items = $this->categoryService->update($request,$id);
+        $items = $this->categoryService->update($request, $id);
         return redirect()->route('categories.index');
     }
 
@@ -57,11 +59,13 @@ class CategoryController extends Controller
         // dd($items);
         return view('admin.categories.trash', compact('items'));
     }
-    public function restore($id){
+    public function restore($id)
+    {
         $items = $this->categoryService->restore($id);
         return redirect()->route('categories.index');
     }
-    public function deleteforever($id){
+    public function deleteforever($id)
+    {
         $items = $this->categoryService->deleteforever($id);
         return redirect()->route('categories.index');
     }

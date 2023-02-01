@@ -23,70 +23,65 @@
 
 <body>
     @include('admin.Users.advancedSearch')
-    <main>
-            <div class="page-container">
-                <div class="main-content">
-                    <div class="section__content section__content--p30">
-                        <div class="container">
-                            <section class="section">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <br>
-                                                <h2 class="offset-4">
-                                                    Nhân viên
-                                                </h2>
-                                                <a class="btn btn-primary" href="{{ route('users.create') }}"> Đăng kí
-                                                    tài khoản </a>
-                                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                                    data-bs-target="#searchModal">Tìm chi tiết</button>
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">STT</th>
-                                                            <th scope="col">Hình đại diện</th>
-                                                            <th scope="col">Tên</th>
-                                                            <th scope="col">Chức vụ</th>
-                                                            <th scope="col">Liên hệ</th>
-                                                            <th scope="col">Tùy Chọn</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($users as $key => $user)
-                                                            <tr>
-                                                                <th scope="row">{{ ++$key }}</th>
-                                                                <td>
-                                                                    <a href=""><img id="avt"
-                                                                            src="{{ asset($user->image) }}"></a>
-                                                                </td>
-                                                                <td>{{ $user->name }}</td>
-                                                                <td>{{ $user->groups->name }}</td>
-                                                                <td>{{ $user->phone }}</td>
-                                                                <td>
-                                                                    <a href="{{ route('users.edit', $user->id) }}"
-                                                                        class='btn btn-warning'>Sửa</a>
+    <div class="page-container">
+        <div class="main-content">
+            <div class="container">
+                <section class="section">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <br>
+                                    <h2 class="offset-4">
+                                        Nhân viên
+                                    </h2>
+                                    <a class="btn btn-primary" href="{{ route('users.create') }}"> Đăng kí
+                                        tài khoản </a>
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#searchModal">Tìm chi tiết</button>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Hình đại diện</th>
+                                                <th scope="col">Tên</th>
+                                                <th scope="col">Chức vụ</th>
+                                                <th scope="col">Liên hệ</th>
+                                                <th scope="col">Tùy Chọn</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($users as $key => $user)
+                                                <tr>
+                                                    <th scope="row">{{ ++$key }}</th>
+                                                    <td>
+                                                        <a href=""><img id="avt"
+                                                                src="{{ asset($user->image) }}"></a>
+                                                    </td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->groups->name }}</td>
+                                                    <td>{{ $user->phone }}</td>
+                                                    <td>
+                                                        <a href="{{ route('users.edit', $user->id) }}"
+                                                            class='btn btn-warning'>Sửa</a>
 
-                                                                    <a data-href="{{ route('users.destroy', $user->id) }}"
-                                                                        id="{{ $user->id }}"
-                                                                        class="btn btn-danger sm deleteIcon">Xóa</a>
+                                                        <a data-href="{{ route('users.destroy', $user->id) }}"
+                                                            id="{{ $user->id }}"
+                                                            class="btn btn-danger sm deleteIcon">Xóa</a>
 
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </section>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
-
-    </main>
+        </div>
+    </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

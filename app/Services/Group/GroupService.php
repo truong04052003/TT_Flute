@@ -37,9 +37,9 @@ class GroupService extends BaseService implements GroupServiceInterface
     {
         return $this->repository->restore($id);
     }
-    public function deletes($id)
+    public function trash($request)
     {
-        return $this->repository->deletes($id);
+        return $this->repository->trash($request);
     }
     public function forceDelete($id)
     {

@@ -14,16 +14,16 @@
 </head>
 
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <div class="card">
-        <br>
-        <h2 class="offset-4">
-            Chỉnh sửa thông tin người dùng
-        </h2>
-        <br>
-        <div class="page-container">
-            <div class="main-content">
-                <div class="container">
+    <div class="page-container">
+        <div class="main-content">
+            <div class="container">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <div class="card">
+                    <br>
+                    <h2 class="offset-4">
+                        Chỉnh sửa thông tin người dùng
+                    </h2>
+                    <br>
                     <div class="card-body">
                         <form action="{{ route('users.update', $users->id) }}" method="POST"
                             enctype="multipart/form-data">
