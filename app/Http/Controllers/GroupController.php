@@ -73,10 +73,16 @@ class GroupController extends Controller
     }
     public function detail($id)
     {
-
+        $group =  $this->groupService->detail($id);
+        return view('admin.groups.detail', $group);
     }
     public function group_detail(Request $request, $id)
     {
-     
+        $notification = [
+            'message' => 'Cấp Quyền Thành Công!',
+            'alert-type' => 'success'
+        ];
+        $this->groupService->group_detail($id, $request);
+        return redirect()->route('group.index')->with($notification);
     }
 }
