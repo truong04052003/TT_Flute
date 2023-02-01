@@ -20,8 +20,36 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     }
     public function all($request)
     {
+        $key                    = $request->key ?? '';
+        $name                   = $request->name ?? '';
+        $id                     = $request->id ?? '';
+        $email                  = $request->email  ?? '';
+        // thực hiện query
         $query = User::select('*');
-        return $query->get();
+        if ($name) {
+            $query->where('name', 'LIKE', '%' . $name . '%');
+        }
+        if ($email) {
+            $query->where('email', 'LIKE', '%' . $email . '%');
+        }
+        if ($id) {
+            $query->where('id', $id);
+        }
+        if ($key) {
+            $query->orWhere('id', $key);
+            $query->orWhere('name', 'LIKE', '%' . $key . '%');
+            $query->orWhere('email', 'LIKE', '%' . $key . '%');
+        }
+        if (!empty($request->search)) {
+            $search = $request->search;
+            $query = $query->Search($search);
+        }
+        $query->Phoneuser(request(['phoneuser']));
+        $query->Nameuser(request(['nameuser']));
+        $query->Groupuser(request(['groupuser']));
+        $query->Iduser(request(['iduser']));
+        return $query->orderBy('id', 'DESC')->get();
+     
     }
     public function update($request, $id)
     {

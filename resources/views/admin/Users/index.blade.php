@@ -22,6 +22,7 @@
 </style>
 
 <body>
+    @include('admin.Users.advancedSearch')
     <main>
             <div class="page-container">
                 <div class="main-content">
@@ -40,7 +41,6 @@
                                                     tài khoản </a>
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#searchModal">Tìm chi tiết</button>
-                                                {{-- @include('admin.Users.advanceSearch') --}}
                                                 <table class="table">
                                                     <thead>
                                                         <tr>

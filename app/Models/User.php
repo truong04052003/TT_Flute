@@ -52,4 +52,32 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Group::class, 'group_id', 'id');
     }
+    public function scopeNameuser($query, $request)
+    {
+        if (isset($request['nameuser'])) {
+            return  $query->where('name', 'LIKE', '%' . $request['nameuser'] . '%');
+        }
+        return $query;
+    }
+    public function scopePhoneuser($query, $request)
+    {
+        if (isset($request['phoneuser'])) {
+            return $query->where('phone', 'LIKE', '%' . $request['phoneuser'] . '%');
+        }
+        return $query;
+    }
+    public function scopeGroupuser($query, $request)
+    {
+        if (isset($request['groupuser'])) {
+            return $query->where('group_id', 'LIKE', '%' . $request['groupuser'] . '%');
+        }
+        return $query;
+    }
+    public function scopeIduser($query, $request)
+    {
+        if (isset($request['iduser'])) {
+            return $query->where('id', 'LIKE', '%' . $request['iduser'] . '%');
+        }
+        return $query;
+    }
 }
