@@ -9,11 +9,11 @@
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li>
-                    <a href="#" class="fas">
+                    <a href="" class="fas">
                         Trang Chủ</a>
                 </li>
                 <li>
-                    <a href="#" class="fas">
+                    <a href="{{ route('products.index') }}" class="fas">
                         Quản Lí Sản Phẩm</a>
                 </li>
                 <li>
@@ -36,8 +36,6 @@
                     <a href="#" class="fas">
                         Quản Lí Quyền</a>
                 </li>
-
-
             </ul>
         </nav>
     </div>

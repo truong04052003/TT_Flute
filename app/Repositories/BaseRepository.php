@@ -34,4 +34,5 @@ abstract class BaseRepository implements RepositoryInterface{
         $object = $this->model->find($id);
         return $object->delete();
     }
+    
 }
