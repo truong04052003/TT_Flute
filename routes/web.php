@@ -20,7 +20,6 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('admin.dashboard');
 });
-<<<<<<< HEAD
 Route::group(['prefix' => 'categories'], function () {
     Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
@@ -46,8 +45,7 @@ Route::group(['prefix' => 'products'], function () {
     Route::get('/trash', [ProductController::class, 'trash'])->name('products.trash');
     Route::get('/restore/{id}', [ProductController::class, 'restore'])->name('products.restore');
     Route::delete('/deleteforever/{id}', [ProductController::class, 'deleteforever'])->name('products.deleteforever');
-=======
-
+});
 Route::prefix('users')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('users.index');
     Route::get('/create', [UserController::class, 'create'])->name('users.create');
@@ -69,5 +67,4 @@ Route::prefix('users')->group(function () {
     Route::delete('/forcedelete/{id}', [GroupController::class, 'forcedelete'])->name('group.forcedelete');
     Route::get('/detail/{id}', [GroupController::class, 'detail'])->name('group.detail');
     Route::put('/group_detail/{id}', [GroupController::class, 'group_detail'])->name('group.group_detail');
->>>>>>> f9541a9b6c4327e88c547ea7a06d3793514f2bf3
 });
