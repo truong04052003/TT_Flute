@@ -38,4 +38,7 @@ class ProductService implements ProductServiceInterface {
     public function deleteforever($id){
         return $this->productRepository->deleteforever($id);
     }
+    public function show($id){
+        return $this->productRepository->show($id);
+    }
 }
