@@ -51,8 +51,9 @@ class ProductController extends Controller
         //
     }
 
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $items = $this->productService->delete($id);
+        return redirect()->route('products.index');
     }
 }

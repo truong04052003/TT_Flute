@@ -33,7 +33,7 @@
                                             <img src="{{ asset('public/uploads/' . $item->image) }}" alt="" style="width: 100px">
                                         </td>
                                         <td colspan="2">
-                                            <form action="" method="post">
+                                            <form action="{{ route('products.delete',[$item->id]) }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
