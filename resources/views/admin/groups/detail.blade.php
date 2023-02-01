@@ -37,7 +37,8 @@
                                                     @foreach ($group_names as $group_namea => $roles)
                                                         <div class="col-lg-6">
                                                             <div class="list-group-header" style="color:rgb(2, 6, 249) ;">
-                                                                <br> <h5> Nhóm: {{ __($group_namea) }}</h5>
+                                                                <br>
+                                                                <h5> Nhóm: {{ __($group_namea) }}</h5>
                                                             </div>
                                                             @foreach ($roles as $role)
                                                                 @if ($role['name'] == 'User_adminupdatepass' && $group->name == 'Supper Admin')

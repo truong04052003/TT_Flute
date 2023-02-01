@@ -7,6 +7,7 @@
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
+
             <ul class="list-unstyled navbar__list">
                 <li>
                     <a href="" class="fas">
@@ -16,9 +17,9 @@
                     <a href="{{ route('products.index') }}" class="fas">
                         Quản Lí Sản Phẩm</a>
                 </li>
-                 
+
                 <li>
-                    <a href="{{route('group.index')}}" class="fas">
+                    <a href="{{ route('group.index') }}" class="fas">
                         Quản Lí Quyền</a>
                 </li>
                 <li>
@@ -34,10 +35,10 @@
                         Quản Lí Loại Sản Phẩm</a>
                 </li>
                 <li>
-                    <a href="{{route('users.index')}}" class="fas">
+                    <a href="{{ route('users.index') }}" class="fas">
                         Quản Lí Nhân Viên</a>
                 </li>
-              
+
             </ul>
         </nav>
     </div>

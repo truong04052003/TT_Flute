@@ -26,6 +26,7 @@
                                         Nhóm Quyền
                                     </h2>
                                     <a class="btn btn-primary" href="{{ route('group.create') }}"> Thêm Nhóm Quyền </a>
+                                    <a class="btn btn-primary" href="{{ route('group.trash') }}"> Thùng rác </a>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -48,7 +49,8 @@
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <a href="{{ route('group.detail', $group->id) }}" class='btn btn-info'>
+                                                            <a href="{{ route('group.detail', $group->id) }}"
+                                                                class='btn btn-info'>
                                                                 Trao quyền </a>
 
                                                             <a href="{{ route('group.edit', $group->id) }}"
@@ -59,12 +61,12 @@
                                                                 {{-- <button type="button" class="btn btn-warning" disabled>Sửa</button> --}}
                                                             </i>
 
-                                                            <button
-                                                                onclick="return confirm('Bạn có chắc muốn đưa danh mục này vào thùng rác không?');"
-                                                                class='btn btn-danger' type="submit">Xóa</button>
+                                                            <a data-href="{{ route('group.destroy', $group->id) }}"
+                                                                id="{{ $group->id }}"
+                                                                class="btn btn-danger sm deleteIcon">Xóa</a>
                                                             <i data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 title="Bạn không có quyền làm điều này!">
-                                                                {{-- <button type="button" class="btn btn-danger" disabled>Xóa</button> --}}
+
                                                             </i>
 
                                                         </form>
@@ -84,10 +86,51 @@
             </div>
         </div>
     </div>
-
     {{-- @endsection --}}
 
 
 </body>
 
 </html>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+{{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js'></script> --}}
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).on('click', '.deleteIcon', function(e) {
+        // e.preventDefault();
+        let id = $(this).attr('id');
+        let href = $(this).data('href');
+        let csrf = '{{ csrf_token() }}';
+        console.log(id);
+        Swal.fire({
+            title: 'Bạn có chắc không?',
+            text: "Bạn sẽ không thể hoàn nguyên điều này!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Có, xóa!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: href,
+                    method: 'delete',
+                    data: {
+                        _token: csrf
+                    },
+                    success: function(res) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Tệp của bạn đã bị xóa!',
+                            'success'
+                        )
+                        $('.item-' + id).remove();
+                    }
+                })
+                window.location.reload();
+            }
+        })
+    });
+</script>

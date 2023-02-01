@@ -38,22 +38,25 @@ class GroupRepository extends BaseRepository implements GroupRepositoryInterface
     }
     public function restore($id)
     {
-        
+        $group = $this->model->withTrashed()->findOrFail($id);
+        $group->restore();
+        return $group;
     }
     public function trash($request)
     {
     }
-    public function deletes($id)
-    {
-        
-    }
     public function getTrash()
     {
-       
+        $query = $this->model->onlyTrashed();
+        $query->orderBy('id', 'desc');
+        $groups = $query->paginate(5);
+        return $groups;
     }
     public function forceDelete($id)
     {
-      
+        $group = $this->model->onlyTrashed()->findOrFail($id);
+        $group->forceDelete();
+        return $group;
     }
     public function detail($id)
     {
@@ -81,6 +84,6 @@ class GroupRepository extends BaseRepository implements GroupRepositoryInterface
         $group = Group::find($id);
         $group->roles()->detach();
         $group->roles()->attach($request->roles);
-        return true;
+        // return true;
     }
 }

@@ -5,9 +5,9 @@ use App\Repositories\RepositoryInterface;
 
 class BaseService implements ServiceInterface {
     public $repository;
-    public function __construct(RepositoryInterface $repository){
-        $this->repository = $repository;
-    }
+    // public function __construct(RepositoryInterface $repository){
+    //     $this->repository = $repository;
+    // }
     public function all($request){
         return $this->repository->all($request);
     }
@@ -19,15 +19,16 @@ class BaseService implements ServiceInterface {
     public function create($data){
         return $this->repository->create($data);
     }
-    
-    public function store($request){
-        return $this->postRepository->store($request);
-    }
-
     public function update($id, $data){
         return $this->repository->update($id, $data);
     }
+    public function store($data){
+        return $this->repository->store($data);
+    }
     public function delete($id){
         return $this->repository->delete($id);
+    }
+    public function getTrash(){
+        return $this->repository->getTrash();
     }
 }
