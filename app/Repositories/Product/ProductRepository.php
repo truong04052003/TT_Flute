@@ -82,11 +82,12 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function delete($id)
     {
+        // dd($id);
         try {
             return $this->model->where('id', $id)->delete();
         } catch (\exception $e) {
             Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
+            return redirect()->route('products.index');
         }
     }
 }
