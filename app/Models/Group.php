@@ -14,9 +14,9 @@ class Group extends Model
     {
         return $this->hasMany(User::class);
     }
-    // public function roles()
-    // {
-    //     return $this->belongsToMany(Role::class, 'group_role', 'group_id', 'role_id');
-    // }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'group_role', 'group_id', 'role_id');
+    }
    
 }

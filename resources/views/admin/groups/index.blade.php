@@ -48,7 +48,7 @@
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <a href="" class='btn btn-info'>
+                                                            <a href="{{ route('group.detail', $group->id) }}" class='btn btn-info'>
                                                                 Trao quyền </a>
 
                                                             <a href="{{ route('group.edit', $group->id) }}"
