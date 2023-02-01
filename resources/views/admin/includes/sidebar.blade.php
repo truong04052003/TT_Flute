@@ -16,8 +16,13 @@
                     <a href="{{ route('products.index') }}" class="fas">
                         Quản Lí Sản Phẩm</a>
                 </li>
+                 
                 <li>
-                    <a href="#" class="fas">
+                    <a href="{{route('group.index')}}" class="fas">
+                        Quản Lí Quyền</a>
+                </li>
+                <li>
+                    <a href="" class="fas">
                         Quản Lí Đơn Hàng</a>
                 </li>
                 <li>
@@ -29,13 +34,19 @@
                         Quản Lí Loại Sản Phẩm</a>
                 </li>
                 <li>
-                    <a href="#" class="fas">
+                    <a href="{{route('users.index')}}" class="fas">
                         Quản Lí Nhân Viên</a>
                 </li>
+<<<<<<< HEAD
                 <li>
                     <a href="#" class="fas">
                         Quản Lí Quyền</a>
                 </li>
+=======
+            
+
+
+>>>>>>> f9541a9b6c4327e88c547ea7a06d3793514f2bf3
             </ul>
         </nav>
     </div>
