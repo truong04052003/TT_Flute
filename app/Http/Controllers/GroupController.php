@@ -63,11 +63,7 @@ class GroupController extends Controller
         return redirect()->route('group.index');
      
     }
-    public function trash()
-    {
-        $groups = $this->groupService->getTrash();
-        return view('admin.groups.trash', compact('groups'));
-    }
+  
     public function forcedelete($id)
     {
        

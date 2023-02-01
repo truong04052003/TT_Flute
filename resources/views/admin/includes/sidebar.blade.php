@@ -37,10 +37,7 @@
                     <a href="{{route('users.index')}}" class="fas">
                         Quản Lí Nhân Viên</a>
                 </li>
-                <li>
-                    <a href="#" class="fas">
-                        Quản Lí Quyền</a>
-                </li>
+              
             </ul>
         </nav>
     </div>
