@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashboarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,4 +85,9 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::get('/', [OrderController::class, 'index'])->name('orders.index');
         Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
     });
+});
+
+Route::group(['prefix' => 'orders'], function () {
+    Route::get('/', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
 });
