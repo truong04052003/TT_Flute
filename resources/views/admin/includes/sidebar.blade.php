@@ -1,6 +1,6 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-        <a href="#">
+        <a href="{{ route('dashboard.admin') }}">
             <img src="{{ asset('admin/images/icon/logo.png') }}" alt="" />
             {{-- Shop TT-Flute --}}
         </a>
@@ -10,7 +10,7 @@
 
             <ul class="list-unstyled navbar__list">
                 <li>
-                    <a href="" class="fas">
+                    <a href="{{ route('dashboard.admin') }}" class="fas">
                         Trang Chủ</a>
                 </li>
                 <li>
