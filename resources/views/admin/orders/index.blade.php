@@ -7,6 +7,7 @@
                 <div class="container-fluid">
                     <table class="table">
                         <thead>
+                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>
                             <tr>
                                 <th colspan="2">id</th>
                                 <th colspan="2">Name</th>
@@ -25,7 +26,7 @@
                                     <td colspan="2">{{ $item->note }}</td>
                                     <td colspan="2">{{ $item->status }}</td>
                                     <td colspan="2">
-                                        <a href="" class="btn btn-info">Show</a>
+                                        <a href="{{ route('orders.detail',[$item->id]) }}" class="btn btn-info">Show</a>
                                     </td>
                                 </tr>
                             @endforeach

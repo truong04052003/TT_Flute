@@ -73,4 +73,5 @@ Route::prefix('users')->group(function () {
 });
 Route::group(['prefix' => 'orders'], function () {
     Route::get('/', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
 });

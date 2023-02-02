@@ -16,5 +16,12 @@ class OrderController extends Controller
         // dd($items);
         return view('admin.orders.index',compact('items'));
     }
+    public function show($id){
+        $order = $this->orderService->find($id);
+        // dd($order);
+        $order_details = $order->order_details;
+        // dd($order_details);
+        return view('admin.orders.show',compact('order','order_details'));
+    }
    
 }
