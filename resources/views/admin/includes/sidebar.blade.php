@@ -10,7 +10,10 @@
 
             <ul class="list-unstyled navbar__list">
                 <li>
+
+
                     <a href="{{ route('dashboard.admin') }}" class="fas">
+
                         Trang Chủ</a>
                 </li>
                 <li>
