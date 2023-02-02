@@ -9,12 +9,12 @@
                         <thead>
                             <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>
                             <tr>
-                                <th colspan="2">id</th>
-                                <th colspan="2">Name</th>
+                                <th colspan="2">STT</th>
+                                <th colspan="2">Tên</th>
                                 <th colspan="2">Email</th>
-                                <th colspan="2">Note</th>
-                                <th colspan="2">Status</th>
-                                <th colspan="2">Handle</th>
+                                <th colspan="2">Ngày giao</th>
+                                <th colspan="2">Trạng thái</th>
+                                <th colspan="2">Tùy chọn</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,7 +26,7 @@
                                     <td colspan="2">{{ $item->note }}</td>
                                     <td colspan="2">{{ $item->status }}</td>
                                     <td colspan="2">
-                                        <a href="{{ route('orders.detail',[$item->id]) }}" class="btn btn-info">Show</a>
+                                        <a href="{{ route('orders.detail',[$item->id]) }}" class="btn btn-info">Chi tiết</a>
                                     </td>
                                 </tr>
                             @endforeach

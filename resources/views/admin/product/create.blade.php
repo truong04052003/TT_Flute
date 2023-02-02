@@ -9,7 +9,7 @@
                             @csrf
                             <h2 style="text-align: center">Thêm Mới</h2>
                             <div class="mb-3">
-                                <label class="form-label">Name</label>
+                                <label class="form-label">Tên sản phẩm</label>
                                 <input type="text" name="name" class="form-control">
                             </div>
                             @error('name')
@@ -17,36 +17,34 @@
                             @enderror
 
                             <div class="mb-3">
-                                <label class="form-label">Price</label>
+                                <label class="form-label">Giá</label>
                                 <input type="text" name="price" class="form-control">
                             </div>
                             @error('price')
                                 <div class="alert alert-danger ">{{ $message }}</div>
                             @enderror
                             <div class="mb-3">
-                                <label class="form-label">Quantity</label>
+                                <label class="form-label">Số lượng</label>
                                 <input type="text" name="quantity" class="form-control">
                             </div>
                             @error('quantity')
                                 <div class="alert alert-danger ">{{ $message }}</div>
                             @enderror
-                            <div  class="form-select form-select-lg mb-3">
-                                    <label >Loại Sản Phẩm</label>
-                                    <select name="category_id" >
-                                        <option value="">
-                                            <==Vui-lòng-chọn==>
-                                        </option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('category_id')
-                                        <div class="text text-danger">{{ $message }}</div>
-                                    @enderror
+                            <div class="form-group col-4  ">
+                                <label class="control-label" for="flatpickr01">Loại Sản Phẩm</label>
+                                <select name="category_id" id="" class="form-control">
+                                    <option value="">--Vui lòng chọn--</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <div class="text text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            
+
                             <div class="mb-3">
-                                <label class="form-label">Manufacture</label>
+                                <label class="form-label">Nhà sản xuất</label>
                                 <input type="text" name="manufacture" class="form-control">
                             </div>
                             @error('manufacture')
@@ -54,16 +52,17 @@
                             @enderror
 
                             <div class="mb-3">
-                                <label class="form-label">Description</label>
+                                <label class="form-label">Mô tả</label>
                                 <input type="text" name="description" class="form-control">
                             </div>
                             @error('description')
                                 <div class="alert alert-danger ">{{ $message }}</div>
                             @enderror
                             <div class="mb-3">
-                                <label class="form-label">Image</label>
+                                <label class="form-label">Ảnh</label>
                                 <input type="file" name="image" class="form-control">
                             </div>
+
                             <div class="mb-3">
                                 <label for="file_name"><b>Hình ảnh liên quan</b></label>
                                 <div class="card_file_name">
@@ -85,6 +84,7 @@
                             
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="{{route('products.index')}}" class="btn btn-info" >Back</a>
+
                         </form>
                     </div>
                 </div>
