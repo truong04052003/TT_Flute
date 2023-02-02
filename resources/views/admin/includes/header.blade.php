@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a href="#">
+                                    <a href="{{route('logout')}}">
                                         Logout</a>
                                 </div>
                             </div>

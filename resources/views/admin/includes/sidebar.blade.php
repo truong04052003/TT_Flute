@@ -10,7 +10,7 @@
 
             <ul class="list-unstyled navbar__list">
                 <li>
-                    <a href="" class="fas">
+                    <a href="http://localhost/Modul%205/TT%20Flute%20Admin/public/" class="fas">
                         Trang Chủ</a>
                 </li>
                 <li>
