@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashboarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,3 +76,5 @@ Route::group(['prefix' => 'orders'], function () {
     Route::get('/', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
 });
+//trang chủ 
+Route::get('/', [DashboarController::class, 'index'])->name('dashboard.admin');

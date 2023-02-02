@@ -51,4 +51,29 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     {
         
     }
+    public function orderWait()
+    {
+        $wait = 0;
+        $query = Order::select('*');
+        $query->orderBy('id', 'DESC');
+        $query->where('status', 'LIKE', '%' . $wait . '%');
+        return $query->paginate(5);
+    }
+
+    public function orderBrowser()
+    {
+        $browser = 1;
+        $query = Order::select('*');
+        $query->orderBy('id', 'DESC');
+        $query->where('status', 'LIKE', '%' . $browser . '%');
+        return $query->paginate(5);
+    }
+    public function orderCancel()
+    {
+        $cancel = 2;
+        $query = Order::select('*');
+        $query->orderBy('id', 'DESC');
+        $query->where('status', 'LIKE', '%' . $cancel . '%');
+        return $query->paginate(5);
+    }
 }
