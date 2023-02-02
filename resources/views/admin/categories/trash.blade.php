@@ -8,9 +8,9 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th colspan="2">id</th>
-                                    <th colspan="2">Name</th>
-                                    <th colspan="2">Handle</th>
+                                    <th colspan="2">STT</th>
+                                    <th colspan="2">Tên thể loại</th>
+                                    <th colspan="2">Tùy chọn</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -22,10 +22,9 @@
                                             <form action="{{ route('categories.deleteforever', $item->id) }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
+                                                <a href="{{ route('categories.restore',[$item->id]) }}" class="btn btn-primary">Khôi phục</a>
                                                 <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                    class="btn btn-danger">Delete Forever</button>
-                                                <a href="{{ route('categories.restore',[$item->id]) }}" class="btn btn-primary">restore</a>
-
+                                                    class="btn btn-danger">Xóa vĩnh viễn</button>
                                             </form>
                                         </td>
                                     </tr>
