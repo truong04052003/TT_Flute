@@ -26,7 +26,7 @@
                                         Nhóm Quyền
                                     </h2>
                                     <a class="btn btn-primary" href="{{ route('group.create') }}"> Thêm Nhóm Quyền </a>
-                                    <a class="btn btn-primary" href="{{ route('group.trash') }}"> Thùng rác </a>
+                                    <a class="btn btn-danger" href="{{ route('group.trash') }}"> Thùng rác </a>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -87,8 +87,6 @@
         </div>
     </div>
     {{-- @endsection --}}
-
-
 </body>
 
 </html>

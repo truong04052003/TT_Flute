@@ -8,15 +8,15 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th colspan="2">id</th>
-                                    <th colspan="2">Name</th>
-                                    <th colspan="2">Price</th>
-                                    <th colspan="2">Quantity</th>
-                                    <th colspan="2">Category</th>
-                                    <th colspan="2">Manufacture</th>
-                                    <th >Description</th>
-                                    <th colspan="2">Image</th>
-                                    <th colspan="2">Handle</th>
+                                    <th colspan="2">STT</th>
+                                    <th colspan="2">Tên sản phẩm</th>
+                                    <th colspan="2">Giá</th>
+                                    <th colspan="2">Số lượng</th>
+                                    <th colspan="2">Thể loại</th>
+                                    <th colspan="2">Nhà sản xuất</th>
+                                    <th>Mô tả</th>
+                                    <th colspan="2">Ảnh</th>
+                                    <th colspan="2">Tùy chọn</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,8 +43,9 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
+                    <a href="{{route('products.index')}}" class="btn btn-info" >Back</a>
                     </div>
                 </div>
             </div>

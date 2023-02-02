@@ -8,36 +8,36 @@
                         <div class="col-lg-8 col-xl-6">
                             <div class="card border-top border-bottom border-3" style="border-color: #000000 !important;">
                                 <div class="card-body p-5">
-                                    <p class="lead fw-bold mb-5" style="text-align: center">Chi Tiết Sản phẩm</p>
+                                    <p class="lead fw-bold mb-5" style="text-align: center">Chi Tiết Sản Phẩm</p>
                                     <div class="row">
                                         <div class="col mb-3">
-                                            <dt>Name:</dt>
+                                            <dt>Tên sản phẩm:</dt>
                                             <p>{{ $items->name }}</p>
                                         </div>
                                         <div class="col mb-3">
-                                            <dt>Price</dt>
-                                            <p>{{ $items->price }}</p>
+                                            <dt>Giá</dt>
+                                            <p>{{ number_format($items->price)}} VNĐ</p>
                                         </div>
                                     </div>
                                     <div class="row">
 
                                         <div class="col mb-3">
-                                            <dt>Quantity:</dt>
-                                            <p>{{ $items->quantity }}</p>
+                                            <dt>Số lượng:</dt>
+                                            <p>{{ $items->quantity }} sản phẩm</p>
                                         </div>
                                         <div class="col mb-3">
-                                            <dt>Manufacture</dt>
+                                            <dt>Nhà sản xuất</dt>
                                             <p>{{ $items->manufacture }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
 
                                         <div class="col mb-3">
-                                            <dt>Manufacture</dt>
+                                            <dt>Thể loại</dt>
                                             <p>{{ $items->category->name }}</p>
                                         </div>
                                         <div class="col mb-3">
-                                            <dt>Description</dt>
+                                            <dt>Mô tả</dt>
                                             <p>{{ $items->description }}</p>
                                         </div>
                                     </div>

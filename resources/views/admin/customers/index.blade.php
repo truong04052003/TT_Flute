@@ -9,11 +9,11 @@
                             <thead>
                                 <h2 style="text-align: center">Danh Sách Khách Hàng</h2>
                                 <tr>
-                                    <th colspan="2">id</th>
-                                    <th colspan="2">Name</th>
-                                    <th colspan="2">Address</th>
+                                    <th colspan="2">STT</th>
+                                    <th colspan="2">Tên khách hàng</th>
+                                    <th colspan="2">Địa chỉ</th>
                                     <th colspan="2">Email</th>
-                                    <th colspan="2">Phone</th>
+                                    <th colspan="2">Số điện thoại</th>
                                 </tr>
                             </thead>
                             <tbody>

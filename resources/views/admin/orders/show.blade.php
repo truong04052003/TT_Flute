@@ -10,7 +10,7 @@
                                 <div class="card" style="border-radius: 10px;">
                                     <div class="card-header px-4 py-5">
                                         <h5 style="text-align:center;">Đơn Hàng Của Bạn, <span
-                                                style="color: rgb(248, 61, 61);">Anna</span>!</h5>
+                                                style="color: rgb(248, 61, 61);">TT Flute</span>!</h5>
                                     </div>
                                     <div class="card-body p-4">
                                         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -35,6 +35,9 @@
                                                 Tổng Giá</div>
                                         </div>
                                         @foreach ($order_details as $key => $order_detail)
+                                        {{-- @php
+                                            dd($order_detail)
+                                        @endphp --}}
                                             @php $total += $order_detail->quantity * $order_detail->price  @endphp
                                             <div class="card shadow-0 border mb-4">
                                                 <div class="card-body">

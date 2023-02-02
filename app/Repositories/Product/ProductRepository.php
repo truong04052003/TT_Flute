@@ -5,6 +5,7 @@ namespace App\Repositories\Product;
 use App\Models\Product;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Log;
+use App\Models\Image_product;
 class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
     protected $model;
@@ -64,9 +65,21 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             $products->image = $new_image;
             //lưu ảnh
         }
+        $products->save();
+        if ($data['file_names']) {
+            foreach ($data['file_names'] as $file_detail) {
+                // File::delete($product->file_names()->file_name);
+                $detail_path = 'storage/' . $file_detail->store('/images', 'public');
+                $products->image_products()->saveMany([
+                    new Image_product([
+                        'product_id' => $products->id,
+                        'image' => $detail_path,
+                    ]),
+                ]);
+            }
+        }
+        return $products;
         try {
-            // dd($products);
-            $products->save();
             return redirect()->route('products.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
