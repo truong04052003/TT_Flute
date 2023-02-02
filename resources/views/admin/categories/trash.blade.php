@@ -31,6 +31,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <a href="{{route('categories.index')}}" class="btn btn-info" >Back</a>
                     </div>
                 </div>
             </div>
