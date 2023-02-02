@@ -24,7 +24,7 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:products',
+            'name' => 'required',
             'category_id' => 'required',
             'quantity' => 'required|min:1',
             'price' => 'required',
@@ -37,7 +37,6 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Tên sản phẩm bắt buộc phải nhập!',
-            'name.unique' => 'Tên sản phẩm đã tồn tại!',
             'category_id.required' => 'Loại sản phẩm bắt buộc phải nhập!',
             'quantity.required' => 'Số lượng Sản Phẩm bắt buộc nhập',
             'quantity.min' => 'Số lượng Sản Phẩm lớn hơn hoặc bằng 1',
