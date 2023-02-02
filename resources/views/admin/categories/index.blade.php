@@ -6,13 +6,13 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <table class="table">
-                            <a href="{{ route('categories.create') }}" class="btn btn-primary">Add</a>
-                            <a href="{{ route('categories.trash') }}" class="btn btn-primary">Thùng Rác</a>
+                            <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể loại</a>
+                            <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng Rác</a>
                             <thead>
                                 <tr>
-                                    <th colspan="2">id</th>
-                                    <th colspan="2">Name</th>
-                                    <th colspan="2">Handle</th>
+                                    <th colspan="2">STT</th>
+                                    <th colspan="2">Tên thể loại</th>
+                                    <th colspan="2">Tùy chọn</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -24,9 +24,10 @@
                                             <form action="{{ route('categories.delete', $item->id) }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
+                                                <a href="{{ route('categories.edit',[$item->id]) }}" class="btn btn-warning">Sửa</a>
                                                 <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                    class="btn btn-danger">Delete</button>
-                                                <a href="{{ route('categories.edit',[$item->id]) }}" class="btn btn-primary">Edit</a>
+                                                    class="btn btn-danger">Xóa</button>
+                                               
                                             </form>
                                         </td>
                                     </tr>
