@@ -35,6 +35,9 @@
                                                 Tổng Giá</div>
                                         </div>
                                         @foreach ($order_details as $key => $order_detail)
+                                        {{-- @php
+                                            dd($order_detail)
+                                        @endphp --}}
                                             @php $total += $order_detail->quantity * $order_detail->price  @endphp
                                             <div class="card shadow-0 border mb-4">
                                                 <div class="card-body">

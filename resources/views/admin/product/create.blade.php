@@ -64,12 +64,27 @@
                                 <label class="form-label">Image</label>
                                 <input type="file" name="image" class="form-control">
                             </div>
-                            @error('name')
-                                <div class="alert alert-danger ">{{ $message }}</div>
-                            @enderror
+                            <div class="mb-3">
+                                <label for="file_name"><b>Hình ảnh liên quan</b></label>
+                                <div class="card_file_name">
+                                    <div
+                                        class="form-group form_input @error('file_names') border border-danger @enderror">
+                                        <input type="file" name="file_names[]" id="file_name" multiple
+                                            class="form-control  @error('file_name') is-invalid @enderror">
+                                        <span class="inner">
+                                            <span class="select" style="color:red">Ctrl + click</span>
+                                        </span>
+                                    </div>
+                                    <div class="container_image">
+                                        @error($errors->any())
+                                            <p style="color:red">*{{ $errors->first('file_name') }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
                             
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="{{route('categories.index')}}" class="btn btn-info" >Back</a>
+                            <a href="{{route('products.index')}}" class="btn btn-info" >Back</a>
                         </form>
                     </div>
                 </div>
