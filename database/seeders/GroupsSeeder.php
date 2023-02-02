@@ -18,7 +18,19 @@ class GroupsSeeder extends Seeder
         DB::table('groups')->insert([
             [
                 'name' => 'Supper Admin',
-                
+
+            ],
+            [
+                'name' => 'Quản Lý',
+
+            ],
+            [
+                'name' => 'Giám Đốc',
+
+            ],
+            [
+                'name' => 'Nhân Viên',
+
             ],
          
 

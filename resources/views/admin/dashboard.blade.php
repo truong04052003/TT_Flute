@@ -27,7 +27,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="text">
-                                                    <h3>Đơn Hàng <span>| Tổng:{{ $totalOrders }}</span></h3>
+                                                    <h3>Đơn Hàng <span>| Tổng:{{ $totalOrders ?? 0}}</span></h3>
                                                 </div>
                                             </div>
                                             <div class="overview-chart">
@@ -48,7 +48,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="text">
-                                                    <h3>Khách Hàng <span>| Tổng:{{ $totalCustomer }}</span></h3>
+                                                    <h3>Khách Hàng <span>| Tổng:{{ $totalCustomer ?? 0}}</span></h3>
                                                 </div>
                                             </div>
                                             <div class="overview-chart">
@@ -69,7 +69,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="text">
-                                                    <h3>Nhân Viên <span>| Tổng:{{ $totalUser }}</span></h3>
+                                                    <h3>Nhân Viên <span>| Tổng:{{ $totalUser ?? 0 }}</span></h3>
                                                 </div>
                                             </div>
                                             <div class="overview-chart">x
@@ -90,7 +90,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="text">
-                                                    <h3>Sản Phẩm <span>| Tổng:{{ $product }}</span></h3>
+                                                    <h3>Sản Phẩm <span>| Tổng:{{ $product ?? 0}}</span></h3>
                                                 </div>
                                             </div>
                                             <div class="overview-chart">

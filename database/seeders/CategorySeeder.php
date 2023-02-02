@@ -17,22 +17,22 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             [
-                'name' => 'Quần',
+                'name' => 'Sáo Trúc',
             ],
             [
-                'name' => 'Áo',
+                'name' => 'Sáo Dọc',
             ],
             [
-                'name' => 'Mũ',
+                'name' => 'Sáo Hmoong',
             ],
             [
-                'name' => 'Dép',
+                'name' => 'Sáo Dizi',
             ],
             [
-                'name' => 'Giày',
+                'name' => 'Sáo Bầu',
             ],
             [
-                'name' => 'Phụ kiện',
+                'name' => 'Tiêu',
             ],
         ]);
     }
