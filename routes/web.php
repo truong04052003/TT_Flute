@@ -26,10 +26,11 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');
 
 Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function () {
+    Route::get('/', [DashboarController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    // Route::get('/', function () {
+    //     return view('admin.dashboard');
+    // })->name('dashboard');
 
     Route::group(['prefix' => 'categories'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
