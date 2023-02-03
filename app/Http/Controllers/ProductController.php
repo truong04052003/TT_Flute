@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Http\Requests\product\StoreProductRequest;
 use App\Http\Requests\product\UpdateProductRequest;
 use App\Services\Product\ProductServiceInterface;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 class ProductController extends Controller
@@ -15,6 +16,7 @@ class ProductController extends Controller
     public function __construct(ProductServiceInterface $productService)
     {
         $this->productService = $productService;
+        
     }
 
     public function index(Request $request)
