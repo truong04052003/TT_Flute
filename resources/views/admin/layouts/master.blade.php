@@ -51,6 +51,8 @@
 <!-- ======= Footer ======= -->
 @include('admin.includes.footer')
 <!-- End Footer -->
-
+<script src="{{ asset('admin/vendor/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('admin/vendor/animsition/animsition.min.js') }}"></script>
+<script src="{{ asset('admin/js/main.js') }}"></script>
 </html>
 

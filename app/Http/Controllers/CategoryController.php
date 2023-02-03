@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Services\Category\CategoryServiceInterface;
 use App\Http\Requests\category\StoreCategoryRequest;
 use App\Http\Requests\category\UpdateCategoryRequest;
-
+use Illuminate\Support\Facades\Log;
 class CategoryController extends Controller
 {
     protected $categoryService;
@@ -32,6 +32,14 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $items = $this->categoryService->store($request);
+        try {
+            toast('Thêm Loại Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('categories.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Thêm Loại Sản Phẩm Thành Công!','danger','top-right');
+            return redirect()->route('categories.index');
+        }
         return redirect()->route('categories.index');
     }
 
@@ -45,12 +53,28 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, $id)
     {
         $items = $this->categoryService->update($request, $id);
+        try {
+            toast('Sửa Loại Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('categories.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Sửa Loại Sản Phẩm Thành Công!','danger','top-right');
+            return redirect()->route('categories.index');
+        }
         return redirect()->route('categories.index');
     }
 
     public function destroy($id)
     {
         $items = $this->categoryService->delete($id);
+        try {
+            toast('Xóa Tạm Thời Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('categories.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Xóa Tạm Thời Sản Phẩm Thành Công!','danger','top-right');
+            return redirect()->route('categories.index');
+        }
         return redirect()->route('categories.index');
     }
     public function trash()
@@ -62,11 +86,27 @@ class CategoryController extends Controller
     public function restore($id)
     {
         $items = $this->categoryService->restore($id);
+        try {
+            toast('Khôi Phục Loại Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('categories.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Khôi Phục Loại Sản Phẩm Thành Công!','danger','top-right');
+            return redirect()->route('categories.index');
+        }
         return redirect()->route('categories.index');
     }
     public function deleteforever($id)
     {
         $items = $this->categoryService->deleteforever($id);
+        try {
+            toast('Xóa Vĩnh Viễn Loại Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('categories.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Xóa Vĩnh Viễn Loại Sản Phẩm Thành Công!','danger','top-right');
+            return redirect()->route('categories.index');
+        }
         return redirect()->route('categories.index');
     }
 }
