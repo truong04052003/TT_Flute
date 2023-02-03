@@ -68,7 +68,6 @@
                                                         <a data-href="{{ route('users.destroy', $user->id) }}"
                                                             id="{{ $user->id }}"
                                                             class="btn btn-danger sm deleteIcon">Xóa</a>
-
                                                     </td>
                                                 </tr>
                                             @endforeach
