@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('content')
+{{-- @section('content') --}}
     <style>
         img#avtshow {
             border: 3px solid rgb(150, 0, 0);
@@ -10,10 +10,14 @@
 
         }
     </style>
+    
+ <div class="page-container">
+ <div class="main-content">
+  <div class="container">
     <div class="card">
         <div class="card-body">
             <br>
-            <a href="{{ route('users.index') }}" class="btn btn-secondary">Quay Lại</a>
+          
             <h2 class="offset-4">
                 Thông tin chi tiết
             </h2>
@@ -31,22 +35,15 @@
                     </div>
                     <div class="panel-body">
                         <hr>
-                        <h3 style="color: red">{{ $users->name }}</h3>
+                        <h3 style="color: red">{{ $users->name }}</h3><br>
                         <ul class="nav nav-pills nav-stacked labels-info ">
                             <li>
-                                <h6>{{ $users->groups->name }}</h6>
+                                <h6>Chức vụ : {{ $users->groups->name }}</h6>
                             </li>
                         </ul>
                         <hr>
                     </div>
-                    <div class="text-center">
-                        <a class="btn mini btn-default" href="#">
-                            <i class="fa fa-cog"> Mật Khẩu </i>
-                        </a>
-                        <a class="btn mini btn-default" href="#">
-                            <i class="fa fa-cog">Mật khẩu*</i>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div class="col-sm-9">
@@ -67,7 +64,7 @@
                         @if (Auth::user()->hasPermission('User_adminupdatepass'))
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab"
-                                data-bs-target="#profile-change-password-by-mail">Admin đổi mật khẩu</button>
+                                data-bs-target="#profile-change-password-by-mail">Đổi mật khẩu</button>
                         </li>
                         @endif
                     </ul>
@@ -100,15 +97,15 @@
                                     <h5>Email</h3>
                                 </div>
                                 <div class="col-sm-9">
-                                    <h3>{{ $users->email }}</h3>
+                                    <h5>{{ $users->email }}</h5>
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h5>Số điện thoại</h3>
                                 </div>
                                 <div class="col-sm-9">
-                                    <h3>{{ $users->phone }}</h3>
+                                    <h5>{{ $users->phone }}</h5>
                                 </div>
                             </div>
                             <hr>
@@ -117,26 +114,21 @@
                                     <h5>Giới tính</h3>
                                 </div>
                                 <div class="col-sm-9">
-                                    <h3>{{ $users->gender }}</h3>
+                                    <h5>{{ $users->gender }}</h5>
                                 </div>
-                            </div>
+                            </div> <br>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h5>Ngày sinh</h3>
-                                </div>
-                                <div class="col-sm-9">
-                                    <h3>{{ $users->birthday }}</h3>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h5>Địa chỉ</h3>
+                                    <h5>Địa chỉ :</h3>
                                 </div>
                                 <div class="col-sm-9">
-                                    <h4>{{ $users->address }}</h4>
-                                    <h5>{{ $users->wards->name }}/ {{ $users->districts->name }}/
-                                        {{ $users->provinces->name }}</h5>
+                                    <h5>{{ $users->address }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -164,9 +156,6 @@
                             <hr>
 
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <h5>Gia nhập TPNShop</h3>
-                                </div>
                                 <div class="col-sm-9">
                                     <small id="" class="form-text text-muted">Năm-Tháng-Ngày Giờ-Phút-Giây</small>
                                     <h3>{{ $users->created_at }}</h3>
@@ -179,7 +168,7 @@
                     <div class="tab-content pt-2" >
                         <div class="tab-pane profile-change-password" id="profile-change-password">
                         <!-- Change Password Form -->
-                        <form action="{{route('user.change_password', Auth()->user()->id)}}" method="post">
+                        <form action="" method="post">
                           @method('POST')
                           @csrf
                           <div class="row mb-3">
@@ -220,7 +209,7 @@
                         <div class="tab-pane profile-change-password" id="profile-change-password-by-mail">
                         <!-- Change Password Form -->
                        <h3>Đổi mật khẩu của : {{ $users->name }}</h3>
-                        <form action="{{route('user.adminUpdatePass',  $users->id)}}" method="post">
+                        <form action="" method="post">
                           @method('PUT')
                           @csrf
                           <div class="row mb-3">
@@ -250,6 +239,12 @@
 
                 </div>
             </div>
+        </div>
+    </div>
+    <a href="{{ route('users.index') }}" class="btn btn-secondary">Quay Lại</a>
+</div>
+</div>
+</div>
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             @php
@@ -295,4 +290,4 @@
        }
         @endphp
         </script>
-        @endsection
+        {{-- @endsection --}}
