@@ -36,6 +36,12 @@ use App\Services\Order\OrderService;
 /* OrderRepository */
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\Order\OrderRepository;
+/* ApiproductService */
+use App\Services\Api\Product\ApiProductServiceInterface;
+use App\Services\Api\Product\ApiProductService;
+/* ApiproductRepository */
+use App\Repositories\Api\Product\ApiProductRepositoryInterface;
+use App\Repositories\Api\Product\ApiProductRepository;
 
 use App\Services\User\UserService;
 use App\Repositories\User\UserRepository;
@@ -57,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(OrderServiceInterface::class, OrderService::class);    
         $this->app->singleton(GroupServiceInterface::class, GroupService::class);
         $this->app->singleton(UserServiceInterface::class, UserService::class);
+        $this->app->singleton(ApiProductServiceInterface::class, ApiProductService::class);
         /* singleton Repositories*/
         $this->app->singleton(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->singleton(CustomerRepositoryInterface::class, CustomerRepository::class);
@@ -64,6 +71,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(OrderRepositoryInterface::class, OrderRepository::class);
         $this->app->singleton(GroupRepositoryInterface::class, GroupRepository::class);
         $this->app->singleton(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->singleton(ApiProductRepositoryInterface::class, ApiProductRepository::class);
+
     }
 
     /**
