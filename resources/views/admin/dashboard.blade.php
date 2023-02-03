@@ -27,7 +27,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="text">
-                                                    <h3>Đơn Hàng <span>| Tổng:{{ $totalOrders ?? 0}}</span></h3>
+                                                    <h3>Đơn Hàng <span>| Tổng:{{ $totalOrders ?? 0 }}</span></h3>
                                                 </div>
                                             </div>
                                             <div class="overview-chart">
@@ -48,7 +48,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="text">
-                                                    <h3>Khách Hàng <span>| Tổng:{{ $totalCustomer ?? 0}}</span></h3>
+                                                    <h3>Khách Hàng <span>| Tổng:{{ $totalCustomer ?? 0 }}</span></h3>
                                                 </div>
                                             </div>
                                             <div class="overview-chart">
@@ -90,7 +90,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="text">
-                                                    <h3>Sản Phẩm <span>| Tổng:{{ $product ?? 0}}</span></h3>
+                                                    <h3>Sản Phẩm <span>| Tổng:{{ $product ?? 0 }}</span></h3>
                                                 </div>
                                             </div>
                                             <div class="overview-chart">
@@ -170,28 +170,41 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <h2 class="title-1 m-b-25">Top Khách Hàng </h2>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            @if (isset($topcustomer))
-                                                @foreach ($topcustomer as $key => $customer)
-                                                    @php
-                                                        $dolaorder = $customer->total_Order;
-                                                    @endphp
-                                                    <tr>
-                                                        <td class="text-left">{{ ++$key }}.</td>
-                                                        <td>{{ $customer->name }}</td>
-                                                        <td class="text-right"> | {{ round($dolaorder) }}vnđ</td>
-                                                    </tr>
-                                                @endforeach
-                                            @endif
+                                    @if (isset($topcustomer))
+                                        <div class="table-responsive table--no-card m-b-40">
+                                            <table class="table table-borderless table-striped table-earning">
+                                                <thead>
+                                                    <th>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="170"
+                                                            height="20" fill="currentColor" class="bi bi-book-half"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" />
+                                                        </svg>
+                                                    </th>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($topcustomer as $key => $customer)
+                                                        @php
+                                                            $dolaorder = $customer->total_Order;
+                                                        @endphp
+                                                        <tr>
+                                                            <td>{{ ++$key }}.<span>{{ $customer->name }}</span></td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+
+                                            </table>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
 
         <script src="{{ asset('admin/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
