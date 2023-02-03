@@ -8,7 +8,7 @@ use App\Http\Requests\product\StoreProductRequest;
 use App\Http\Requests\product\UpdateProductRequest;
 use App\Services\Product\ProductServiceInterface;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 class ProductController extends Controller
 {
     protected $productService;
@@ -34,14 +34,18 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $items = $this->productService->store($request);
-        // dd($items);
-        return redirect()->route('products.index');
+        try {
+            toast('Thêm Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('products.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Thêm Sản Phẩm Thành Công!','danger','top-right');
+            return redirect()->route('products.index');
+        }
     }
-
     public function show($id)
     {
         $items = $this->productService->show($id);
-        // dd($items);
         return view('admin.product.show', compact('items'));
     }
 
@@ -56,8 +60,15 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, $id)
     {
-        // dd(123);
         $items = $this->productService->update($request, $id);
+        try {
+            toast('Sửa Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('products.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Sửa Sản Phẩm Không Thành Công!','danger','top-right');
+            return redirect()->route('products.index');
+        }
         return redirect()->route('products.index');
     }
 
@@ -65,6 +76,14 @@ class ProductController extends Controller
     {
         $this->authorize('delete', Product::class);
         $items = $this->productService->delete($id);
+        try {
+            toast('Xóa Tạm Thời Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('products.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Xóa Tạm Thời Sản Phẩm Không Thành Công!','danger','top-right');
+            return redirect()->route('products.index');
+        }
         return redirect()->route('products.index');
     }
     public function trash()
@@ -75,12 +94,32 @@ class ProductController extends Controller
     public function restore($id)
     {
         $items = $this->productService->restore($id);
+        try {
+            toast('Khôi phục Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('products.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Khôi Phục Sản Phẩm Không Thành Công!','danger','top-right');
+            return redirect()->route('products.index');
+        }
         return redirect()->route('products.index');
     }
     public function deleteforever($id)
     {
+
         $this->authorize('deleteforever', Product::class);
         $items = $this->productService->deleteforever($id);
+
+        try {
+            $items = $this->productService->deleteforever($id);
+            toast('Xóa Vĩnh Viễn Sản Phẩm Thành Công!','success','top-right');
+            return redirect()->route('products.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Xóa Vĩnh Viễn Sản Phẩm Không Thành Công!','danger','top-right');
+            return redirect()->route('products.index');
+        }
+
         return redirect()->route('products.index');
     }
 }

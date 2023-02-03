@@ -39,64 +39,36 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     {
         $categories = $this->model;
         $categories->name = $data['name'];
-        try {
-            $categories->save();
-            return redirect()->route('categories.index');
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
-        }
+        $categories->save();
+        return redirect()->route('categories.index');
     }
 
     public function update($request, $id)
     {
         $categories = $this->model->find($id);
         $categories->name = $request->name;
-        try {
-            $categories->save();
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
-        }
+        $categories->save();
+        return redirect()->route('categories.index');
     }
 
     public function delete($id)
     {
-        try {
-            return $this->model->where('id', $id)->delete();
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
-        }
+        return $this->model->where('id', $id)->delete();
+        return redirect()->route('categories.index');
     }
     public function getTrash()
     {
-        try {
-            $result = $this->model->onlyTrashed()->get();
-            return $result;
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
-        }
+        $result = $this->model->onlyTrashed()->get();
+        return $result;
     }
     public function restore($id)
     {
-        try {
-            $result = $this->model->withTrashed()->find($id)->restore();
-            return $result;
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
-        }
+        $result = $this->model->withTrashed()->find($id)->restore();
+        return $result;
     }
     public function deleteforever($id)
     {
-        try {
-            $result = $this->model->withTrashed()->find($id)->forceDelete();
-            return $result;
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('categories.index');
-        }
+        $result = $this->model->withTrashed()->find($id)->forceDelete();
+        return $result;
     }
 }

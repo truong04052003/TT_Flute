@@ -79,12 +79,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             }
         }
         return $products;
-        try {
-            return redirect()->route('products.index');
-        } catch (\exception $e) {
-            Log::error($e->getMessage());
-            return redirect()->route('products.index');
-        }
+
     }
     public function update($request, $id)
     {
@@ -111,51 +106,26 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             $products->image = $new_image;
             //lưu ảnh
         }
-        try {
             $products->save();
             return redirect()->route('products.index');
-        } catch (\exception $e) {
-            Log::error($e->getMessage());
-            return redirect()->route('products.index');
-        }
     }
     public function delete($id)
     {
-        // dd($id);
-        try {
-            return $this->model->where('id', $id)->delete();
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('products.index');
-        }
+        return $this->model->where('id', $id)->delete();
     }
     public function getTrash(){
-        try {
             $result = $this->model->onlyTrashed()->get();
             return $result;
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('products.index');
-        }
     }
     public function restore($id)
     {
-        try {
             $result = $this->model->withTrashed()->find($id)->restore();
             return $result;
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('products.index');
-        }
     }
     public function deleteforever($id)
     {
-        try {
-            $result = $this->model->withTrashed()->find($id)->forceDelete();
+            $result = $this->model->onlyTrashed()->find($id)->forceDelete();
             return $result;
-        } catch (\exception $e) {
-            Log::error('message:' . $e->getMessage());
-            return redirect()->route('products.index');
-        }
+        
     }
 }
