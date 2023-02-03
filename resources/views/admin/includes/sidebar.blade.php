@@ -1,7 +1,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="{{ route('dashboard') }}">
-            <img src="{{ asset('admin/images/icon/logo.png') }}" alt="" />
+            <img src="{{ asset('admin/images/icon/anh.png') }}" alt="" width="150px" height="100px"/>
             {{-- Shop TT-Flute --}}
         </a>
     </div>
