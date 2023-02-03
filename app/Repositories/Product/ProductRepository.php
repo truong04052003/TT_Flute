@@ -79,12 +79,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             }
         }
         return $products;
-        try {
-            return redirect()->route('products.index');
-        } catch (\exception $e) {
-            Log::error($e->getMessage());
-            return redirect()->route('products.index');
-        }
+
     }
     public function update($request, $id)
     {

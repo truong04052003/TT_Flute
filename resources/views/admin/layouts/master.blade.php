@@ -32,6 +32,7 @@
     <link href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/theme.css') }}" rel="stylesheet" media="all">
     <meta name="robots" content="index, nofollow">
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <style>
         a {
             text-decoration: none
@@ -52,3 +53,4 @@
 <!-- End Footer -->
 
 </html>
+
