@@ -21,7 +21,7 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="{{ asset(auth()->user()->image) }}" alt="John Doe" />
+                                            <img src="{{ asset(auth()->user()->image)}}" alt="John Doe" />
                                         </a>
                                     </div>
                                     <div class="content">

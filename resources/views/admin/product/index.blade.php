@@ -42,7 +42,7 @@
                                                         <td>
                                                             @if (Auth::user()->hasPermission('Product_view'))
                                                                 <img src="{{ asset('public/uploads/' . $item->image) }}"
-                                                                    alt="" style="width: 100px">
+                                                                    alt="" style="width: 100px; height:100px">
                                                             @else
                                                                 <img id="avt" style="width:100px; height:100px"
                                                                     src="{{ asset('public/uploads/' . $item->image) }}">

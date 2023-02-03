@@ -16,8 +16,11 @@
   <div class="container">
     <div class="card">
         <div class="card-body">
-            <br>
-          
+            <div class="logo">
+                <a href="{{ route('dashboard') }}">
+                    <img src="{{ asset('admin/images/icon/haha.jpg') }}" alt="" width="150px" height="100px"/>
+                </a>
+            </div>
             <h2 class="offset-4">
                 Thông tin chi tiết
             </h2>

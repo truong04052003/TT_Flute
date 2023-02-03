@@ -72,7 +72,7 @@
                                                     <h3>Nhân Viên <span>| Tổng:{{ $totalUser ?? 0 }}</span></h3>
                                                 </div>
                                             </div>
-                                            <div class="overview-chart">x
+                                            <div class="overview-chart">
                                                 <canvas id="widgetChart3"></canvas>
                                             </div>
                                         </div>
@@ -150,14 +150,11 @@
                                             <tbody>
                                                 @if (isset($topproduct))
                                                     @foreach ($topproduct as $product)
-                                                        {{-- @php
-                                                        dd( $product)   
-                                                    @endphp --}}
                                                         <tr>
                                                             <td><img src="{{ asset('public/uploads/' . $product->image) }}"
-                                                                    alt=""></td>
+                                                                    alt="" ></td>
                                                             <td>{{ $product->name }}</td>
-                                                            <td>{{ $product->price }}vnđ</td>
+                                                            <td>{{ number_format($product->price) }} vnđ</td>
                                                             <td class="text-right">{{ $product->total_Product }}</td>
                                                             <td class="text-right">
                                                                 {{ number_format($product->total_Price) }}vnđ</td>
