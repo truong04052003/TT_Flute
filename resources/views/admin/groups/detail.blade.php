@@ -9,6 +9,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
     </head>
+    <style>
+        .form-group {
+            margin: 0px 0px 14px 27px;
+        }
+    </style>
 
     <body>
         <div class="page-container">
