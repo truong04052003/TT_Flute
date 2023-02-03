@@ -9,7 +9,7 @@
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
 
-    <title>Dashboard</title>
+    <title>Trang chủ</title>
 
     <link href="{{ asset('admin/css/font-face.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
@@ -27,11 +27,17 @@
     <link href="{{ asset('admin/vendor/slick/slick.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
-    <script src="{{asset('admin/vendor/bootstrap-4.1/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('admin/vendor/bootstrap-4.1/bootstrap.bundle.min.js') }}"></script>
 
+    <link href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/theme.css') }}" rel="stylesheet" media="all">
     <meta name="robots" content="index, nofollow">
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+    <style>
+        a {
+            text-decoration: none
+        }
+    </style>
 </head>
 
 
