@@ -19,13 +19,14 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Product::class);
         $items = $this->productService->all($request);
-        // dd($items);
         return view('admin.product.index', compact('items'));
     }
 
     public function create()
     {
+        $this->authorize('create', Product::class);
         $categories = Category::all();
         return view('admin.product.create', compact('categories'));
     }
@@ -46,10 +47,10 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('update', Product::class);
         $items = $this->productService->find($id);
         $categories = Category::all();
         $product = $this->productService->find($id);
-        // dd($product);
         return view('admin.product.edit', compact('items', 'categories', 'product'));
     }
 
@@ -62,6 +63,7 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('delete', Product::class);
         $items = $this->productService->delete($id);
         return redirect()->route('products.index');
     }
@@ -77,6 +79,7 @@ class ProductController extends Controller
     }
     public function deleteforever($id)
     {
+        $this->authorize('deleteforever', Product::class);
         $items = $this->productService->deleteforever($id);
         return redirect()->route('products.index');
     }

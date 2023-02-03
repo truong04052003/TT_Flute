@@ -6,7 +6,13 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <table class="table">
-                            <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể loại</a>
+                            @if (Auth::user()->hasPermission('Category_create'))
+                                <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể loại</a>
+                            @else
+                                <i data-bs-toggle="tooltip" data-bs-placement="top" title="Bạn không có quyền làm điều này!">
+                                    <button type="button" class="btn btn-primary" disabled>Thêm thể loại</button>
+                                </i>
+                            @endif
                             <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng Rác</a>
                             <thead>
                                 <tr>
@@ -24,10 +30,24 @@
                                             <form action="{{ route('categories.delete', $item->id) }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
-                                                <a href="{{ route('categories.edit',[$item->id]) }}" class="btn btn-warning">Sửa</a>
-                                                <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                    class="btn btn-danger">Xóa</button>
-                                               
+                                                @if (Auth::user()->hasPermission('Category_update'))
+                                                    <a href="{{ route('categories.edit', [$item->id]) }}"
+                                                        class="btn btn-warning">Sửa</a>
+                                                @else
+                                                    <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Bạn không có quyền làm điều này!">
+                                                        <button type="button" class="btn btn-warning" disabled>Sửa</button>
+                                                    </i>
+                                                @endif
+                                                @if (Auth::user()->hasPermission('Category_delete'))
+                                                    <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
+                                                        class="btn btn-danger">Xóa</button>
+                                                @else
+                                                    <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Bạn không có quyền làm điều này!">
+                                                        <button type="button" class="btn btn-danger" disabled>Xóa</button>
+                                                    </i>
+                                                @endif
                                             </form>
                                         </td>
                                     </tr>
