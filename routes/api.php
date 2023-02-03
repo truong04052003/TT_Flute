@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\ApiAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,3 +31,9 @@ Route::get('category_list', [ProductController::class, 'category_list']);
 Route::get('trendingProduct', [ProductController::class, 'trendingProduct']);
 Route::get('productnew', [ProductController::class, 'productnew']);
 Route::get('product_list/search', [ProductController::class, 'search']);
+//Cart
+Route::get('list-cart', [CartController::class, 'getAllCart']);
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
+Route::get('remove-to-cart/{id}', [CartController::class, 'removeToCart']);
+Route::get('update-Cart/{id}/{quantity}', [CartController::class, 'updateCart']);
+Route::get('remove-all-cart', [CartController::class, 'removeAllCart']);
