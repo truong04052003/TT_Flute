@@ -16,6 +16,7 @@ class CustomerController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Customer::class);
         $items = $this->customerService->all($request);
         return view('admin.customers.index', compact('items'));
     }

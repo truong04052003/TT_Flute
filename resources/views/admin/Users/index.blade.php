@@ -35,8 +35,16 @@
                                     <h2 class="offset-4">
                                         Nhân viên
                                     </h2>
-                                    <a class="btn btn-primary" href="{{ route('users.create') }}"> Đăng kí
-                                        tài khoản </a>
+                                    @if (Auth::user()->hasPermission('User_create'))
+                                        <a class="btn btn-primary" href="{{ route('users.create') }}"> Đăng kí
+                                            tài khoản </a>
+                                    @else
+                                        <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Bạn không có quyền làm điều này!">
+                                            <button type="button" class="btn btn-primary" disabled>Đăng kí tài
+                                                khoản</button>
+                                        </i>
+                                    @endif
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                         data-bs-target="#searchModal">Tìm chi tiết</button>
                                     <table class="table">
@@ -55,19 +63,33 @@
                                                 <tr>
                                                     <th scope="row">{{ ++$key }}</th>
                                                     <td>
-                                                        <a href=""><img id="avt"
-                                                                src="{{ asset($user->image) }}"></a>
+                                                        @if (Auth::user()->hasPermission('User_view'))
+                                                            <a href=""><img id="avt"
+                                                                    src="{{ asset($user->image) }}"></a>
+                                                        @else
+                                                            <a href="#"><img id="avt"
+                                                                    src="{{ asset($user->image) }}"></a>
+                                                        @endif
                                                     </td>
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->groups->name }}</td>
                                                     <td>{{ $user->phone }}</td>
                                                     <td>
-                                                        <a href="{{ route('users.edit', $user->id) }}"
-                                                            class='btn btn-warning'>Sửa</a>
-
-                                                        <a data-href="{{ route('users.destroy', $user->id) }}"
-                                                            id="{{ $user->id }}"
-                                                            class="btn btn-danger sm deleteIcon">Xóa</a>
+                                                        @if (Auth::user()->hasPermission('User_update'))
+                                                            <a href="{{ route('users.edit', $user->id) }}"
+                                                                class='btn btn-warning'>Sửa</a>
+                                                        @else
+                                                            <button type="button" class="btn btn-warning"
+                                                                disabled>Sửa</button>
+                                                        @endif
+                                                        @if (Auth::user()->hasPermission('User_delete'))
+                                                            <a data-href="{{ route('users.destroy', $user->id) }}"
+                                                                id="{{ $user->id }}"
+                                                                class="btn btn-danger sm deleteIcon">Xóa</a>
+                                                        @else
+                                                            <button type="button" class="btn btn-danger"
+                                                                disabled>Xóa</button>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             @endforeach

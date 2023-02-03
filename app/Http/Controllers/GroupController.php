@@ -21,7 +21,7 @@ class GroupController extends Controller
 
     public function index(Request $request)
     {
-
+        $this->authorize('viewAny', Group::class);
         $groups = $this->groupService->all($request);
         return view('admin.groups.index', compact('groups'));
     }
@@ -29,6 +29,7 @@ class GroupController extends Controller
 
     public function create(Request $request)
     {
+        $this->authorize('create', Group::class);
         $groups = $this->groupService->all($request);
         return view('admin.groups.create', compact('groups'));
     }
@@ -46,6 +47,7 @@ class GroupController extends Controller
     }
     public function edit($id)
     {
+        $this->authorize('update', Group::class);
         $group = $this->groupService->find($id);
         return view('admin.groups.edit', compact('group'));
     }
@@ -59,12 +61,15 @@ class GroupController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('delete', Group::class);
         $group = $this->groupService->delete($id);
         return redirect()->route('group.index');
     }
 
     public function forcedelete($id)
     {
+        $this->authorize('deleteforever', Group::class);
+
         try {
             $this->groupService->forceDelete($id);
             $notification = [
@@ -85,6 +90,7 @@ class GroupController extends Controller
 
     public function restore($id)
     {
+        $this->authorize('restore', Group::class);
         $this->groupService->restore($id);
         return redirect()->route('group.trash');
     }
