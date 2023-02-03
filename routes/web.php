@@ -66,6 +66,7 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::get('/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
         Route::put('/update/{id}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+        Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
     });
 
     Route::prefix('groups')->group(function () {

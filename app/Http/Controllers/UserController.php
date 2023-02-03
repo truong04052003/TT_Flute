@@ -47,7 +47,8 @@ class UserController extends Controller
 
     public function show($id)
     {
-        //
+        $users = $this->userService->find($id);
+        return view('admin.Users.profile', compact('users'));
     }
 
 
