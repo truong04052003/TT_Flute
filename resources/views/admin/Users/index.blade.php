@@ -78,6 +78,7 @@
                         </div>
                     </div>
                 </section>
+                {{ $users->onEachSide(5)->links() }}
             </div>
         </div>
     </div>

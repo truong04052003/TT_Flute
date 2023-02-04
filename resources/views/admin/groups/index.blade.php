@@ -83,6 +83,7 @@
                         </div>
                     </div>
                 </section>
+                {{ $groups->onEachSide(5)->links() }}
             </div>
         </div>
     </div>

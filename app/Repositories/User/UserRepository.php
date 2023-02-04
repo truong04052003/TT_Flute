@@ -48,7 +48,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $query->Nameuser(request(['nameuser']));
         $query->Groupuser(request(['groupuser']));
         $query->Iduser(request(['iduser']));
-        return $query->orderBy('id', 'DESC')->get();
+        return $query->orderBy('id', 'DESC')->paginate(5);
      
     }
     public function update($request, $id)
