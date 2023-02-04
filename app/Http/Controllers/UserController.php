@@ -8,7 +8,8 @@ use App\Models\Group;
 use App\Services\User\UserServiceInterface;
 use App\Services\Group\GroupServiceInterface;
 
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 
 class UserController extends Controller
@@ -74,4 +75,25 @@ class UserController extends Controller
         $user = $this->userService->delete($id);
         return redirect()->route('users.index');
     }
-}
+    public function forget_password(){
+        return view('admin.auth.formtakepassword');
+    }
+    public function post_forget_password(Request $request){
+        $customer = User::where('email', $request->email)->first();
+        if ($customer) {
+            $pass = Str::random(6);
+            $customer->password = bcrypt($pass);
+            $customer->save();
+            $data = [
+                'name' => $customer->name,
+                'pass' => $pass,
+                'email' => $customer->email,
+            ];
+            Mail::send('admin.auth.login', compact('data'), function ($email) use ($customer) {
+                $email->subject('Shop Hoa Qủa');
+                $email->to($customer->email, $customer->name);
+            });
+        }
+        return redirect()->route('forget-password');
+    }
+    }

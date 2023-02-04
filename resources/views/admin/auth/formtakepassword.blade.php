@@ -49,30 +49,15 @@
             </div>
             <div class="col-lg-5">
                 <div class="card-body py-5 px-md-5">
-                    <h2>Đăng Nhập</h2><br>
-                    <form action="{{ route('postlogin') }}" method="POST">
+                    <h2>Lấy Lại Mật Khẩu</h2><br>
+                    <form action="{{ route('post-forget-password') }}" method="POST">
                         @csrf
                         <div class="form-outline mb-4">
                             <label class="form-label">Email</label>
                             <input type="text" name="email" class="form-control" />
                         </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" />
-                        </div>
-
-                        <div class="row mb-4">
-                            <div class="nho-dang-nhap">
-                                <label><input type="checkbox" name=""> Nhớ Đăng Nhập</label>
-                                <a href="{{route('forget-password')}}">Quên Mật Khẩu</a>
-                            </div>
-                        </div>
-
                         <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
                     </form>
-
                 </div>
             </div>
         </div>
