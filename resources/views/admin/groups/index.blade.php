@@ -23,7 +23,7 @@
                                 <div class="card-body">
                                     <br>
                                     <h2 class="offset-4">
-                                        Nhóm Quyền
+                                        Danh Sách Quyền
                                     </h2>
                                     @if (Auth::user()->hasPermission('Group_create'))
                                         <a class="btn btn-primary" href="{{ route('group.create') }}"> Thêm Nhóm Quyền

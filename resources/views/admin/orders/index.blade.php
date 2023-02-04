@@ -10,7 +10,7 @@
                                 <div class="card-body">
                                     <table class="table">
                                         <thead>
-                                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>
+                                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2><br>
                                             <tr>
                                                 <th colspan="2">STT</th>
                                                 <th colspan="2">Tên</th>
