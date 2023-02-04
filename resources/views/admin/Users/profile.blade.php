@@ -55,19 +55,10 @@
                             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Thông
                                 tin</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Khác</button>
-                        </li>
                         @if(Auth()->user()->id ==  $users->id )
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Thay đổi
                                 mật khẩu</button>
-                        </li>
-                        @endif
-                        @if (Auth::user()->hasPermission('User_adminupdatepass'))
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab"
-                                data-bs-target="#profile-change-password-by-mail">Đổi mật khẩu</button>
                         </li>
                         @endif
                     </ul>
@@ -124,6 +115,10 @@
                                 <div class="col-sm-3">
                                     <h5>Ngày sinh</h3>
                                 </div>
+                                <div class="col-sm-9">
+                                    <small id="" class="form-text text-muted">Năm-Tháng-Ngày Giờ-Phút-Giây</small>
+                                    <h3>{{ $users->created_at }}</h3>
+                                </div>
                             </div>
                             <hr>
                             <div class="row">
@@ -148,23 +143,6 @@
                                     {{ Session::get('error') }}
                                 </p>
                             @endif
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h5>Mã số {{ $users->groups->name }}</h5>
-                                </div>
-                                <div class="col-sm-9">
-                                    <h3>#0068{{ $users->id }}</h3>
-                                </div>
-                            </div>
-                            <hr>
-
-                            <div class="row">
-                                <div class="col-sm-9">
-                                    <small id="" class="form-text text-muted">Năm-Tháng-Ngày Giờ-Phút-Giây</small>
-                                    <h3>{{ $users->created_at }}</h3>
-                                </div>
-                                <hr>
-                            </div>
                         </div>
                     </div>
                     {{-- ================================ --}}
