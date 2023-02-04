@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
     <div class="page-container">
         <div class="main-content">
             <div class="container">
@@ -10,6 +10,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <table class="table">
+                                        <h2 style="text-align: center">Danh Sách Sản Phẩm</h2><br>
+
                                         @if (Auth::user()->hasPermission('Product_create'))
                                             <a href="{{ route('products.create') }}" class="btn btn-primary">Thêm sản
                                                 phẩm</a>
@@ -86,12 +88,13 @@
                                                     </tr>
                                                 @endforeach
                                             </tbody>
+
                                         </table>
                                 </div>
+                                {{ $items->onEachSide(5)->links() }}
                             </div>
                         </div>
-                    </section>
-                    {{ $items->onEachSide(5)->links() }}
+                </section>
             </div>
         </div>
     </div>

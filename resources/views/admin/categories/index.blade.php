@@ -10,6 +10,8 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
+                                    <h2 style="text-align: center">Thể Loại Sản Phẩm</h2><br>
+
                                     <table class="table">
                                         <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể loại</a>
                                         <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng Rác</a>
@@ -40,11 +42,11 @@
             
                                         </tbody>
                                     </table>
+                                    {{ $items->onEachSide(5)->links()}}
                                 </div>
                             </div>
                         </div>
                 </section>
-                {{ $items->onEachSide(5)->links() }}
             </div>
         </div>
     </div>

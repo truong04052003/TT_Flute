@@ -37,6 +37,10 @@
         a {
             text-decoration: none
         }
+
+        ul.pagination {
+            margin: 18px 0px 0px 976px;
+        }
     </style>
 </head>
 
@@ -54,5 +58,5 @@
 <script src="{{ asset('admin/vendor/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('admin/vendor/animsition/animsition.min.js') }}"></script>
 <script src="{{ asset('admin/js/main.js') }}"></script>
-</html>
 
+</html>

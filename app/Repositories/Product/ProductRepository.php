@@ -26,6 +26,8 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function all($request)
     {
+
+     
         $products = Product::select('*');
         return $products->paginate(5);
     }
