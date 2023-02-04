@@ -7,9 +7,9 @@ use App\Models\User;
 use App\Models\Group;
 use App\Services\User\UserServiceInterface;
 use App\Services\Group\GroupServiceInterface;
-
-
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\User\UpdatepassRequest;
 
 class UserController extends Controller
 {
@@ -73,5 +73,20 @@ class UserController extends Controller
         $this->authorize('delete', User::class);
         $user = $this->userService->delete($id);
         return redirect()->route('users.index');
+    }
+    public function update_password(UpdatepassRequest $request){
+        if ($request->renewpassword == $request->newpassword) {
+            if ((Hash::check($request->password, Auth::user()->password))) {
+                $item = User::find(Auth()->user()->id);
+                $item->password = bcrypt($request->newpassword);
+                $item->save();
+                toast('Thay Đổi Mật Khẩu Thành Công!','success','top-right');
+                return back();
+            } else {
+                return back();
+            }
+        } else {
+            return back();
+        }
     }
 }

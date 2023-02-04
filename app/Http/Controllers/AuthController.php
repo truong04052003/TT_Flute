@@ -31,6 +31,7 @@ class AuthController extends Controller
         ], $messages);
         $data = $request->only('email', 'password');
         if (Auth::attempt($data)) {
+            toast('Đăng Nhập Thành Công!','success','top-right');
             return redirect()->route('dashboard');
         } else {
             return back()->withErrors($validator)->withInput();

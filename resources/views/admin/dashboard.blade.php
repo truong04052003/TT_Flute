@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
-
+@include('sweetalert::alert')
     <body class="animsition">
         <div class="page-wrapper">
             <div class="page-container">

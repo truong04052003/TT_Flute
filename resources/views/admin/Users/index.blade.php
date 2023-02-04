@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-{{-- @section('content') --}}
+@include('sweetalert::alert')
 <!DOCTYPE html>
 <html lang="en">
 
