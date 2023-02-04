@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-{{-- @section('content') --}}
+@include('sweetalert::alert')
     <style>
         img#avtshow {
             border: 3px solid rgb(150, 0, 0);
@@ -149,7 +149,7 @@
                     <div class="tab-content pt-2" >
                         <div class="tab-pane profile-change-password" id="profile-change-password">
                         <!-- Change Password Form -->
-                        <form action="" method="post">
+                        <form action="{{ route('uses-update-password', Auth()->user()->id)}}" method="post">
                           @method('POST')
                           @csrf
                           <div class="row mb-3">
@@ -161,38 +161,6 @@
                           @enderror
                             </div>
                           </div>
-                          <div class="row mb-3">
-                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Mật khẩu mới</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="newpassword" type="password" class="form-control" id="newPassword">
-                              @error('newpassword')
-                              <div class="text text-danger">{{ $message }}</div>
-                          @enderror
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Nhập lại mật khẩu mới</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                              @error('renewpassword')
-                              <div class="text text-danger">{{ $message }}</div>
-                          @enderror
-                            </div>
-                          </div>
-                          <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Thay đổi mật khẩu</button>
-                          </div>
-                        </form><!-- End Change Password Form -->
-                      </div>
-                    </div>
-
-                    <div class="tab-content pt-2" >
-                        <div class="tab-pane profile-change-password" id="profile-change-password-by-mail">
-                        <!-- Change Password Form -->
-                       <h3>Đổi mật khẩu của : {{ $users->name }}</h3>
-                        <form action="" method="post">
-                          @method('PUT')
-                          @csrf
                           <div class="row mb-3">
                             <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Mật khẩu mới</label>
                             <div class="col-md-8 col-lg-9">
