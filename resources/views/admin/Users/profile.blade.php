@@ -4,7 +4,7 @@
         img#avtshow {
             border: 3px solid rgb(150, 0, 0);
             padding: 10px;
-            height: 250px;
+            height: 300px;
             width: 250px;
             border-radius: 50%;
 
