@@ -47,6 +47,8 @@ use App\Services\User\UserService;
 use App\Repositories\User\UserRepository;
 use Illuminate\Pagination\Paginator;
 
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**

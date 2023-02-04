@@ -25,7 +25,13 @@
                                     <h2 class="offset-4">
                                         Nhóm Quyền
                                     </h2>
-                                    <a class="btn btn-primary" href="{{ route('group.create') }}"> Thêm Nhóm Quyền </a>
+                                    @if (Auth::user()->hasPermission('Group_create'))
+                                        <a class="btn btn-primary" href="{{ route('group.create') }}"> Thêm Nhóm Quyền
+                                        @else
+                                            <button type="button" class="btn btn-primary" disabled>Thêm Nhóm
+                                                Quyền</button>
+                                    @endif
+                                    </a>
                                     <a class="btn btn-danger" href="{{ route('group.trash') }}"> Thùng rác </a>
                                     <table class="table">
                                         <thead>
@@ -49,25 +55,36 @@
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <a href="{{ route('group.detail', $group->id) }}"
-                                                                class='btn btn-info'>
-                                                                Trao quyền </a>
-
-                                                            <a href="{{ route('group.edit', $group->id) }}"
-                                                                class='btn btn-warning'>
-                                                                Sửa </a>
-                                                            <i data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Bạn không có quyền làm điều này!">
-                                                                {{-- <button type="button" class="btn btn-warning" disabled>Sửa</button> --}}
-                                                            </i>
-
-                                                            <a data-href="{{ route('group.destroy', $group->id) }}"
-                                                                id="{{ $group->id }}"
-                                                                class="btn btn-danger sm deleteIcon">Xóa</a>
-                                                            <i data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Bạn không có quyền làm điều này!">
-
-                                                            </i>
+                                                            @if (Auth::user()->hasPermission('Group_create'))
+                                                                <a href="{{ route('group.detail', $group->id) }}"
+                                                                    class='btn btn-info'>
+                                                                    Trao quyền </a>
+                                                            @else
+                                                                <button type="button" class="btn btn-info"
+                                                                    disabled>Trao quyền</button>
+                                                            @endif
+                                                            @if (Auth::user()->hasPermission('Group_update'))
+                                                                <a href="{{ route('group.edit', $group->id) }}"
+                                                                    class='btn btn-warning'>
+                                                                    Sửa </a>
+                                                            @else
+                                                                <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Bạn không có quyền làm điều này!">
+                                                                    <button type="button" class="btn btn-warning"
+                                                                        disabled>Sửa</button>
+                                                                </i>
+                                                            @endif
+                                                            @if (Auth::user()->hasPermission('Group_delete'))
+                                                                <a data-href="{{ route('group.destroy', $group->id) }}"
+                                                                    id="{{ $group->id }}"
+                                                                    class="btn btn-danger sm deleteIcon">Xóa</a>
+                                                            @else
+                                                                <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Bạn không có quyền làm điều này!">
+                                                                    <button type="button" class="btn btn-danger"
+                                                                        disabled>Xóa</button>
+                                                                </i>
+                                                            @endif
 
                                                         </form>
                                                     </td>

@@ -18,6 +18,7 @@ class CategoryController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Category::class);
         $items = $this->categoryService->all($request);
         // dd($items);
         return view('admin.categories.index', compact('items'));
@@ -25,6 +26,7 @@ class CategoryController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Category::class);
         return view('admin.categories.create');
     }
 
@@ -45,6 +47,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('update', Category::class);
         $items = $this->categoryService->find($id);
         return view('admin.categories.edit', compact('items'));
     }
@@ -66,6 +69,7 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('delete', Category::class);
         $items = $this->categoryService->delete($id);
         try {
             toast('Xóa Tạm Thời Sản Phẩm Thành Công!','success','top-right');
@@ -85,6 +89,7 @@ class CategoryController extends Controller
     }
     public function restore($id)
     {
+        $this->authorize('restore', Category::class);
         $items = $this->categoryService->restore($id);
         try {
             toast('Khôi Phục Loại Sản Phẩm Thành Công!','success','top-right');
@@ -98,6 +103,7 @@ class CategoryController extends Controller
     }
     public function deleteforever($id)
     {
+        $this->authorize('deleteforever', Category::class);
         $items = $this->categoryService->deleteforever($id);
         try {
             toast('Xóa Vĩnh Viễn Loại Sản Phẩm Thành Công!','success','top-right');
