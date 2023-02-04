@@ -28,6 +28,6 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
     public function all($request)
     {
         $customers = Customer::select('*');
-        return $customers->get();
+        return $customers->paginate(5);
     }
 }

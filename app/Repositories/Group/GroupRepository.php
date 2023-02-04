@@ -18,7 +18,7 @@ class GroupRepository extends BaseRepository implements GroupRepositoryInterface
     public function all($request)
     {
         $query = Group::select('*');
-        return $query->get();
+        return $query->paginate(5);
     }
     public function create($request)
     {

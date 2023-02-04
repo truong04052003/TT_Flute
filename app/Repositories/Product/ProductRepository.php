@@ -27,7 +27,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function all($request)
     {
         $products = Product::select('*');
-        return $products->get();
+        return $products->paginate(5);
     }
 
     public function find($id)

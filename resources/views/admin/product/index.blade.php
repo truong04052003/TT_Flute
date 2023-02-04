@@ -89,9 +89,9 @@
                                 </div>
                             </div>
                         </div>
-                </section>
+                    </section>
+                    {{ $items->onEachSide(5)->links() }}
             </div>
         </div>
     </div>
-
 @endsection

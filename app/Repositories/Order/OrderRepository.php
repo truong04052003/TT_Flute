@@ -26,7 +26,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     public function all($request)
     {
         $orders = Order::select('*');
-        return $orders->get();
+        return $orders->paginate(5);
     }
 
     public function find($id)
