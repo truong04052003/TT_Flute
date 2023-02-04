@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Log;
 use App\Models\Image_product;
+
 class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
     protected $model;
@@ -26,9 +27,35 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function all($request)
     {
-
-     
+        $key                    = $request->key;
+        $id                     = $request->id;
+        $name                   = $request->name;
         $products = Product::select('*');
+      
+        if ($name) {
+            $products->where('name', 'LIKE', '%' . $name . '%');
+        }
+        if ($key) {
+            $products->orWhere('id', $key);
+            $products->orWhere('name', 'LIKE', '%' . $key . '%');
+        }
+        if ($id) {
+            $products->where('id', $id);
+        }
+
+        if (!empty($request->search)) {
+            $search = $request->search;
+            $products = $products->Search($search);
+        }
+
+        if (!empty($request->category_id)) {
+            $products->NameCate($request)
+                ->filterPrice(request(['startPrice', 'endPrice']))
+                ->filterDate(request(['start_date', 'end_date']));
+        }
+
+        $products->filterPrice(request(['startPrice', 'endPrice']));
+        $products->filterDate(request(['start_date', 'end_date']));
         return $products->paginate(5);
     }
 
@@ -37,7 +64,8 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return $this->model->find($id);
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $products = $this->model->find($id);
         return $products;
     }
@@ -51,7 +79,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $products->category_id = $data['category_id'];
         $products->manufacture = $data['manufacture'];
         $products->description = $data['description'];
-        if($data->hasFile('image')){
+        if ($data->hasFile('image')) {
             //lấy file
             $get_image = $data->file('image');
             //lấy tên file
@@ -81,7 +109,6 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             }
         }
         return $products;
-
     }
     public function update($request, $id)
     {
@@ -92,7 +119,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $products->category_id = $request->category_id;
         $products->manufacture = $request->manufacture;
         $products->description = $request->description;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             //lấy file
             $get_image = $request->file('image');
             //lấy tên file
@@ -108,26 +135,26 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             $products->image = $new_image;
             //lưu ảnh
         }
-            $products->save();
-            return redirect()->route('products.index');
+        $products->save();
+        return redirect()->route('products.index');
     }
     public function delete($id)
     {
         return $this->model->where('id', $id)->delete();
     }
-    public function getTrash(){
-            $result = $this->model->onlyTrashed()->get();
-            return $result;
+    public function getTrash()
+    {
+        $result = $this->model->onlyTrashed()->get();
+        return $result;
     }
     public function restore($id)
     {
-            $result = $this->model->withTrashed()->find($id)->restore();
-            return $result;
+        $result = $this->model->withTrashed()->find($id)->restore();
+        return $result;
     }
     public function deleteforever($id)
     {
-            $result = $this->model->onlyTrashed()->find($id)->forceDelete();
-            return $result;
-        
+        $result = $this->model->onlyTrashed()->find($id)->forceDelete();
+        return $result;
     }
 }

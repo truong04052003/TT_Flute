@@ -25,7 +25,8 @@ class ProductController extends Controller
     {
         $this->authorize('viewAny', Product::class);
         $items = $this->productService->all($request);
-        return view('admin.product.index', compact('items'));
+        $categories = Category::get();
+        return view('admin.product.index', compact('items','categories'));
     }
 
     public function create()
