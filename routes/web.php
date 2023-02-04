@@ -28,9 +28,6 @@ Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin
 Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::get('/', [DashboarController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    // Route::get('/', function () {
-    //     return view('admin.dashboard');
-    // })->name('dashboard');
 
     Route::group(['prefix' => 'categories'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
@@ -58,6 +55,9 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::get('/trash', [ProductController::class, 'trash'])->name('products.trash');
         Route::get('/restore/{id}', [ProductController::class, 'restore'])->name('products.restore');
         Route::delete('/deleteforever/{id}', [ProductController::class, 'deleteforever'])->name('products.deleteforever');
+        //xuất file excel
+        Route::get('/export-products', [ProductController::class, 'export'])->name('products.export');
+
     });
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users.index');
@@ -91,5 +91,6 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
 
 Route::group(['prefix' => 'orders'], function () {
     Route::get('/', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/export-orders', [OrderController::class, 'export'])->name('orders.export');
     Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
 });

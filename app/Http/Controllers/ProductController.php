@@ -10,6 +10,8 @@ use App\Services\Product\ProductServiceInterface;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductsExport;
 class ProductController extends Controller
 {
     protected $productService;
@@ -123,5 +125,8 @@ class ProductController extends Controller
         }
 
         return redirect()->route('products.index');
+    }
+    public function export(){
+        return Excel::download(new ProductsExport,'products.xlsx');
     }
 }
