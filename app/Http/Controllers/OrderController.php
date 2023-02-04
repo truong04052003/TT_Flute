@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\Order\OrderServiceInterface;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ordersExport;
 class OrderController extends Controller
 {
     private $orderService;
@@ -23,5 +25,7 @@ class OrderController extends Controller
         // dd($order_details);
         return view('admin.orders.show',compact('order','order_details'));
     }
-   
+    public function export(){
+        return Excel::download(new ordersExport,'orders.xlsx');
+    }
 }

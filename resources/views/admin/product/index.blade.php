@@ -17,6 +17,7 @@
                                             <button type="button" class="btn btn-primary" disabled>Thêm Sản Phẩm</button>
                                         @endif
                                         <a href="{{ route('products.trash') }}" class="btn btn-danger">Thùng Rác</a>
+                                        <a href="{{ route('products.export') }}" class="btn btn-info">Xuất file excel</a>
                                         <table class="table" style="text-align: center">
 
                                             <thead>

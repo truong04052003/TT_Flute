@@ -11,6 +11,7 @@
                                     <table class="table">
                                         <thead>
                                             <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>
+                                            <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a>
                                             <tr>
                                                 <th colspan="2">STT</th>
                                                 <th colspan="2">Tên</th>
