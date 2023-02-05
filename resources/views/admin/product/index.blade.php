@@ -12,6 +12,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <table class="table"><br>
+                                        {{-- @error('status')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror --}}
                                         <h2 style="text-align: center">Danh Sách Sản Phẩm</h2><br>
 
                                         @if (Auth::user()->hasPermission('Product_create'))
@@ -94,9 +97,9 @@
                                             </tbody>
 
                                         </table>
+                                    </div>
+                                    {{ $items->onEachSide(5)->links() }}
                                 </div>
-                                {{ $items->onEachSide(5)->links() }}
-                            </div>
                         </div>
                 </section>
             </div>

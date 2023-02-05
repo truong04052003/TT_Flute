@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
     <div class="page-container">
         <div class="main-content">
             <div class="container">
@@ -19,7 +19,7 @@
                                         @error('name')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
-            
+
                                         <div class="mb-3">
                                             <label class="form-label">Giá</label>
                                             <input type="text" name="price" class="form-control">
@@ -46,7 +46,7 @@
                                                 <div class="text text-danger">{{ $message }}</div>
                                             @enderror
                                         </div><br>
-            
+
                                         <div class="mb-3">
                                             <label class="form-label">Nhà sản xuất</label>
                                             <input type="text" name="manufacture" class="form-control">
@@ -54,10 +54,11 @@
                                         @error('manufacture')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
-            
+
                                         <div class="mb-3">
                                             <label class="form-label">Mô tả</label>
-                                            <input type="text" name="description" class="form-control">
+                                            <textarea name="description" class="form-control" rows="4"
+                                                style="resize: none"></textarea>
                                         </div>
                                         @error('description')
                                             <div class="alert alert-danger ">{{ $message }}</div>
@@ -66,7 +67,7 @@
                                             <label class="form-label">Ảnh</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
-            
+
                                         <div class="mb-3">
                                             <label for="file_name"><b>Hình ảnh liên quan</b></label>
                                             <div class="card_file_name">
@@ -85,10 +86,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href="{{route('products.index')}}" class="btn btn-info" >Back</a>
-            
+                                        <a href="{{ route('products.index') }}" class="btn btn-info">Back</a>
+
                                     </form>
                                 </div>
                             </div>
@@ -98,5 +99,3 @@
         </div>
     </div>
 @endsection
-
-
