@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
+@include('admin.orders.advanceSearch')
+
     <div class="page-container">
         <div class="main-content">
             <div class="container">
@@ -13,6 +15,8 @@
                                     <table class="table">
                                         <thead>
                                             <h2 style="text-align: center">Danh Sách Đơn Hàng</h2><br>
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                            data-bs-target="#searchModal">Tìm chi tiết</button>
                                             <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a><hr>
                                             <ul class="nav nav-tabs nav-tabs-bordered">
                                                 <li class="nav-item offset-7">

@@ -25,7 +25,20 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 
     public function all($request)
     {
+        $key                    = $request->key;
         $orders = Order::select('*');
+     
+        if ($key) {
+            $orders->orWhere('id', $key);
+        }
+        if (!empty($request->search)) {
+            $search = $request->search;
+            $orders = $orders->Search($search);
+        }
+        if (!empty($request['phoneCus'])) {
+            $orders->NameCus($request['phoneCus']);
+        }
+        $orders->NameCus(request(['nameCus']));
         return $orders->paginate(5);
     }
 

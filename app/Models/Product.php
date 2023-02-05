@@ -29,18 +29,12 @@ class Product extends Model
         }
         return $query;
     }
-    public function scopeFilterPrice($query, array $filters)
+    public function scopeNameuser($query, $request)
     {
-        if (isset($filters['startPrice']) && isset($filters['endPrice'])) {
-            $query->whereBetween('price', [$filters['startPrice'], $filters['endPrice']]);
+        if (isset($request['nameuser'])) {
+            return  $query->where('name', 'LIKE', '%' . $request['nameuser'] . '%');
         }
         return $query;
-    }
-    public function scopefilterDate($query, array $date_to_date)
-    {
-        if (isset($date_to_date['start_date']) && isset($date_to_date['end_date'])) {
-            $query->whereBetween('created_at', [$date_to_date['start_date'], $date_to_date['end_date']]);
-        }
-        return $query;
-    }
+    }   
+   
 }
