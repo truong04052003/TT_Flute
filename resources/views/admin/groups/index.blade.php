@@ -25,7 +25,7 @@
                                     <br>
                                     <h2 style="text-align: center">
                                         Danh Sách Quyền
-                                    </h2>
+                                    </h2><br>
                                     @if (Auth::user()->hasPermission('Group_create'))
                                         <a class="btn btn-primary" href="{{ route('group.create') }}"> Thêm Nhóm Quyền
                                         @else
@@ -33,7 +33,7 @@
                                                 Quyền</button>
                                     @endif
                                     </a>
-                                    <a class="btn btn-danger" href="{{ route('group.trash') }}"> Thùng rác </a>
+                                    <a class="btn btn-danger" href="{{ route('group.trash') }}"> Thùng rác </a><hr>
                                     <table class="table" style="text-align: center">
                                         <thead>
                                             <tr>

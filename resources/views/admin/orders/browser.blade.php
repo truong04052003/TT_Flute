@@ -45,15 +45,13 @@
                                                     <td>{{ $browser->note }}</td>
                                                     <td>
                                                         @if ($browser->status === 0)
-                                                            <h4 style="color: silver"><i
-                                                                    class="bi bi-bookmark-plus-fill"></i></h4>
+                                                            <h4 style="color: rgb(1, 48, 255)"><i>Chờ duyệt</i></h4>
                                                         @endif
                                                         @if ($browser->status === 1)
-                                                            <h4 style="color: green"><i
-                                                                    class="bi bi-bookmark-check-fill"></i></h4>
+                                                            <h4 style="color: green"><i>Đã Duyệt</i></h4>
                                                         @endif
                                                         @if ($browser->status === 2)
-                                                            <h4 style="color: red"><i class="bi bi-bookmark-x-fill"></i>
+                                                            <h4 style="color: red"><i>Hủy Đơn</i>
                                                             </h4>
                                                         @endif
                                                     </td>

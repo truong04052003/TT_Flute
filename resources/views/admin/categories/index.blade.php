@@ -14,10 +14,12 @@
                                     <table class="table"style="text-align: center">
                                         <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể loại</a>
                                         <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng Rác</a>
+                                        <hr>
                                         <thead>
                                             <tr>
                                                 <th colspan="2">STT</th>
                                                 <th colspan="2">Tên thể loại</th>
+                                                <th scope="col">Hiện có</th>
                                                 <th colspan="2">Tùy chọn</th>
                                             </tr>
                                         </thead>
@@ -27,6 +29,7 @@
                                                 <tr>
                                                     <th scope="row">{{ ++$key }}</th>
                                                     <td colspan="2">{{ $item->name }}</td>
+                                                    <td colspan="2">{{ count($item->products) }} Sản phẩm</td>
                                                     <td colspan="2">
                                                         <form action="{{ route('categories.delete', $item->id) }}"
                                                             method="post">

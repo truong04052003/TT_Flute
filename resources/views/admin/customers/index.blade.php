@@ -8,9 +8,9 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <table class="table"style="text-align: center">
+                                    <table class="table"style="text-align: center"><br>
                                         <thead>
-                                            <h2 style="text-align: center">Danh Sách Khách Hàng</h2><br>
+                                            <h2 style="text-align: center">Danh Sách Khách Hàng</h2><br><hr>
                                             <tr>
                                                 <th colspan="2">STT</th>
                                                 <th colspan="2">Tên khách hàng</th>
