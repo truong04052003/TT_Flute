@@ -1,4 +1,6 @@
 @extends('admin.layouts.master')
+@section('content')
+
 @include('sweetalert::alert')
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <br>
-                                    <h2 class="offset-4">
+                                    <h2 style="text-align:center">
                                         Nhân viên
                                     </h2>
                                     @if (Auth::user()->hasPermission('User_create'))
@@ -47,7 +49,7 @@
                                     @endif
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                         data-bs-target="#searchModal">Tìm chi tiết</button>
-                                    <table class="table">
+                                    <table class="table"style="text-align: center">
                                         <thead>
                                             <tr>
                                                 <th scope="col">STT</th>
@@ -148,4 +150,4 @@
 </html>
 
 
-{{-- @endsection --}}
+@endsection
