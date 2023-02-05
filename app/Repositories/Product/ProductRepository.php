@@ -49,13 +49,10 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         }
 
         if (!empty($request->category_id)) {
-            $products->NameCate($request)
-                ->filterPrice(request(['startPrice', 'endPrice']))
-                ->filterDate(request(['start_date', 'end_date']));
+            $products->NameCate($request);
+               
         }
-
-        $products->filterPrice(request(['startPrice', 'endPrice']));
-        $products->filterDate(request(['start_date', 'end_date']));
+        $products->Nameuser(request(['nameuser']));
         return $products->paginate(5);
     }
 
