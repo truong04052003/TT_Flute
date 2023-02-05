@@ -12,13 +12,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ProductsExport;
+
 class ProductController extends Controller
 {
     protected $productService;
     public function __construct(ProductServiceInterface $productService)
     {
         $this->productService = $productService;
-        
     }
 
     public function index(Request $request)
@@ -26,7 +26,7 @@ class ProductController extends Controller
         $this->authorize('viewAny', Product::class);
         $items = $this->productService->all($request);
         $categories = Category::get();
-        return view('admin.product.index', compact('items','categories'));
+        return view('admin.product.index', compact('items', 'categories'));
     }
 
     public function create()
@@ -40,11 +40,11 @@ class ProductController extends Controller
     {
         $items = $this->productService->store($request);
         try {
-            toast('Thêm Sản Phẩm Thành Công!','success','top-right');
+            toast('Thêm Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Thêm Sản Phẩm Thành Công!','danger','top-right');
+            toast('Thêm Sản Phẩm Thành Công!', 'danger', 'top-right');
             return redirect()->route('products.index');
         }
     }
@@ -67,14 +67,13 @@ class ProductController extends Controller
     {
         $items = $this->productService->update($request, $id);
         try {
-            toast('Sửa Sản Phẩm Thành Công!','success','top-right');
+            toast('Sửa Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Sửa Sản Phẩm Không Thành Công!','danger','top-right');
+            toast('Sửa Sản Phẩm Không Thành Công!', 'danger', 'top-right');
             return redirect()->route('products.index');
         }
-        return redirect()->route('products.index');
     }
 
     public function destroy($id)
@@ -82,14 +81,13 @@ class ProductController extends Controller
         $this->authorize('delete', Product::class);
         $items = $this->productService->delete($id);
         try {
-            toast('Xóa Tạm Thời Sản Phẩm Thành Công!','success','top-right');
+            toast('Sản Phẩm Đã Đưa Vào Thùng Rác!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Xóa Tạm Thời Sản Phẩm Không Thành Công!','danger','top-right');
+            toast('Có lỗi xảy ra', 'danger', 'top-right');
             return redirect()->route('products.index');
         }
-        return redirect()->route('products.index');
     }
     public function trash()
     {
@@ -100,34 +98,31 @@ class ProductController extends Controller
     {
         $items = $this->productService->restore($id);
         try {
-            toast('Khôi phục Sản Phẩm Thành Công!','success','top-right');
+            toast('Khôi phục Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Khôi Phục Sản Phẩm Không Thành Công!','danger','top-right');
+            toast('Khôi Phục Sản Phẩm Không Thành Công!', 'danger', 'top-right');
             return redirect()->route('products.index');
         }
-        return redirect()->route('products.index');
     }
     public function deleteforever($id)
     {
 
         $this->authorize('deleteforever', Product::class);
         $items = $this->productService->deleteforever($id);
-
         try {
             $items = $this->productService->deleteforever($id);
-            toast('Xóa Vĩnh Viễn Sản Phẩm Thành Công!','success','top-right');
+            toast('Xóa Vĩnh Viễn Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Xóa Vĩnh Viễn Sản Phẩm Không Thành Công!','danger','top-right');
+            toast('Xóa Vĩnh Viễn Sản Phẩm Không Thành Công!', 'danger', 'top-right');
             return redirect()->route('products.index');
         }
-
-        return redirect()->route('products.index');
     }
-    public function export(){
-        return Excel::download(new ProductsExport,'products.xlsx');
+    public function export()
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
     }
 }

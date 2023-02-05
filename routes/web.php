@@ -67,7 +67,7 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::put('/update/{id}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
         Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
-        Route::post('update-password/{id}', [UserController::class, 'update_password'])->name('uses-update-password');
+        Route::post('update-password/{id}', [UserController::class, 'update_password'])->name('user-update-password');
     });
 
     Route::prefix('groups')->group(function () {

@@ -35,14 +35,13 @@ class CategoryController extends Controller
     {
         $items = $this->categoryService->store($request);
         try {
-            toast('Thêm Loại Sản Phẩm Thành Công!','success','top-right');
+            toast('Thêm Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Thêm Loại Sản Phẩm Thành Công!','danger','top-right');
+            toast('Thêm Thể Loại Không Thành Công!','danger','top-right');
             return redirect()->route('categories.index');
         }
-        return redirect()->route('categories.index');
     }
 
     public function edit($id)
@@ -57,14 +56,13 @@ class CategoryController extends Controller
     {
         $items = $this->categoryService->update($request, $id);
         try {
-            toast('Sửa Loại Sản Phẩm Thành Công!','success','top-right');
+            toast('Sửa Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Sửa Loại Sản Phẩm Thành Công!','danger','top-right');
+            toast('Sửa Thể Loại Không Thành Công!','danger','top-right');
             return redirect()->route('categories.index');
         }
-        return redirect()->route('categories.index');
     }
 
     public function destroy($id)
@@ -72,19 +70,17 @@ class CategoryController extends Controller
         $this->authorize('delete', Category::class);
         $items = $this->categoryService->delete($id);
         try {
-            toast('Xóa Tạm Thời Sản Phẩm Thành Công!','success','top-right');
+            toast('Thể Loại Đã Đưa Vào Thùng!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Xóa Tạm Thời Sản Phẩm Thành Công!','danger','top-right');
+            toast('Có Lỗi Xảy Ra','danger','top-right');
             return redirect()->route('categories.index');
         }
-        return redirect()->route('categories.index');
     }
     public function trash()
     {
         $items = $this->categoryService->getTrash();
-        // dd($items);
         return view('admin.categories.trash', compact('items'));
     }
     public function restore($id)
@@ -92,27 +88,25 @@ class CategoryController extends Controller
         $this->authorize('restore', Category::class);
         $items = $this->categoryService->restore($id);
         try {
-            toast('Khôi Phục Loại Sản Phẩm Thành Công!','success','top-right');
+            toast('Khôi Phục Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Khôi Phục Loại Sản Phẩm Thành Công!','danger','top-right');
+            toast('Khôi Phục Thể Loại Thành Công!','danger','top-right');
             return redirect()->route('categories.index');
         }
-        return redirect()->route('categories.index');
     }
     public function deleteforever($id)
     {
         $this->authorize('deleteforever', Category::class);
         $items = $this->categoryService->deleteforever($id);
         try {
-            toast('Xóa Vĩnh Viễn Loại Sản Phẩm Thành Công!','success','top-right');
+            toast('Xóa Vĩnh Viễn Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Xóa Vĩnh Viễn Loại Sản Phẩm Thành Công!','danger','top-right');
+            toast('Xóa Vĩnh Viễn Thể Loại Không Thành Công!','danger','top-right');
             return redirect()->route('categories.index');
         }
-        return redirect()->route('categories.index');
     }
 }
