@@ -133,7 +133,18 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             //lưu ảnh
         }
         $products->save();
-        return redirect()->route('products.index');
+        if ($request['file_names']) {
+            foreach ($request['file_names'] as $file_detail) {
+                $detail_path = 'storage/' . $file_detail->store('/images', 'public');
+                $products->image_products()->saveMany([
+                    new Image_product([
+                        'product_id' => $products->id,
+                        'image' => $detail_path,
+                    ]),
+                ]);
+            }
+        }
+        return $products;
     }
     public function delete($id)
     {
@@ -151,7 +162,12 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     }
     public function deleteforever($id)
     {
-        $result = $this->model->onlyTrashed()->find($id)->forceDelete();
-        return $result;
+        // try {
+            $result = $this->model->onlyTrashed()->find($id)->forceDelete();
+            return $result;
+        // } catch (\exception $e) {
+            // return redirect()->with('status','Xóa Vĩnh Viễn Không Thành Công!');
+        // }
+        
     }
 }
