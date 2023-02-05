@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
+    @include('sweetalert::alert')
     <!DOCTYPE html>
     <html lang="en">
 
@@ -85,6 +86,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).on('click', '.deleteIcon', function(e) {
+
             let id = $(this).attr('id');
             let href = $(this).data('href');
             let csrf = '{{ csrf_token() }}';
