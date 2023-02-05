@@ -113,11 +113,11 @@
                             </div> <br>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h5>Ngày sinh</h3>
+                                    <h5>Gia Nhập TT Flute</h5>
                                 </div>
                                 <div class="col-sm-9">
                                     <small id="" class="form-text text-muted">Năm-Tháng-Ngày Giờ-Phút-Giây</small>
-                                    <h3>{{ $users->created_at }}</h3>
+                                    <h5>{{ $users->created_at }}</h5>
                                 </div>
                             </div>
                             <hr>
@@ -148,8 +148,7 @@
                     {{-- ================================ --}}
                     <div class="tab-content pt-2" >
                         <div class="tab-pane profile-change-password" id="profile-change-password">
-                        <!-- Change Password Form -->
-                        <form action="{{ route('uses-update-password', Auth()->user()->id)}}" method="post">
+                        <form action="{{ route('user-update-password', Auth()->user()->id)}}" method="post">
                           @method('POST')
                           @csrf
                           <div class="row mb-3">
@@ -182,7 +181,7 @@
                           <div class="text-center">
                             <button type="submit" class="btn btn-primary">Thay đổi mật khẩu</button>
                           </div>
-                        </form><!-- End Change Password Form -->
+                        </form>
                       </div>
                     </div>
 

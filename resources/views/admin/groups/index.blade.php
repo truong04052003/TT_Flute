@@ -75,9 +75,9 @@
                                                                 </i>
                                                             @endif
                                                             @if (Auth::user()->hasPermission('Group_delete'))
-                                                                <a data-href="{{ route('group.destroy', $group->id) }}"
+                                                                <button  data-href="{{ route('group.destroy', $group->id) }}"
                                                                     id="{{ $group->id }}"
-                                                                    class="btn btn-danger sm deleteIcon">Xóa</a>
+                                                                    class="btn btn-danger sm deleteIcon">Xóa</button>
                                                             @else
                                                                 <i data-bs-toggle="tooltip" data-bs-placement="top"
                                                                     title="Bạn không có quyền làm điều này!">
