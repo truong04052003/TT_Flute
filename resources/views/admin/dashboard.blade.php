@@ -101,39 +101,6 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="au-card chart-percent-card">
-                                        <div class="au-card-inner">
-                                            <h3 class="title-2 tm-b-5">Trạng Thái Đơn Hàng/%</h3>
-                                            <div class="row no-gutters">
-                                                <div class="col-xl-6">
-                                                    <div class="chart-note-wrap">
-                                                        <div class="chart-note mr-0 d-block">
-                                                            <span class="dot dot--blue"></span>
-                                                            <span>Đơn Chờ Duyệt</span>
-                                                        </div>
-                                                        <div class="chart-note mr-0 d-block">
-                                                            <span class="dot dot--red"></span>
-                                                            <span>Đơn Đã Duyệt</span>
-                                                        </div>
-                                                        <div class="chart-note mr-0 d-block">
-                                                            <span class="dot dot--green"></span>
-                                                            <span>Đơn Đã Hủy</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6">
-                                                    <div class="percent-chart">
-                                                        <canvas id="percent-chart">
-                                                        </canvas>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-lg-9">
                                     <h2 class="title-1 m-b-25">Top Sản Phẩm Bán Chạy</h2>
                                     <div class="table-responsive table--no-card m-b-40">

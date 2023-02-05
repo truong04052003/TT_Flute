@@ -116,6 +116,6 @@ class UserController extends Controller
                 $email->to($customer->email, $customer->name);
             });
         }
-        return redirect()->route('postlogin');
+        return redirect()->route('login');
     }
     }
