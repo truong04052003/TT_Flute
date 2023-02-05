@@ -40,7 +40,7 @@ class OrderController extends Controller
     }
     public function cancel(){
         $orderCancel = $this->orderService->orderCancel();
-        return view('admin.orders.cancel',compact('orderCancel'));
+        return view('admin.orders.cancel',compact('orderCancel'));  
     }
     public function browser(){
         $orderBrowser = $this->orderService->orderBrowser();
