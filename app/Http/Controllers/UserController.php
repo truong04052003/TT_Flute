@@ -34,7 +34,6 @@ class UserController extends Controller
         $this->authorize('viewAny', User::class);
         $groups = Group::get();
         $users = $this->userService->all($request);
-        // dd($users);/
         return view('admin.users.index', compact('users', 'groups'));
     }
 

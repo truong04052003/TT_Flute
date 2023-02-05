@@ -52,10 +52,7 @@
                                                     <td>{{ $group->name }}</td>
                                                     <td>{{ count($group->users) }} Người</td>
                                                     <td>
-                                                        <form action="{{ route('group.destroy', $group->id) }}"
-                                                            method="post">
-                                                            @method('DELETE')
-                                                            @csrf
+                                                      
                                                             @if (Auth::user()->hasPermission('Group_create'))
                                                                 <a href="{{ route('group.detail', $group->id) }}"
                                                                     class='btn btn-info'>
@@ -76,7 +73,7 @@
                                                                 </i>
                                                             @endif
                                                             @if (Auth::user()->hasPermission('Group_delete'))
-                                                                <button  data-href=""
+                                                                <button data-href="{{route('group.destroy', $group->id)}}"
                                                                     id="{{ $group->id }}"
                                                                     class="btn btn-danger sm deleteIcon">Xóa</button>
                                                             @else
@@ -87,7 +84,7 @@
                                                                 </i>
                                                             @endif
 
-                                                        </form>
+                                                       
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -114,7 +111,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(document).on('click', '.deleteIcon', function(e) {
-        // e.preventDefault();
+    //   console.log(123);
         let id = $(this).attr('id');
         let href = $(this).data('href');
         let csrf = '{{ csrf_token() }}';
@@ -128,7 +125,7 @@
             cancelButtonColor: '#d33',
             confirmButtonText: 'Có, xóa!'
         }).then((result) => {
-            if (result.isConfirmed) {
+            if (result.value) {
                 $.ajax({
                     url: href,
                     method: 'delete',
@@ -136,6 +133,7 @@
                         _token: csrf
                     },
                     success: function(res) {
+                        console.log(567);
                         Swal.fire(
                             'Deleted!',
                             'Tệp của bạn đã bị xóa!',
