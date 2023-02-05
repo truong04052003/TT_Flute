@@ -45,7 +45,7 @@
                                             @error('category_id')
                                                 <div class="text text-danger">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div><br>
             
                                         <div class="mb-3">
                                             <label class="form-label">Nhà sản xuất</label>

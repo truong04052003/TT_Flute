@@ -8,8 +8,15 @@ use App\Models\Group;
 use App\Services\User\UserServiceInterface;
 use App\Services\Group\GroupServiceInterface;
 
+
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use App\Http\Requests\User\UpdatepassRequest;
 
 
 class UserController extends Controller
@@ -43,7 +50,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->userService->create($request);
-        return redirect()->route('users.index');
+        try {
+            toast('Thêm Nhân Viên Thành Công!', 'success', 'top-right');
+            return redirect()->route('users.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Thêm Nhân Viên Không Thành Công!', 'danger', 'top-right');
+            return redirect()->route('users.index');
+        }
     }
 
     public function show($id)
@@ -65,7 +79,14 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->userService->update($request, $id);
-        return redirect()->route('users.index');
+        try {
+            toast('Sửa Nhân Viên Thành Công!', 'success', 'top-right');
+            return redirect()->route('users.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Sửa Nhân Viên Không Thành Công!', 'danger', 'top-right');
+            return redirect()->route('users.index');
+        }
     }
 
 
@@ -75,6 +96,7 @@ class UserController extends Controller
         $user = $this->userService->delete($id);
         return redirect()->route('users.index');
     }
+
     public function forget_password(){
         return view('admin.auth.formtakepassword');
     }

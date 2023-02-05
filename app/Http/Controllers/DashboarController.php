@@ -22,7 +22,6 @@ class DashboarController extends Controller
 
     public function index(Request $request)
     {
-        // $orders = $this->orderService->all($request);
         $productnew = Product::take(5)->get();
         $users = User::get();
         $totalCustomer  =  Customer::pluck('id')->count();

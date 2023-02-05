@@ -38,10 +38,6 @@
                                         <a href="{{ route('users.show', Auth::user()->id) }}">
                                             Account</a>
                                     </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            Cài đặt</a>
-                                    </div>
                                 </div>
                                 <div class="account-dropdown__footer">
                                     <a href="{{route('logout')}}">

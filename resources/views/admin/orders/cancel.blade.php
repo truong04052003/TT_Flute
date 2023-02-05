@@ -9,7 +9,7 @@
                             <li class="nav-item offset-8">
                                 <a href="{{ route('orders.index') }}" class="nav-link">Tất Cả</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item ">
                                 <a href="{{ route('orders.wait') }}" class="nav-link">Chờ
                                     Duyệt</a>
                             </li>
@@ -25,47 +25,45 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-
-                                    <table class="table">
+                                    <table class="table datatable">
                                         <thead>
-                                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>
-                                            <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a>
-
                                             <tr>
-                                                <th colspan="2">STT</th>
-                                                <th colspan="2">Tên</th>
-                                                <th colspan="2">Email</th>
-                                                <th colspan="2">Ngày giao</th>
-                                                <th colspan="2">Trạng thái</th>
-                                                <th colspan="2">Tùy chọn</th>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Tên Khách Hàng</th>
+                                                <th scope="col">Số Điện Thoại</th>
+                                                <th scope="col">Ghi Chú</th>
+                                                <th scope="col">Trạng Thái</th>
+                                                <th scope="col">Duyệt</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($items as $key => $item)
+                                            @foreach ($orderCancel as $key => $cancel)
                                                 <tr>
                                                     <th scope="row">{{ ++$key }}</th>
-                                                    <td colspan="2">{{ $item->customer->name }}</td>
-                                                    <td colspan="2">{{ $item->customer->email }}</td>
-                                                    <td colspan="2">{{ $item->note }}</td>
-                                                    <td colspan="2">
-                                                        @if ($item->status === 0)
-                                                            <h5 style="color: rgb(1, 48, 255)">Chờ Duyệt</h5>
+                                                    <td>{{ $cancel->customer->name }}</td>
+                                                    <td>{{ $cancel->customer->phone }}</td>
+                                                    <td>{{ $cancel->note }}</td>
+                                                    <td>
+                                                        @if ($cancel->status === 0)
+                                                            <h4 style="color: silver"><i
+                                                                    class="bi bi-bookmark-plus-fill"></i></h4>
                                                         @endif
-                                                        @if ($item->status === 1)
-                                                            <h5 style="color: rgb(247, 84, 9)">Duyệt</h5>
+                                                        @if ($cancel->status === 1)
+                                                            <h4 style="color: green"><i
+                                                                    class="bi bi-bookmark-check-fill"></i></h4>
                                                         @endif
-                                                        @if ($item->status === 2)
-                                                            <h5 style="color: red">Hủy Đơn</h5>
+                                                        @if ($cancel->status === 2)
+                                                            <h4 style="color: red"><i class="bi bi-bookmark-x-fill"></i>
+                                                            </h4>
                                                         @endif
                                                     </td>
-                                                    <td colspan="2">
-                                                        <a href="{{ route('orders.detail', [$item->id]) }}"
-                                                            class="btn btn-info">Chi tiết</a>
-                                                    </td>
+                                                    <td><a class='btn btn-warning'
+                                                            href="{{ route('orders.show', $cancel->id) }}">Chi
+                                                            tiết</a></td>
                                                 </tr>
                                             @endforeach
+                                        </tbody>
                                     </table>
-                                    {{ $items->onEachSide(5)->links() }}
                                 </div>
                             </div>
                         </div>

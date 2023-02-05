@@ -9,6 +9,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
+                                    <h2 style="text-align: center">Thùng rác</h2><br>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -37,9 +38,9 @@
                                                             @method('DELETE')
                                                             @csrf
                                                             <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                                class="btn btn-danger">Delete Forever</button>
+                                                                class="btn btn-danger">Xóa vĩnh viễn</button>
                                                             <a href="{{ route('products.restore', [$item->id]) }}"
-                                                                class="btn btn-primary">Restore</a>
+                                                                class="btn btn-primary">Khôi phục</a>
                                                         </form>
                                                     </td>
                                                 </tr>

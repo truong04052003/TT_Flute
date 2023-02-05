@@ -1,6 +1,8 @@
 @extends('admin.layouts.master')
 @section('content')
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
+    @include('admin.product.advanceSearch')
+
     <div class="page-container">
         <div class="main-content">
             <div class="container">
@@ -9,7 +11,9 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <table class="table">
+                                    <table class="table"><br>
+                                        <h2 style="text-align: center">Danh Sách Sản Phẩm</h2><br>
+
                                         @if (Auth::user()->hasPermission('Product_create'))
                                             <a href="{{ route('products.create') }}" class="btn btn-primary">Thêm sản
                                                 phẩm</a>
@@ -18,8 +22,9 @@
                                         @endif
                                         <a href="{{ route('products.trash') }}" class="btn btn-danger">Thùng Rác</a>
                                         <a href="{{ route('products.export') }}" class="btn btn-info">Xuất file excel</a>
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                            data-bs-target="#searchModal">Tìm chi tiết</button>
                                         <table class="table" style="text-align: center">
-
                                             <thead>
                                                 <tr>
                                                     <th colspan="2">STT</th>
@@ -86,12 +91,13 @@
                                                     </tr>
                                                 @endforeach
                                             </tbody>
+
                                         </table>
                                 </div>
+                                {{ $items->onEachSide(5)->links() }}
                             </div>
                         </div>
-                    </section>
-                    {{ $items->onEachSide(5)->links() }}
+                </section>
             </div>
         </div>
     </div>

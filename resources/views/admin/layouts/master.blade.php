@@ -34,8 +34,17 @@
     <meta name="robots" content="index, nofollow">
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <style>
+        /* bỏ gạch chân sidbar */
         a {
             text-decoration: none
+        }
+
+        ul.pagination {
+            margin: 18px 0px 0px 976px;
+        }
+        /* bỏ gạch chân sidbar */
+        a.fas {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -54,5 +63,5 @@
 <script src="{{ asset('admin/vendor/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('admin/vendor/animsition/animsition.min.js') }}"></script>
 <script src="{{ asset('admin/js/main.js') }}"></script>
-</html>
 
+</html>

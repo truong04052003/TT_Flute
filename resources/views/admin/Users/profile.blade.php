@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-{{-- @section('content') --}}
+@include('sweetalert::alert')
     <style>
         img#avtshow {
             border: 3px solid rgb(150, 0, 0);
@@ -55,19 +55,10 @@
                             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Thông
                                 tin</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Khác</button>
-                        </li>
                         @if(Auth()->user()->id ==  $users->id )
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Thay đổi
                                 mật khẩu</button>
-                        </li>
-                        @endif
-                        @if (Auth::user()->hasPermission('User_adminupdatepass'))
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab"
-                                data-bs-target="#profile-change-password-by-mail">Đổi mật khẩu</button>
                         </li>
                         @endif
                     </ul>
@@ -122,7 +113,11 @@
                             </div> <br>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h5>Ngày sinh</h3>
+                                    <h5>Gia Nhập TT Flute</h5>
+                                </div>
+                                <div class="col-sm-9">
+                                    <small id="" class="form-text text-muted">Năm-Tháng-Ngày Giờ-Phút-Giây</small>
+                                    <h5>{{ $users->created_at }}</h5>
                                 </div>
                             </div>
                             <hr>
@@ -148,30 +143,12 @@
                                     {{ Session::get('error') }}
                                 </p>
                             @endif
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h5>Mã số {{ $users->groups->name }}</h5>
-                                </div>
-                                <div class="col-sm-9">
-                                    <h3>#0068{{ $users->id }}</h3>
-                                </div>
-                            </div>
-                            <hr>
-
-                            <div class="row">
-                                <div class="col-sm-9">
-                                    <small id="" class="form-text text-muted">Năm-Tháng-Ngày Giờ-Phút-Giây</small>
-                                    <h3>{{ $users->created_at }}</h3>
-                                </div>
-                                <hr>
-                            </div>
                         </div>
                     </div>
                     {{-- ================================ --}}
                     <div class="tab-content pt-2" >
                         <div class="tab-pane profile-change-password" id="profile-change-password">
-                        <!-- Change Password Form -->
-                        <form action="" method="post">
+                        <form action="{{ route('user-update-password', Auth()->user()->id)}}" method="post">
                           @method('POST')
                           @csrf
                           <div class="row mb-3">
@@ -204,39 +181,7 @@
                           <div class="text-center">
                             <button type="submit" class="btn btn-primary">Thay đổi mật khẩu</button>
                           </div>
-                        </form><!-- End Change Password Form -->
-                      </div>
-                    </div>
-
-                    <div class="tab-content pt-2" >
-                        <div class="tab-pane profile-change-password" id="profile-change-password-by-mail">
-                        <!-- Change Password Form -->
-                       <h3>Đổi mật khẩu của : {{ $users->name }}</h3>
-                        <form action="" method="post">
-                          @method('PUT')
-                          @csrf
-                          <div class="row mb-3">
-                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Mật khẩu mới</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="newpassword" type="password" class="form-control" id="newPassword">
-                              @error('newpassword')
-                              <div class="text text-danger">{{ $message }}</div>
-                          @enderror
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Nhập lại mật khẩu mới</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                              @error('renewpassword')
-                              <div class="text text-danger">{{ $message }}</div>
-                          @enderror
-                            </div>
-                          </div>
-                          <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Thay đổi mật khẩu</button>
-                          </div>
-                        </form><!-- End Change Password Form -->
+                        </form>
                       </div>
                     </div>
 

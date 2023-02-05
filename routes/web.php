@@ -69,6 +69,7 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::put('/update/{id}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
         Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
+        Route::post('update-password/{id}', [UserController::class, 'update_password'])->name('user-update-password');
     });
 
     Route::prefix('groups')->group(function () {
@@ -94,5 +95,9 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
 Route::group(['prefix' => 'orders'], function () {
     Route::get('/', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/export-orders', [OrderController::class, 'export'])->name('orders.export');
-    Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
+    Route::get('/show/{id}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('/wait', [OrderController::class, 'wait'])->name('orders.wait');
+    Route::get('/cancel', [OrderController::class, 'cancel'])->name('orders.cancel');
+    Route::get('/browser', [OrderController::class, 'browser'])->name('orders.browser');
+    Route::put('/{id}', [OrderController::class, 'update'])->name('orders.update');
 });

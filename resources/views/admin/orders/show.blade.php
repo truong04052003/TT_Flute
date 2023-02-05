@@ -14,7 +14,8 @@
                                     </div>
                                     <div class="card-body p-4">
                                         <div class="d-flex justify-content-between align-items-center mb-4">
-                                            <p class="lead fw-normal mb-0" style="color: rgb(248, 61, 61);">Sản Phẩm Đã Mua</p>
+                                            <p class="lead fw-normal mb-0" style="color: rgb(248, 61, 61);">Sản Phẩm Đã Mua
+                                            </p>
                                         </div>
                                         @php
                                             $total = 0;
@@ -35,7 +36,7 @@
                                                 Tổng Giá</div>
                                         </div>
                                         @foreach ($order_details as $key => $order_detail)
-                                        {{-- @php
+                                            {{-- @php
                                             dd($order_detail)
                                         @endphp --}}
                                             @php $total += $order_detail->quantity * $order_detail->price  @endphp
@@ -72,7 +73,7 @@
                                             </div>
                                         @endforeach
                                         <div class="d-flex justify-content-between pt-2">
-                                            <h3 style="color: rgb(248, 61, 61)" >Thông Tin Khách Hàng</h3>
+                                            <h3 style="color: rgb(248, 61, 61)">Thông Tin Khách Hàng</h3>
                                         </div>
                                         <div class="d-flex justify-content-between pt-2">
                                             <p class="text-muted mb-0">Tên khách hàng </p>
@@ -99,6 +100,32 @@
                                             </p>
                                         </div>
                                     </div>
+                                    <form action="{{ route('orders.update',$order->id) }}" method="POST">
+                                        @csrf
+                                        @method('put')
+                                        <label>
+                                            <h5><b>Trạng thái :</b></h5>
+                                        </label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status"
+                                                id="inlineRadio1" value="0"
+                                                {{ $order->status == '0' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="inlineRadio1">Chờ duyệt</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status"
+                                                id="inlineRadio2" value="1"
+                                                {{ $order->status == '1' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="inlineRadio2">Duyệt</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status"
+                                                id="inlineRadio3" value="2"
+                                                {{ $order->status == '2' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="inlineRadio3">Hủy đơn</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                    </form>
                                     <div class="card-footer border-0 px-2 py-3"
                                         style="background-color: rgb(248, 61, 61); border-bottom-left-radius: 7px; border-bottom-right-radius: 7px;">
                                         <h5
@@ -108,6 +135,7 @@
                                             </span>
                                         </h5>
                                     </div>
+                                   
                                 </div>
                                 <a href="{{ route('orders.index') }}" class="btn btn-danger">Back</a>
                             </div>
