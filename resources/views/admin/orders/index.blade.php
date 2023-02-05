@@ -5,32 +5,32 @@
             <div class="container">
                 <section class="section">
                     <div class="row">
-                        <ul class="nav nav-tabs nav-tabs-bordered">
-                            <li class="nav-item offset-8">
-                                <a href="{{ route('orders.index') }}" class="nav-link">Tất Cả</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.wait') }}" class="nav-link">Chờ
-                                    Duyệt</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.browser') }}" class="nav-link">Đã
-                                    Duyệt</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.cancel') }}" class="nav-link">Đã
-                                    Hủy</a>
-                            </li>
-                        </ul>
+                      
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
 
                                     <table class="table">
                                         <thead>
-                                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>
-                                            <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a>
-
+                                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2><br>
+                                            <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a><hr>
+                                            <ul class="nav nav-tabs nav-tabs-bordered">
+                                                <li class="nav-item offset-7">
+                                                    <a href="{{ route('orders.index') }}" class="nav-link">Tất Cả</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="{{ route('orders.wait') }}" class="nav-link">Chờ
+                                                        Duyệt</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="{{ route('orders.browser') }}" class="nav-link">Đã
+                                                        Duyệt</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="{{ route('orders.cancel') }}" class="nav-link">Đã
+                                                        Hủy</a>
+                                                </li>
+                                            </ul>
                                             <tr>
                                                 <th colspan="2">STT</th>
                                                 <th colspan="2">Tên</th>
@@ -52,7 +52,7 @@
                                                             <h5 style="color: rgb(1, 48, 255)">Chờ Duyệt</h5>
                                                         @endif
                                                         @if ($item->status === 1)
-                                                            <h5 style="color: rgb(247, 84, 9)">Duyệt</h5>
+                                                            <h5 style="color:green">Đã Duyệt</h5>
                                                         @endif
                                                         @if ($item->status === 2)
                                                             <h5 style="color: red">Hủy Đơn</h5>

@@ -45,16 +45,13 @@
                                                     <td>{{ $cancel->note }}</td>
                                                     <td>
                                                         @if ($cancel->status === 0)
-                                                            <h4 style="color: silver"><i
-                                                                    class="bi bi-bookmark-plus-fill"></i></h4>
+                                                            <h4 style="color: rgb(1, 48, 255)">Chờ duyệt</h4>
                                                         @endif
                                                         @if ($cancel->status === 1)
-                                                            <h4 style="color: green"><i
-                                                                    class="bi bi-bookmark-check-fill"></i></h4>
+                                                            <h4 style="color: green">Đã Duyệt</h4>
                                                         @endif
                                                         @if ($cancel->status === 2)
-                                                            <h4 style="color: red"><i class="bi bi-bookmark-x-fill"></i>
-                                                            </h4>
+                                                            <h4 style="color: red">Hủy Đơn</h4>
                                                         @endif
                                                     </td>
                                                     <td><a class='btn btn-warning'
