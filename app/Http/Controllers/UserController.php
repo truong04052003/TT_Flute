@@ -89,11 +89,11 @@ class UserController extends Controller
                 'pass' => $pass,
                 'email' => $customer->email,
             ];
-            Mail::send('admin.auth.login', compact('data'), function ($email) use ($customer) {
-                $email->subject('Shop Hoa Qủa');
+            Mail::send('mail.mailUser', compact('data'), function ($email) use ($customer) {
+                $email->subject('Shop Bán Sáo');
                 $email->to($customer->email, $customer->name);
             });
         }
-        return redirect()->route('forget-password');
+        return redirect()->route('postlogin');
     }
     }
