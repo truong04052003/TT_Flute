@@ -24,6 +24,8 @@ use App\Http\Controllers\DashboarController;
 // login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');
+Route::get('/forget-password', [UserController::class, 'forget_password'])->name('forget-password');
+Route::post('/post-forget-password', [UserController::class, 'post_forget_password'])->name('post-forget-password');
 
 Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::get('/', [DashboarController::class, 'index'])->name('dashboard');

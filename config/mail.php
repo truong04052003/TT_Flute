@@ -79,7 +79,6 @@ return [
             ],
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -92,10 +91,9 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => "toandang7112004@gmail.com",
+        'name' => "TT Flute",
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
