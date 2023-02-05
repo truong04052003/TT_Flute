@@ -154,7 +154,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     }
     public function deleteforever($id)
     {
-        $result = $this->model->onlyTrashed()->find($id);
+        $result = $this->model->onlyTrashed()->find($id)->forceDelete();
         return $result;
     }
 }

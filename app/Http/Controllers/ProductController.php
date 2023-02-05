@@ -112,7 +112,6 @@ class ProductController extends Controller
         $this->authorize('deleteforever', Product::class);
         $items = $this->productService->deleteforever($id);
         try {
-            $items = $this->productService->deleteforever($id);
             toast('Xóa Vĩnh Viễn Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {

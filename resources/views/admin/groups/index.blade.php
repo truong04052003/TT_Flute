@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
+@include('sweetalert::alert')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +76,7 @@
                                                                 </i>
                                                             @endif
                                                             @if (Auth::user()->hasPermission('Group_delete'))
-                                                                <button  data-href="{{ route('group.destroy', $group->id) }}"
+                                                                <button  data-href=""
                                                                     id="{{ $group->id }}"
                                                                     class="btn btn-danger sm deleteIcon">Xóa</button>
                                                             @else

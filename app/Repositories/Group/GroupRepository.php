@@ -57,6 +57,7 @@ class GroupRepository extends BaseRepository implements GroupRepositoryInterface
         $group = $this->model->onlyTrashed()->findOrFail($id);
         $group->forceDelete();
         return $group;
+        
     }
     public function detail($id)
     {
@@ -84,6 +85,5 @@ class GroupRepository extends BaseRepository implements GroupRepositoryInterface
         $group = Group::find($id);
         $group->roles()->detach();
         $group->roles()->attach($request->roles);
-        // return true;
     }
 }
