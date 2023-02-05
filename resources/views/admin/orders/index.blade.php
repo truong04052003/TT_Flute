@@ -8,11 +8,10 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-
-                                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>
-                                            <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a>
+                                    <table class="table"style="text-align: center">
+                                        <thead><br>
+                                            <h2 style="text-align: center">Danh Sách Đơn Hàng</h2>  
+                                            <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a><br><br>
 
                                             <tr>
                                                 <th colspan="2">STT</th>
@@ -40,11 +39,11 @@
                                     </tbody>
                                         </tbody>
                                     </table>
+                                    {{ $items->onEachSide(5)->links() }}
                                 </div>
                             </div>
                         </div>
                 </section>
-                {{ $items->onEachSide(5)->links() }}
             </div>
         </div>
     </div>
