@@ -8,9 +8,9 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <table class="table">
+                                    <table class="table"style="text-align: center">
                                         <thead>
-                                            <h2 style="text-align: center">Danh Sách Khách Hàng</h2>
+                                            <h2 style="text-align: center">Danh Sách Khách Hàng</h2><br>
                                             <tr>
                                                 <th colspan="2">STT</th>
                                                 <th colspan="2">Tên khách hàng</th>
@@ -32,11 +32,11 @@
                                         </tbody>
                                         </tbody>
                                     </table>
+                                    {{ $items->onEachSide(5)->links() }}
                                 </div>
                             </div>
                         </div>
                 </section>
-                {{ $items->onEachSide(5)->links() }}
             </div>
         </div>
     </div>

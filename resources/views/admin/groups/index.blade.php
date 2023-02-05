@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-{{-- @section('content') --}}
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +22,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <br>
-                                    <h2 class="offset-4">
+                                    <h2 style="text-align: center">
                                         Danh Sách Quyền
                                     </h2>
                                     @if (Auth::user()->hasPermission('Group_create'))
@@ -33,7 +33,7 @@
                                     @endif
                                     </a>
                                     <a class="btn btn-danger" href="{{ route('group.trash') }}"> Thùng rác </a>
-                                    <table class="table">
+                                    <table class="table" style="text-align: center">
                                         <thead>
                                             <tr>
                                                 <th scope="col">STT</th>
@@ -92,19 +92,17 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <div style="float:right">
-                                        {{-- {{ $groups->onEachSide(5)->links() }} --}}
-                                    </div>
+                                    {{ $groups->onEachSide(5)->links() }}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                {{ $groups->onEachSide(5)->links() }}
+              
             </div>
         </div>
     </div>
-    {{-- @endsection --}}
+    @endsection
 </body>
 
 </html>

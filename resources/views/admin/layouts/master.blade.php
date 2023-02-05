@@ -34,12 +34,17 @@
     <meta name="robots" content="index, nofollow">
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <style>
+        /* bỏ gạch chân sidbar */
         a {
             text-decoration: none
         }
 
         ul.pagination {
             margin: 18px 0px 0px 976px;
+        }
+        /* bỏ gạch chân sidbar */
+        a.fas {
+            text-decoration: none;
         }
     </style>
 </head>

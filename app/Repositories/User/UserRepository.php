@@ -49,27 +49,6 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $query->Groupuser(request(['groupuser']));
         $query->Iduser(request(['iduser']));
         return $query->orderBy('id', 'DESC')->paginate(5);
-     
-    }
-    public function update($request, $id)
-    {
-        $user = $this->model->find($id);
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->email = $request->email;
-        $user->gender = $request->gender;
-        $user->address = $request->address;
-        $user->group_id = $request->group_id;
-        if ($request['image']) {
-            $file = $request['image'];
-            $fileExtension = $file->getClientOriginalExtension();
-            $fileName = time();
-            $newFileName = $fileName . '.' . $fileExtension;
-            $path = 'storage/' . $request['image']->store('images', 'public');
-            $user->image = $path;
-        }
-        $user->save();
-        return true;
     }
     public function create($data)
     {
@@ -98,9 +77,29 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             return false;
         }
     }
+    public function update($request, $id)
+    {
+        $user = $this->model->find($id);
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->gender = $request->gender;
+        $user->address = $request->address;
+        $user->group_id = $request->group_id;
+        if ($request['image']) {
+            $file = $request['image'];
+            $fileExtension = $file->getClientOriginalExtension();
+            $fileName = time();
+            $newFileName = $fileName . '.' . $fileExtension;
+            $path = 'storage/' . $request['image']->store('images', 'public');
+            $user->image = $path;
+        }
+        $user->save();
+        return true;
+    }
+
     public function softDeletes($id)
     {
-       
     }
     public function delete($id)
     {
@@ -114,23 +113,17 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     }
     public function restore($id)
     {
-      
     }
     public function trash($request)
     {
-      
     }
     public function deletes($id)
     {
-     
     }
     public function loginProcessing($data)
     {
-      
     }
     public function logout()
     {
     }
-
- 
 }
