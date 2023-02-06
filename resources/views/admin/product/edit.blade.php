@@ -73,9 +73,17 @@
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="mb-3">
-                                            <label class="form-label">Ảnh</label>
-                                            <input type="file" value="{{ $items->image }}" name="image"
-                                                class="form-control">
+                                            <label for="inputCity" class="form-label">Ảnh</label>
+                                            <input accept="image/*" type='file' id="inputFile"
+                                                name="image" value="{{$items->image}}"
+                                                class="form-control @error('image') is-invalid @enderror"><br>
+                                            @error('image')
+                                                <div class="text text-danger">{{ $message }}</div>
+                                            @enderror
+                                            <br>
+                                            <img type="hidden" width="120px" height="120px"
+                                                id="blah1" src="{{ asset('public/uploads/' .$items->image) }}" alt="" />
+
                                         </div>
                                         @error('name')
                                             <div class="alert alert-danger ">{{ $message }}</div>
@@ -111,4 +119,21 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('admin/vendor/jquery-3.2.1.min.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            if ($('#blah').hide()) {
+                $('#blah').hide();
+            }
+            jQuery('#inputFile').change(function() {
+                $('#blah').show();
+                const file = jQuery(this)[0].files;
+                if (file[0]) {
+                    jQuery('#blah').attr('src', URL.createObjectURL(file[0]));
+                    jQuery('#blah1').attr('src', URL.createObjectURL(file[0]));
+                }
+            });
+        });
+    </script>
 @endsection

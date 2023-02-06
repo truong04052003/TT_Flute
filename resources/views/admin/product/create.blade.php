@@ -57,26 +57,33 @@
 
                                         <div class="mb-3">
                                             <label class="form-label">Mô tả</label>
-                                            <textarea name="description" class="form-control" rows="4"
-                                                style="resize: none"></textarea>
+                                            <textarea name="description" class="form-control" rows="4" style="resize: none"></textarea>
                                         </div>
                                         @error('description')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="mb-3">
-                                            <label class="form-label">Ảnh</label>
-                                            <input type="file" name="image" class="form-control">
-                                        </div>
+                                            <label for="inputCity" class="form-label">Ảnh</label>
+                                            <input accept="image/*" type='file' id="inputFile" name="image"
+                                                class="form-control @error('image') is-invalid @enderror"><br>
+                                            @error('image')
+                                                <div class="text text-danger">{{ $message }}</div>
+                                            @enderror
+                                            <br>
+                                            <img type="hidden" width="120px" height="120px" id="blah" src=""
+                                                alt="" />
 
+                                        </div>
                                         <div class="mb-3">
-                                            <label for="file_name"><b>Hình ảnh liên quan</b></label>
+                                            <label for="file_name"><b>Hình ảnh chi tiết*</b></label>
                                             <div class="card_file_name">
                                                 <div
                                                     class="form-group form_input @error('file_names') border border-danger @enderror">
                                                     <input type="file" name="file_names[]" id="file_name" multiple
                                                         class="form-control  @error('file_name') is-invalid @enderror">
                                                     <span class="inner">
-                                                        <span class="select" style="color:red">Ctrl + click</span>
+                                                        <span class="select" style="color:red">Ctrl + click để chọn nhiều
+                                                            ảnh</span>
                                                     </span>
                                                 </div>
                                                 <div class="container_image">
@@ -86,7 +93,12 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <style>
+                                            img#blah {
+                                                width: 100px;
+                                                height: 100px;
+                                            }
+                                        </style>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <a href="{{ route('products.index') }}" class="btn btn-info">Back</a>
 
@@ -98,4 +110,30 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('admin/vendor/jquery-3.2.1.min.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            if ($('#blah').hide()) {
+                $('#blah').hide();
+            }
+            jQuery('#inputFile').change(function() {
+                $('#blah').show();
+                const file = jQuery(this)[0].files;
+                if (file[0]) {
+                    jQuery('#blah').attr('src', URL.createObjectURL(file[0]));
+                    jQuery('#blah1').attr('src', URL.createObjectURL(file[0]));
+                }
+            });
+        });
+        jQuery('input#file_name').on('change', function(e) {
+            const file = jQuery(this)[0].files;
+            image_html = ''
+            for (let object of file) {
+                image_html +=
+                    `<img width="100px" height="100px" id="blah" src="${URL.createObjectURL(object)}" alt="" />`
+            }
+            $('div.container_image').html(image_html);
+        });
+    </script>
 @endsection
