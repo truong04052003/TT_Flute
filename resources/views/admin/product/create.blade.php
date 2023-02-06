@@ -35,7 +35,7 @@
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="form-group col-4  ">
-                                            <label class="control-label" for="flatpickr01">Loại Sản Phẩm</label>
+                                            <label class="control-label" for="flatpickr01">Loại sản phẩm</label>
                                             <select name="category_id" id="" class="form-control">
                                                 <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($categories as $category)

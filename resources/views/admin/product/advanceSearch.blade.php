@@ -17,9 +17,9 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label" for="nameVi">Loại Sản Phẩm</label>
+                                <label class="form-label" for="nameVi">Loại sản phẩm</label>
                                 <select class=" form-select" name="category_id" id="category_id" style="width: 470px">
-                                    <option style="text-align: center" value="">---Loại Sản Phẩm Liên Quan---
+                                    <option style="text-align: center" value="">---Loại sản phẩm liên quan---
                                     </option>
                                     @foreach ($categories as $category)
                                         <option <?= request()->category_id == $category->id ? 'selected' : '' ?>

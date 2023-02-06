@@ -32,7 +32,7 @@
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="mb-3">
-                                            <label class="form-label">Số Lượng</label>
+                                            <label class="form-label">Số lượng</label>
                                             <input type="text" value="{{ $items->quantity }}" name="quantity"
                                                 class="form-control">
                                         </div>
@@ -40,7 +40,7 @@
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="form-select form-select-lg mb-3">
-                                            <label>Loại Sản Phẩm</label>
+                                            <label>Loại sản phẩm</label>
                                             <select name="category_id">
                                                 </option>
                                                 @foreach ($categories as $category)
@@ -56,7 +56,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Nhà Sản Xuất</label>
+                                            <label class="form-label">Nhà sản xuất</label>
                                             <input type="text" value="{{ $items->manufacture }}" name="manufacture"
                                                 class="form-control">
                                         </div>
@@ -65,7 +65,7 @@
                                         @enderror
 
                                         <div class="mb-3">
-                                            <label class="form-label">Mô Tả</label>
+                                            <label class="form-label">Mô tả</label>
                                             <textarea name="description" type="text" class="form-control" value="{{ $items->description }}" rows="4"
                                                 style="resize: none">{!! $items->description !!}</textarea>
                                         </div>

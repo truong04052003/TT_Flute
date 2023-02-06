@@ -7,19 +7,19 @@
                     <div class="row">
                         <ul class="nav nav-tabs nav-tabs-bordered">
                             <li class="nav-item offset-8">
-                                <a href="{{ route('orders.index') }}" class="nav-link">Tất Cả</a>
+                                <a href="{{ route('orders.index') }}" class="nav-link">Tất cả</a>
                             </li>
                             <li class="nav-item ">
                                 <a href="{{ route('orders.wait') }}" class="nav-link">Chờ
-                                    Duyệt</a>
+                                    duyệt</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('orders.browser') }}" class="nav-link">Đã
-                                    Duyệt</a>
+                                    duyệt</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('orders.cancel') }}" class="nav-link">Đã
-                                    Hủy</a>
+                                    hủy</a>
                             </li>
                         </ul>
                         <div class="col-lg-12">

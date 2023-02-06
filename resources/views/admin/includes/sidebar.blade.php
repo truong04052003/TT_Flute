@@ -13,37 +13,37 @@
 
                     <a href="{{ route('dashboard') }}" class="fas">
 
-                        Trang Chủ</a>
+                        Trang chủ</a>
                 </li>
                 <li>
                     <a href="{{ route('products.index') }}" class="fas">
-                        Quản Lí Sản Phẩm</a>
+                        Quản lí sản phẩm</a>
                 </li>
                 @if (Auth::user()->hasPermission('Group_viewAny'))
                 <li>
                     <a href="{{ route('group.index') }}" class="fas">
-                        Quản Lí Quyền</a>
+                        Quản lí quyền</a>
                 </li>
                 @endif
 
                 <li>
                     <a href="{{ route('orders.index') }}" class="fas">
-                        Quản Lí Đơn Hàng</a>
+                        Quản lí đơn hàng</a>
                 </li>
                 @if (Auth::user()->hasPermission('Customer_viewAny'))
 
                     <li>
                         <a href="{{ route('customers.index') }}" class="fas">
-                            Quản Lí Khách Hàng</a>
+                            Quản lí khách hàng</a>
                     </li>
                 @endif
                 <li>
                     <a href="{{ route('categories.index') }}" class="fas">
-                        Quản Lí Loại Sản Phẩm</a>
+                        Quản lí loại sản phẩm</a>
                 </li>
                 <li>
                     <a href="{{ route('users.index') }}" class="fas">
-                        Quản Lí Nhân Viên</a>
+                        Quản lí nhân viên</a>
                 </li>
 
             </ul>
