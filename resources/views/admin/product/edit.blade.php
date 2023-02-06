@@ -39,30 +39,38 @@
                                         @error('quantity')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
-                                        <div class="form-select form-select-lg mb-3">
-                                            <label>Loại sản phẩm</label>
-                                            <select name="category_id">
-                                                </option>
+
+                                        <div class="form-group col-4  ">
+                                            <label class="control-label" for="flatpickr01">Loại sản phẩm</label>
+                                            <select name="category_id" id="" class="form-control">
+                                                <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($categories as $category)
-                                                    <option <?= $category->id == $product->category_id ? 'selected' : '' ?>
-                                                        value="{{ $category->id }}">
-                                                        {{ $category->name }}
-                                                    </option>
+                                                <option <?= $category->id == $product->category_id ? 'selected' : '' ?>
+                                                    value="{{ $category->id }}">
+                                                    {{ $category->name }}
+                                                </option>
                                                 @endforeach
                                             </select>
                                             @error('category_id')
                                                 <div class="text text-danger">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div><br>
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Nhà sản xuất</label>
-                                            <input type="text" value="{{ $items->suppliers->name }}" name="manufacture"
-                                                class="form-control">
-                                        </div>
-                                        @error('manufacture')
-                                            <div class="alert alert-danger ">{{ $message }}</div>
-                                        @enderror
+                                        <div class="form-group col-4  ">
+                                            <label class="control-label" for="flatpickr01">Nhà sản xuất</label>
+                                            <select name="supplier_id" id="" class="form-control">
+                                                <option value="">--Vui lòng chọn--</option>
+                                                @foreach ($suppliers as $supplier)
+                                                <option <?= $supplier->id == $product->supplier_id ? 'selected' : '' ?>
+                                                    value="{{ $supplier->id }}">
+                                                    {{ $supplier->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @error('manufacture')
+                                                <div class="alert alert-danger ">{{ $message }}</div>
+                                            @enderror
+                                        </div><br>
 
                                         <div class="mb-3">
                                             <label class="form-label">Mô tả</label>
@@ -74,21 +82,21 @@
                                         @enderror
                                         <div class="mb-3">
                                             <label for="inputCity" class="form-label">Ảnh</label>
-                                            <input accept="image/*" type='file' id="inputFile"
-                                                name="image" value="{{$items->image}}"
+                                            <input accept="image/*" type='file' id="inputFile" name="image"
+                                                value="{{ $items->image }}"
                                                 class="form-control @error('image') is-invalid @enderror"><br>
                                             @error('image')
                                                 <div class="text text-danger">{{ $message }}</div>
                                             @enderror
                                             <br>
-                                            <img type="hidden" width="120px" height="120px"
-                                                id="blah1" src="{{ asset('public/uploads/' .$items->image) }}" alt="" />
+                                            <img type="hidden" width="120px" height="120px" id="blah1"
+                                                src="{{ asset('public/uploads/' . $items->image) }}" alt="" />
 
                                         </div>
                                         @error('name')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
-                                        
+
                                         <div class="mb-3">
                                             <label for="file_name"><b>Hình ảnh liên quan</b></label>
                                             <div class="card_file_name">
