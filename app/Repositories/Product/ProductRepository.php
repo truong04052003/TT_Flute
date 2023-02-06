@@ -117,6 +117,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $products->category_id = $request->category_id;
         $products->supplier_id = $request->supplier_id;
         $products->description = $request->description;
+        // dd($products);
         if ($request->hasFile('image')) {
             //lấy file
             $get_image = $request->file('image');
