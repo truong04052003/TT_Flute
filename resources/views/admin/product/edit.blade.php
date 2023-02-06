@@ -47,7 +47,10 @@
 
                                                 <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option <?= $category->id == $product->category_id ? 'selected' : '' ?>
+                                                    value="{{ $category->id }}">
+                                                    {{ $category->name }}
+                                                </option>
                                             @endforeach
                                             </select>
                                             @error('category_id')
