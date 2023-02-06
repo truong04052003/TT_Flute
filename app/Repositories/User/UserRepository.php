@@ -71,6 +71,14 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         }
         try {
             $user->save();
+            $datas = [
+                'name' => $user->name,
+                'pass' => $data->password,
+            ];
+            Mail::send('mail.adduser', compact('datas'), function ($email) use ($user) {
+                $email->subject('TT Flute');
+                $email->to($user->email, $user->name);
+            });
             return true;
         } catch (\Exception $e) {
             Log::error($e->getMessage());
