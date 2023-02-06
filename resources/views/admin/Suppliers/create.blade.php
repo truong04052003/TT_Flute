@@ -24,27 +24,35 @@
                                     <label for="inputName5" class="form-label">Tên nhà cung cấp</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
                                         id="inputName5" name='name' value="{{ old('name') }}">
-
+                                        @error('name')
+                                        <div class="text text-danger">{{ $message }}</div>
+                                    @enderror
 
                                     <div class="row g-3">
                                         <div class="col-md-12">
                                             <label for="inputEmail5" class="form-label">Email</label>
                                             <input type="email" class="form-control @error('email') is-invalid @enderror"
                                                 name='email' id="inputName5" value="{{ old('email') }}">
-
+                                                @error('email')
+                                                <div class="text text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col-md-12">
                                             <label for="inputPassword5" class="form-label">Địa chỉ</label>
                                             <input type="text"
                                                 class="form-control @error('address') is-invalid @enderror" name='address'
                                                 id="inputName5" value="{{ old('address') }}">
-
+                                                @error('address')
+                                                <div class="text text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col-md-12">
                                             <label for="inputPassword5" class="form-label">Số điện thoại</label>
                                             <input type="text" class="form-control @error('phone') is-invalid @enderror"
                                                 name='phone' id="inputName5" value="{{ old('phone') }}">
-
+                                                @error('phone')
+                                                <div class="text text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         
                                     </div><br>

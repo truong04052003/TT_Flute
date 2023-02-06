@@ -121,27 +121,12 @@
 
                                                         </div>
 
-                                                        <div class="col-lg-4">
-                                                            <div class="form-group">
-                                                                <label for="tf1">Ngày sinh<abbr
-                                                                        name="Trường bắt buộc">*</abbr></label> <input
-                                                                    name="birthday" type="date" class="form-control"
-                                                                    value="{{ old('birthday') }}">
-                                                                <small id=""
-                                                                    class="form-text text-muted"></small>
-                                                                @error('birthday')
-                                                                    <div class="text text-danger">{{ $message }}
-                                                                    </div>
-                                                                @enderror
-                                                            </div>
-                                                            <br>
-                                                        </div>
+
                                                         <div class="col-lg-12">
                                                             <div class="form-group">
                                                                 <label for="tf1">Địa chỉ chi tiết<abbr
                                                                         name="Trường bắt buộc">*</abbr></label> <input
-                                                                    name="address" type="text"
-                                                                    class="form-control"
+                                                                    name="address" type="text" class="form-control"
                                                                     value="{{ old('address') }}">
                                                                 <small id=""
                                                                     class="form-text text-primary">Ví dụ: Số 20/Hai Bà

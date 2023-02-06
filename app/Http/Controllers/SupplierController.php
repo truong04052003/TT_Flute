@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\supliers\StoreSuppliersRequest;
+use App\Http\Requests\supliers\UpdateSuppliersRequest;
 use App\Services\Supplier\SupplierServiceInterface;
 use Exception;
 use Illuminate\Http\Request;
@@ -30,7 +32,7 @@ class SupplierController extends Controller
         return view('admin.suppliers.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreSuppliersRequest $request)
     {
         $data = $request->all();
         $this->supplierService->create($data);
@@ -50,7 +52,7 @@ class SupplierController extends Controller
         return view('admin.suppliers.edit', compact('item'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateSuppliersRequest $request, $id)
     {
         // $data = $request->all();
         $items = $this->supplierService->update($request, $id);
