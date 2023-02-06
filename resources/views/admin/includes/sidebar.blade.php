@@ -45,6 +45,10 @@
                     <a href="{{ route('users.index') }}" class="fas">
                         Quản lí nhân viên</a>
                 </li>
+                <li>
+                    <a href="{{ route('suppliers.index') }}" class="fas">
+                        Quản lí nhà cung cấp</a>
+                </li>
 
             </ul>
         </nav>

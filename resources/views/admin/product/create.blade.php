@@ -47,13 +47,18 @@
                                             @enderror
                                         </div><br>
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Nhà sản xuất</label>
-                                            <input type="text" name="manufacture" class="form-control">
-                                        </div>
-                                        @error('manufacture')
-                                            <div class="alert alert-danger ">{{ $message }}</div>
-                                        @enderror
+                                        <div class="form-group col-4  ">
+                                            <label class="control-label" for="flatpickr01">Nhà sản xuất</label>
+                                            <select name="supplier_id" id="" class="form-control">
+                                                <option value="">--Vui lòng chọn--</option>
+                                                @foreach ($suppliers as $supplier)
+                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('supplier_id ')
+                                                <div class="text text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div><br>
 
                                         <div class="mb-3">
                                             <label class="form-label">Mô tả</label>

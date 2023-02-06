@@ -43,8 +43,14 @@ use App\Services\Api\Product\ApiProductService;
 use App\Repositories\Api\Product\ApiProductRepositoryInterface;
 use App\Repositories\Api\Product\ApiProductRepository;
 
+use App\Repositories\Supplier\SupplierRepository;
+use App\Repositories\Supplier\SupplierRepositoryInterface;
+
+use App\Services\Supplier\SupplierService;
+use App\Services\Supplier\SupplierServiceInterface;
 use App\Services\User\UserService;
 use App\Repositories\User\UserRepository;
+
 use Illuminate\Pagination\Paginator;
 
 
@@ -59,6 +65,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         /* singleton Services*/
+        $this->app->singleton(SupplierServiceInterface::class, SupplierService::class);
         $this->app->singleton(CategoryServiceInterface::class, CategoryService::class);
         $this->app->singleton(CustomerServiceInterface::class, CustomerService::class);     
         $this->app->singleton(ProductServiceInterface::class, ProductService::class);     
@@ -75,6 +82,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(UserRepositoryInterface::class, UserRepository::class);
         $this->app->singleton(ApiProductRepositoryInterface::class, ApiProductRepository::class);
 
+        $this->app->singleton(SupplierRepositoryInterface::class, SupplierRepository::class);
     }
 
     /**

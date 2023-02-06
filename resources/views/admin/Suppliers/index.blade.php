@@ -1,0 +1,65 @@
+@extends('admin.layouts.master')
+@section('content')
+    @include('sweetalert::alert')
+    <div class="page-container">
+        <div class="main-content">
+            <div class="container">
+                <main id="main" class="main">
+                    <div class="pagetitle">
+                        <h1 class="mb-1">Nhà Cung Cấp</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                                <li class="breadcrumb-item">Nhà Cung Cấp</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Danh Sách Nhà Cung Cấp</h5>
+
+                            <a class='btn btn-primary mb-2' href="{{ route('suppliers.create') }}">Thêm nhà cung cấp</a>
+                            <a class='btn btn-secondary mb-2 float-right' href="{{ route('suppliers.trash') }}">Thùng
+                                rác</a>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Tên</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Địa Chỉ</th>
+                                        <th scope="col">Số Điện Thoại</th>
+                                        <th scope="col">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($suppliers as $key => $supplier)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $supplier->name }}</td>
+                                            <td>{{ $supplier->email }}</td>
+                                            <td>{{ $supplier->address }}</td>
+                                            <td>{{ $supplier->phone }}</td>
+                                            <td>
+                                                <form action="{{ route('suppliers.destroy', $supplier->id) }}"
+                                                    method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <a href="{{ route('suppliers.edit', [$supplier->id]) }}"
+                                                        class="btn btn-warning">Sửa</a>
+                                                    <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
+                                                        class="btn btn-danger">Xóa</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $suppliers->onEachSide(5)->links() }}
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+@endsection

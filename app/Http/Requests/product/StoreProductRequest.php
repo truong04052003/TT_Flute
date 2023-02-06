@@ -28,7 +28,7 @@ class StoreProductRequest extends FormRequest
             'category_id' => 'required',
             'quantity' => 'required|min:1',
             'price' => 'required',
-            'manufacture' => 'required',
+            'supplier_id' => 'required',
             'description' => 'required',
             'image' => 'required',
         ];
@@ -41,7 +41,7 @@ class StoreProductRequest extends FormRequest
             'category_id.required' => 'Loại sản phẩm bắt buộc phải nhập!',
             'quantity.required' => 'Số lượng Sản Phẩm bắt buộc nhập',
             'quantity.min' => 'Số lượng Sản Phẩm lớn hơn hoặc bằng 1',
-            'manufacture.required' => 'sản xuất bắt buộc nhập',
+            'supplier_id.required' => 'sản xuất bắt buộc nhập',
             'price.required' => 'Giá Sản Phẩm bắt buộc nhập',
             'description.required' => 'Mô Tả Sản Phẩm bắt buộc nhập',
             'image.required' => 'Ảnh sản phẩm bắt buộc nhập',
