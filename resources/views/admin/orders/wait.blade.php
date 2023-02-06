@@ -5,6 +5,7 @@
             <div class="container">
                 <section class="section">
                     <div class="row">
+                        
                         <ul class="nav nav-tabs nav-tabs-bordered">
                             <li class="nav-item offset-8">
                                 <a href="{{ route('orders.index') }}" class="nav-link">Tất cả</a>
@@ -12,19 +13,20 @@
                             <li class="nav-item ">
                                 <a href="{{ route('orders.wait') }}" class="nav-link">Chờ
                                     duyệt</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.browser') }}" class="nav-link">Đã
-                                    duyệt</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.cancel') }}" class="nav-link">Đã
-                                    hủy</a>
-                            </li>
-                        </ul>
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('orders.browser') }}" class="nav-link">Đã
+                                        duyệt</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('orders.cancel') }}" class="nav-link">Đã
+                                            hủy</a>
+                                        </li>
+                                    </ul>
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                    <h2 style="text-align: center">Danh Sách Đơn Hàng</h2><br><br>
                                     <table class="table datatable">
                                         <thead>
                                             <tr>

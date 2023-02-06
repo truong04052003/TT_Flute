@@ -26,6 +26,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <table class="table datatable">
+                                    <h2 style="text-align: center">Danh Sách Đơn Hàng</h2><br><br>
+
                                         <thead>
                                             <tr>
                                                 <th scope="col">STT</th>
