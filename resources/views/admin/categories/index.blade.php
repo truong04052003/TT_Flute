@@ -13,7 +13,7 @@
 
                                     <table class="table"style="text-align: center">
                                         <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể loại</a>
-                                        <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng Rác</a>
+                                        <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng rác</a>
                                         <hr>
                                         <thead>
                                             <tr>

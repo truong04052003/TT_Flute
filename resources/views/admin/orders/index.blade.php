@@ -20,19 +20,19 @@
                                             <a href="{{ route('orders.export') }}" class="btn btn-info">Xuất file excel</a><hr>
                                             <ul class="nav nav-tabs nav-tabs-bordered">
                                                 <li class="nav-item offset-7">
-                                                    <a href="{{ route('orders.index') }}" class="nav-link">Tất Cả</a>
+                                                    <a href="{{ route('orders.index') }}" class="nav-link">Tất cả</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="{{ route('orders.wait') }}" class="nav-link">Chờ
-                                                        Duyệt</a>
+                                                        duyệt</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="{{ route('orders.browser') }}" class="nav-link">Đã
-                                                        Duyệt</a>
+                                                        duyệt</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="{{ route('orders.cancel') }}" class="nav-link">Đã
-                                                        Hủy</a>
+                                                        hủy</a>
                                                 </li>
                                             </ul>
                                             <tr>
@@ -53,13 +53,13 @@
                                                     <td colspan="2">{{ $item->note }}</td>
                                                     <td colspan="2">
                                                         @if ($item->status === 0)
-                                                            <h5 style="color: rgb(1, 48, 255)">Chờ Duyệt</h5>
+                                                            <h5 style="color: rgb(1, 48, 255)">Chờ duyệt</h5>
                                                         @endif
                                                         @if ($item->status === 1)
-                                                            <h5 style="color:green">Đã Duyệt</h5>
+                                                            <h5 style="color:green">Đã duyệt</h5>
                                                         @endif
                                                         @if ($item->status === 2)
-                                                            <h5 style="color: red">Hủy Đơn</h5>
+                                                            <h5 style="color: red">Hủy đơn</h5>
                                                         @endif
                                                     </td>
                                                     <td colspan="2">
