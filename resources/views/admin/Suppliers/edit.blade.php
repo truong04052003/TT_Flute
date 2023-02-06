@@ -56,17 +56,17 @@
                                             @enderror
                                         </div>
                                     </div><br>
-                                    <button type="submit" class="btn btn-primary">Sửa</button>
-                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    
+                                    <a href="{{ route('suppliers.index') }}" class="btn btn-info">Back</a>
                                 </div>
                             </form>
+
                         </div>
                     </div>
             </div>
             </main>
         </div>
-
     </div>
-
     </div>
 @endsection
