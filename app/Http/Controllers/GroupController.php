@@ -9,7 +9,8 @@ use App\Services\Group\GroupServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-
+use App\Http\Requests\Group\StoreGroupRequest;
+use App\Http\Requests\Group\UpdateGroupRequest;
 
 
 class GroupController extends Controller
@@ -31,7 +32,7 @@ class GroupController extends Controller
         $groups = $this->groupService->all($request);
         return view('admin.groups.create', compact('groups'));
     }
-    public function store(Request $request)
+    public function store(StoreGroupRequest $request)
     {
         $this->groupService->create($request);
         try {
@@ -52,7 +53,7 @@ class GroupController extends Controller
         $group = $this->groupService->find($id);
         return view('admin.groups.edit', compact('group'));
     }
-    public function update(Request $request, $id)
+    public function update(UpdateGroupRequest $request, $id)
     {
         $this->groupService->update($id, $request);
         try {
