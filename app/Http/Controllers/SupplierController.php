@@ -86,7 +86,7 @@ class SupplierController extends Controller
 
     public function restore($id)
     {
-        $this->supplierService->restore($id);
+        $items = $this->supplierService->restore($id);
         return redirect()->route('suppliers.getTrashed');
         // try {
         //     toast('Khôi Phục Thành Công!', 'success', 'top-right');

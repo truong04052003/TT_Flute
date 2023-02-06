@@ -111,6 +111,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function update($request, $id)
     {
         $products = $this->model->find($id);
+        // dd($request);
         $products->name = $request->name;
         $products->price = $request->price;
         $products->quantity = $request->quantity;
