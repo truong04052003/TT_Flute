@@ -87,14 +87,14 @@ class SupplierController extends Controller
     public function restore($id)
     {
         $items = $this->supplierService->restore($id);
-        return redirect()->route('suppliers.getTrashed');
-        // try {
-        //     toast('Khôi Phục Thành Công!', 'success', 'top-right');
-        // } catch (\exception $e) {
-        //     Log::error($e->getMessage());
-        //     toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
-        //     return redirect()->route('suppliers.getTrashed');
-        // }
+        try {
+            toast('Khôi Phục Thành Công!', 'success', 'top-right');
+            return redirect()->route('suppliers.getTrashed');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            return redirect()->route('suppliers.getTrashed');
+        }
     }
 
     public function force_destroy($id)

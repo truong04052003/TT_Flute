@@ -43,7 +43,7 @@
                             <b><i>Chúc Bạn Một Ngày Làm Việc Vui Vẻ!.</i></b><br>
                             <b><i>Thân Ái!.</i></b><br>
                             <h4><i>Trần Văn Trường (Mr.)</i></h4></p>
-                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#ee4c50;text-decoration:underline;">Email Liên Hệ: <a href="mailto:maixuancuong2906@gamil.com" style="color:rgb(17,85,204)"
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#ee4c50;text-decoration:underline;">Email Liên Hệ: <a href="mailto:tranvantruong10b2@gamil.com" style="color:rgb(17,85,204)"
                             target="_blank">tranvantruong10b2@gmail.com</a></a></p>
                         </td>
                         <td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>
@@ -51,7 +51,7 @@
                           <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://img4.thuthuatphanmem.vn/uploads/2020/08/28/background-chao-mung-powerpoint_090351149.jpg" alt="" width="260" style="height:auto;display:block;" /></p>
                           <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><b><i>Chào Mừng Bạn Đã Gia Nhập Vào Công Ty Của Chúng Tôi</i></b><br>
                             <b><i>Chúng Tôi Rất Mong Muốn Bạn Luôn Đồng hành Cùng Chúng Tôi Và Cống Hiến Hiến Mình. Mọi Nổ Lực Của Bạn Sẽ Được Đền Đáp</i></b><br></p></p>
-                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#ee4c50;text-decoration:underline;">XC-Shop Hân Hận Đón Tiếp</a></p>
+                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#ee4c50;text-decoration:underline;">TT-Flute Hân Hận Đón Tiếp</a></p>
                         </td>
                       </tr>
                     </table>
