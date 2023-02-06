@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="col mb-3">
                                             <dt>Nhà sản xuất</dt>
-                                            <p>{{ $items->manufacture }}</p>
+                                            <p>{{ $items->supplier->name }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -40,6 +40,7 @@
                                             <dt>Mô tả</dt>
                                             <p>{{ $items->description }}</p>
                                         </div>
+                                       
                                     </div>
                                 </div>
                             </div>

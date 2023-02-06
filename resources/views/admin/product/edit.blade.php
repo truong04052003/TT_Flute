@@ -57,7 +57,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label">Nhà sản xuất</label>
-                                            <input type="text" value="{{ $items->manufacture }}" name="manufacture"
+                                            <input type="text" value="{{ $items->suppliers->name }}" name="manufacture"
                                                 class="form-control">
                                         </div>
                                         @error('manufacture')

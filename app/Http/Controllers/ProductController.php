@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Http\Requests\product\StoreProductRequest;
 use App\Http\Requests\product\UpdateProductRequest;
+use App\Models\Supplier;
 use App\Services\Product\ProductServiceInterface;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
@@ -33,7 +34,8 @@ class ProductController extends Controller
     {
         $this->authorize('create', Product::class);
         $categories = Category::all();
-        return view('admin.product.create', compact('categories'));
+        $suppliers = Supplier::get();
+        return view('admin.product.create', compact('categories','suppliers'));
     }
 
     public function store(StoreProductRequest $request)

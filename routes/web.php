@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
@@ -59,7 +60,6 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::delete('/deleteforever/{id}', [ProductController::class, 'deleteforever'])->name('products.deleteforever');
         //xuất file excel
         Route::get('/export-products', [ProductController::class, 'export'])->name('products.export');
-
     });
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users.index');
@@ -91,16 +91,25 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
     });
 
-Route::group(['prefix' => 'orders'], function () {
-    Route::get('/', [OrderController::class, 'index'])->name('orders.index');
-    Route::get('/export-orders', [OrderController::class, 'export'])->name('orders.export');
-    Route::get('/show/{id}', [OrderController::class, 'show'])->name('orders.show');
-    Route::get('/wait', [OrderController::class, 'wait'])->name('orders.wait');
-    Route::get('/cancel', [OrderController::class, 'cancel'])->name('orders.cancel');
-    Route::get('/browser', [OrderController::class, 'browser'])->name('orders.browser');
-    Route::put('/{id}', [OrderController::class, 'update'])->name('orders.update');
+    Route::group(['prefix' => 'orders'], function () {
+        Route::get('/', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/export-orders', [OrderController::class, 'export'])->name('orders.export');
+        Route::get('/show/{id}', [OrderController::class, 'show'])->name('orders.show');
+        Route::get('/wait', [OrderController::class, 'wait'])->name('orders.wait');
+        Route::get('/cancel', [OrderController::class, 'cancel'])->name('orders.cancel');
+        Route::get('/browser', [OrderController::class, 'browser'])->name('orders.browser');
+        Route::put('/{id}', [OrderController::class, 'update'])->name('orders.update');
+    });
+    Route::prefix('suppliers')->group(function () {
+        Route::get('/', [SupplierController::class, 'index'])->name('suppliers.index');
+        Route::get('/create', [SupplierController::class, 'create'])->name('suppliers.create');
+        Route::post('/store', [SupplierController::class, 'store'])->name('suppliers.store');
+        Route::get('/edit/{id}', [SupplierController::class, 'edit'])->name('suppliers.edit');
+        Route::put('/update/{id}', [SupplierController::class, 'update'])->name('suppliers.update');
+        Route::delete('/destroy/{id}', [SupplierController::class, 'destroy'])->name('suppliers.destroy');
+        //thùng rác
+        Route::get('/getTrashed', [SupplierController::class, 'getTrashed'])->name('suppliers.trash');
+        Route::put('/restore/{id}', [SupplierController::class, 'restore'])->name('suppliers.restore');
+        Route::delete('/force_destroy/{id}', [SupplierController::class, 'force_destroy'])->name('suppliers.forcedelete');
+    });
 });
-
-});
-
-

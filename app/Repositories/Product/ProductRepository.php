@@ -69,12 +69,13 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function store($data)
     {
+        // dd($data);
         $products = $this->model;
         $products->name = $data['name'];
         $products->price = $data['price'];
         $products->quantity = $data['quantity'];
         $products->category_id = $data['category_id'];
-        $products->manufacture = $data['manufacture'];
+        $products->supplier_id = $data['supplier_id'];
         $products->description = $data['description'];
         if ($data->hasFile('image')) {
             //lấy file
@@ -114,7 +115,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $products->price = $request->price;
         $products->quantity = $request->quantity;
         $products->category_id = $request->category_id;
-        $products->manufacture = $request->manufacture;
+        $products->supplier_id = $request->supplier_id;
         $products->description = $request->description;
         if ($request->hasFile('image')) {
             //lấy file
