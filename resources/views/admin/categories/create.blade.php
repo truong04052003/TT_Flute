@@ -11,7 +11,7 @@
                                 <div class="card-body">
                                     <form action="{{ route('categories.store') }}" method="post">
                                         @csrf
-                                        <h2 style="text-align: center">Thêm Mới</h2>
+                                        <h2 style="text-align: center">Thêm thể loại</h2>
                                         <div class="mb-3">
                                             <label class="form-label">Tên thể loại</label>
                                             <input type="text" name="name" class="form-control">

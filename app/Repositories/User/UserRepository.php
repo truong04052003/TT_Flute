@@ -117,7 +117,6 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         } catch (\Exception $e) {
             Log::error($e->getMessage());
         }
-        return $category;
     }
     public function restore($id)
     {

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
     <div class="page-container">
         <div class="main-content">
             <div class="container">
@@ -9,6 +9,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
+                                    <h2 style="text-align: center">Thùng rác</h2><br>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -23,10 +24,12 @@
                                                     <th scope="row">{{ $key++ }}</th>
                                                     <td colspan="2">{{ $item->name }}</td>
                                                     <td colspan="2">
-                                                        <form action="{{ route('categories.deleteforever', $item->id) }}" method="post">
+                                                        <form action="{{ route('categories.deleteforever', $item->id) }}"
+                                                            method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <a href="{{ route('categories.restore',[$item->id]) }}" class="btn btn-primary">Khôi phục</a>
+                                                            <a href="{{ route('categories.restore', [$item->id]) }}"
+                                                                class="btn btn-primary">Khôi phục</a>
                                                             <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
                                                                 class="btn btn-danger">Xóa vĩnh viễn</button>
                                                         </form>
@@ -35,7 +38,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <a href="{{route('categories.index')}}" class="btn btn-info" >Back</a>
+                                    <a href="{{ route('categories.index') }}" class="btn btn-info">Back</a>
                                 </div>
                             </div>
                         </div>
@@ -44,4 +47,3 @@
         </div>
     </div>
 @endsection
-

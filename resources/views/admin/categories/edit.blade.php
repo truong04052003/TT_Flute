@@ -12,7 +12,7 @@
                                     <form action="{{ route('categories.update',[$items->id]) }}" method="post">
                                         @method('PUT')
                                         @csrf
-                                        <h2 style="text-align: center">Sửa</h2>
+                                        <h2 style="text-align: center">Sửa thể loại</h2>
                                         <div class="mb-3">
                                             <label class="form-label">Tên thể loại</label>
                                             <input type="text" value="{{$items->name}}" name="name" class="form-control">
