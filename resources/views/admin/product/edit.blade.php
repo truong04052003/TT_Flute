@@ -40,16 +40,15 @@
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
 
+
                                         <div class="form-group col-4  ">
                                             <label class="control-label" for="flatpickr01">Loại sản phẩm</label>
                                             <select name="category_id" id="" class="form-control">
+
                                                 <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($categories as $category)
-                                                    <option <?= $category->id == $product->category_id ? 'selected' : '' ?>
-                                                        value="{{ $category->id }}">
-                                                        {{ $category->name }}
-                                                    </option>
-                                                @endforeach
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
                                             </select>
                                             @error('category_id')
                                                 <div class="text text-danger">{{ $message }}</div>
@@ -59,6 +58,7 @@
                                         <div class="form-group col-4  ">
                                             <label class="control-label" for="flatpickr01">Nhà sản xuất</label>
                                             <select name="supplier_id" id="" class="form-control">
+
                                                 @foreach ($suppliers as $supplier)
                                                     <option <?= $supplier->id == $product->supplier_id ? 'selected' : '' ?>
                                                         value="{{ $supplier->id }}">

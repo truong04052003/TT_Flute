@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Supplier\SupplierServiceInterface;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SupplierController extends Controller
 {
@@ -18,10 +19,10 @@ class SupplierController extends Controller
     public function index(Request $request)
     {
         $suppliers = $this->supplierService->all($request);
-        return view('admin.suppliers.index',compact('suppliers'));
+        return view('admin.suppliers.index', compact('suppliers'));
     }
-    public function show($id){
-
+    public function show($id)
+    {
     }
 
     public function create()
@@ -33,46 +34,79 @@ class SupplierController extends Controller
     {
         $data = $request->all();
         $this->supplierService->create($data);
-        return redirect()->route('suppliers.index');
-       
+        try {
+            toast('Thêm Nhà Cung Cấp Thành Công!', 'success', 'top-right');
+            return redirect()->route('suppliers.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            return redirect()->route('suppliers.index');
+        }
     }
 
     public function edit($id)
     {
         $item = $this->supplierService->find($id);
-        return view('admin.suppliers.edit',compact('item'));
+        return view('admin.suppliers.edit', compact('item'));
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $this->supplierService->update( $id, $data);
-        return redirect()->route('suppliers.index');
-      
-   
+        // $data = $request->all();
+        $items = $this->supplierService->update($request, $id);
+
+        try {
+            toast('Sửa Nhà Cung Cấp Thành Công!', 'success', 'top-right');
+            return redirect()->route('suppliers.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            return redirect()->route('suppliers.index');
+        }
     }
 
     public function destroy($id)
     {
-        $category = $this->supplierService->delete( $id);
-        return redirect()->route('suppliers.index');
-     
+        $category = $this->supplierService->delete($id);
+        try {
+            toast('Đã Đưa Nhà Cung Cấp Vào Thùng Rác!', 'success', 'top-right');
+            return redirect()->route('suppliers.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            return redirect()->route('suppliers.index');
+        }
     }
 
-    public function getTrashed(){
+    public function getTrashed()
+    {
         $suppliers = $this->supplierService->getTrashed();
-        return view('admin.suppliers.trash',compact('suppliers'));
+        return view('admin.suppliers.trash', compact('suppliers'));
     }
 
-    public function restore($id){
+    public function restore($id)
+    {
         $this->supplierService->restore($id);
-        return redirect()->route('supplier.getTrashed');
-      
+        return redirect()->route('suppliers.getTrashed');
+        // try {
+        //     toast('Khôi Phục Thành Công!', 'success', 'top-right');
+        // } catch (\exception $e) {
+        //     Log::error($e->getMessage());
+        //     toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+        //     return redirect()->route('suppliers.getTrashed');
+        // }
     }
 
-    public function force_destroy($id){
-        $category = $this->supplierService->force_destroy( $id);
-        return redirect()->route('supplier.getTrashed');
-     
+    public function force_destroy($id)
+    {
+        $category = $this->supplierService->force_destroy($id);
+        try {
+            toast('Xóa Vĩnh Viễn Thành Công!', 'success', 'top-right');
+            return redirect()->route('suppliers.getTrashed');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            return redirect()->route('suppliers.getTrashed');
+        }
     }
 }

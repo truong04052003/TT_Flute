@@ -68,7 +68,15 @@ class GroupController extends Controller
     {
         $this->authorize('delete', Group::class);
         $group = $this->groupService->delete($id);
-        return redirect()->route('group.index');
+        try {
+            toast('Nhóm Quyền Đã Đưa Vào Thùng Rác!', 'success', 'top-right');
+            return redirect()->route('group.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Có lỗi xảy ra!', 'danger', 'top-right');
+            return redirect()->route('group.index');
+        }
+       
     }
     public function forcedelete($id)
     {

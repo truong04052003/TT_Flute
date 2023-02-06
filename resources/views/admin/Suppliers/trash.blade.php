@@ -32,12 +32,12 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col">STT</th>
                                         <th scope="col">Tên</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Địa Chỉ</th>
-                                        <th scope="col">Số Điện Thoại</th>
-                                        <th scope="col">Thao tác</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Tùy chọn</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,14 +49,15 @@
                                             <td>{{ $supplier->address }}</td>
                                             <td>{{ $supplier->phone }}</td>
                                             <td>
-                                                <form action="{{ route('suppliers.destroy', $supplier->id) }}"
+                                                <form action="{{ route('suppliers.forcedelete', $supplier->id) }}"
                                                     method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <a href="{{ route('suppliers.restore', [$supplier->id]) }}"
                                                         class="btn btn-primary">Khôi phục</a>
-                                                            <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                            class="btn btn-danger">Xóa vĩnh viễn</button>
+                                                    <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
+                                                        class="btn btn-danger">Xóa vĩnh viễn</button>
+
                                                 </form>
                                             </td>
                                         </tr>

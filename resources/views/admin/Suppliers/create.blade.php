@@ -46,8 +46,11 @@
                                                 name='phone' id="inputName5" value="{{ old('phone') }}">
 
                                         </div>
+                                        
                                     </div><br>
                                     <button type="submit" class="btn btn-primary">Thêm</button>
+                                    <a href="{{ route('suppliers.index') }}" class="btn btn-info">Back</a>
+
                                 </div>
                             </form>
                         </div>

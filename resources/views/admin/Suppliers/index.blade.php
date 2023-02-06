@@ -16,20 +16,20 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Danh Sách Nhà Cung Cấp</h5>
+                            <h2 style="text-align: center">Danh Sách Nhà Cung Cấp</h2>
 
                             <a class='btn btn-primary mb-2' href="{{ route('suppliers.create') }}">Thêm nhà cung cấp</a>
-                            <a class='btn btn-secondary mb-2 float-right' href="{{ route('suppliers.trash') }}">Thùng
+                            <a class='btn btn-secondary mb-2 float-right' href="{{ route('suppliers.getTrashed') }}">Thùng
                                 rác</a>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col">STT</th>
                                         <th scope="col">Tên</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Địa Chỉ</th>
-                                        <th scope="col">Số Điện Thoại</th>
-                                        <th scope="col">Thao tác</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Tùy chọn</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,6 +49,7 @@
                                                         class="btn btn-warning">Sửa</a>
                                                     <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
                                                         class="btn btn-danger">Xóa</button>
+
                                                 </form>
                                             </td>
                                         </tr>

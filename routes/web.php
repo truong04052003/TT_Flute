@@ -108,7 +108,7 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::put('/update/{id}', [SupplierController::class, 'update'])->name('suppliers.update');
         Route::delete('/destroy/{id}', [SupplierController::class, 'destroy'])->name('suppliers.destroy');
         //thùng rác
-        Route::get('/getTrashed', [SupplierController::class, 'getTrashed'])->name('suppliers.trash');
+        Route::get('/getTrashed', [SupplierController::class, 'getTrashed'])->name('suppliers.getTrashed');
         Route::put('/restore/{id}', [SupplierController::class, 'restore'])->name('suppliers.restore');
         Route::delete('/force_destroy/{id}', [SupplierController::class, 'force_destroy'])->name('suppliers.forcedelete');
     });

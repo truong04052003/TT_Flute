@@ -61,21 +61,24 @@ class ProductController extends Controller
         $this->authorize('update', Product::class);
         $items = $this->productService->find($id);
         $categories = Category::all();
+
         $suppliers = Supplier::get();
         // dd($suppliers);
         $product = $this->productService->find($id);
         return view('admin.product.edit', compact('items', 'categories','suppliers', 'product'));
+
     }
 
     public function update(UpdateProductRequest $request, $id)
     {
+       
         $items = $this->productService->update($request, $id);
         try {
             toast('Sửa Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Sửa Sản Phẩm Không Thành Công!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
             return redirect()->route('products.index');
         }
     }
