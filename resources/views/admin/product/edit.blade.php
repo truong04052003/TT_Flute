@@ -39,28 +39,32 @@
                                         @error('quantity')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
-                                        <div class="form-select form-select-lg mb-3">
-                                            <label>Loại sản phẩm</label>
-                                            <select name="category_id">
-                                                </option>
+                                        <div class="form-group col-4  ">
+                                            <label  class="control-label">Loại sản phẩm</label>
+                                            <select name="category_id" class="form-control">
+                                                <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($categories as $category)
-                                                    <option <?= $category->id == $product->category_id ? 'selected' : '' ?>
-                                                        value="{{ $category->id }}">
-                                                        {{ $category->name }}
-                                                    </option>
-                                                @endforeach
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
                                             </select>
                                             @error('category_id')
                                                 <div class="text text-danger">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div><br>
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Nhà sản xuất</label>
-                                            <input type="text" value="{{ $items->suppliers->name }}" name="manufacture"
-                                                class="form-control">
-                                        </div>
-                                        @error('manufacture')
+                                        <div class="form-group col-4  ">
+                                            <label class="control-label" for="flatpickr01">Nhà sản xuất</label>
+                                            <select name="supplier_id" id="" class="form-control">
+                                                <option value="">--Vui lòng chọn--</option>
+                                                @foreach ($suppliers as $supplier)
+                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('supplier_id ')
+                                                <div class="text text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div><br>
+                                        @error('supplier_id')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
 
