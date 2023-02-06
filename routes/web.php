@@ -90,7 +90,6 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::get('/', [OrderController::class, 'index'])->name('orders.index');
         Route::get('/detail/{id}', [OrderController::class, 'show'])->name('orders.detail');
     });
-});
 
 Route::group(['prefix' => 'orders'], function () {
     Route::get('/', [OrderController::class, 'index'])->name('orders.index');
@@ -101,3 +100,7 @@ Route::group(['prefix' => 'orders'], function () {
     Route::get('/browser', [OrderController::class, 'browser'])->name('orders.browser');
     Route::put('/{id}', [OrderController::class, 'update'])->name('orders.update');
 });
+
+});
+
+
