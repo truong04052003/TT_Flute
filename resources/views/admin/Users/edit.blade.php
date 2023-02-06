@@ -105,18 +105,6 @@
 
                                 </div>
 
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label for="tf1">Ngày sinh<abbr name="Trường bắt buộc">*</abbr></label>
-                                        <input name="birthday" type="date" class="form-control"
-                                            value="{{ $users->birthday }}">
-                                        <small id="" class="form-text text-muted"></small>
-                                        @error('birthday')
-                                            <div class="text text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <br>
-                                </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="tf1">Địa chỉ chi tiết<abbr

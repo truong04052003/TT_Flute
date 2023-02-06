@@ -8,7 +8,8 @@ use App\Models\Group;
 use App\Services\User\UserServiceInterface;
 use App\Services\Group\GroupServiceInterface;
 
-
+use App\Http\Requests\User\StoreRequest;
+use App\Http\Requests\User\UpdateRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,7 +17,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use App\Http\Requests\User\UpdatepassRequest;
 
 
 class UserController extends Controller
@@ -46,7 +46,7 @@ class UserController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $this->userService->create($request);
         try {
@@ -75,7 +75,7 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update( UpdateRequest $request, $id)
     {
         $this->userService->update($request, $id);
         try {
