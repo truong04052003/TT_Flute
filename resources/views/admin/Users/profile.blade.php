@@ -55,15 +55,7 @@
                             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Thông
                                 tin</button>
                         </li>
-                        @if(Auth()->user()->id ==  $users->id )
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Thay đổi
-                                mật khẩu</button>
-                        </li>
-                        @endif
                     </ul>
-
-
 
                     <div class="tab-content pt-2">
                         <div class="tab-pane fade show active profile-overview" id="profile-overview">
@@ -144,45 +136,6 @@
                                 </p>
                             @endif
                         </div>
-                    </div>
-                    {{-- ================================ --}}
-                    <div class="tab-content pt-2" >
-                        <div class="tab-pane profile-change-password" id="profile-change-password">
-                        <form action="{{ route('user-update-password', Auth()->user()->id)}}" method="post">
-                          @method('POST')
-                          @csrf
-                          <div class="row mb-3">
-                            <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Mật khẩu hiện tại</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="password" type="password" class="form-control" id="currentPassword">
-                              @error('password')
-                              <div class="text text-danger">{{ $message }}</div>
-                          @enderror
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Mật khẩu mới</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="newpassword" type="password" class="form-control" id="newPassword">
-                              @error('newpassword')
-                              <div class="text text-danger">{{ $message }}</div>
-                          @enderror
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Nhập lại mật khẩu mới</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                              @error('renewpassword')
-                              <div class="text text-danger">{{ $message }}</div>
-                          @enderror
-                            </div>
-                          </div>
-                          <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Thay đổi mật khẩu</button>
-                          </div>
-                        </form>
-                      </div>
                     </div>
 
                 </div>

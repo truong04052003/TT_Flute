@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Log;
 use App\Models\Image_product;
-
+use Illuminate\Support\Facades\Storage;
 class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
     protected $model;
@@ -94,13 +94,13 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         }
         $products->save();
         if ($data['file_names']) {
-            foreach ($data['file_names'] as $file_detail) {
-                // File::delete($product->file_names()->file_name);
-                $detail_path = 'storage/' . $file_detail->store('/images', 'public');
+            foreach ($data['file_names'] as $key => $file_detail) {
+                $fileExtension = $file_detail->getClientOriginalExtension();
+                $newFileName =  $key . '.' . $fileExtension;
+                $file_detail->storeAs('public/images/product', $newFileName);
                 $products->image_products()->saveMany([
                     new Image_product([
-                        'product_id' => $products->id,
-                        'image' => $detail_path,
+                        'image' => $newFileName,
                     ]),
                 ]);
             }
@@ -163,7 +163,10 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function deleteforever($id)
     {
         // try {
-            $result = $this->model->onlyTrashed()->find($id)->forceDelete();
+
+            $result = $this->model->onlyTrashed()->find($id);
+            Image_product::where('product_id', '=', $id)->delete();
+            $result->forceDelete();
             return $result;
         // } catch (\exception $e) {
             // return redirect()->with('status','Xóa Vĩnh Viễn Không Thành Công!');
