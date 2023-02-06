@@ -61,9 +61,12 @@ class ProductController extends Controller
         $this->authorize('update', Product::class);
         $items = $this->productService->find($id);
         $categories = Category::all();
-        // $product = $this->productService->find($id);
+
         $suppliers = Supplier::get();
-        return view('admin.product.edit', compact('items', 'categories','suppliers'));
+        // dd($suppliers);
+        $product = $this->productService->find($id);
+        return view('admin.product.edit', compact('items', 'categories','suppliers', 'product'));
+
     }
 
     public function update(UpdateProductRequest $request, $id)

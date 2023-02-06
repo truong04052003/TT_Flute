@@ -39,9 +39,12 @@
                                         @error('quantity')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
+
+
                                         <div class="form-group col-4  ">
-                                            <label  class="control-label">Loại sản phẩm</label>
-                                            <select name="category_id" class="form-control">
+                                            <label class="control-label" for="flatpickr01">Loại sản phẩm</label>
+                                            <select name="category_id" id="" class="form-control">
+
                                                 <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -55,18 +58,15 @@
                                         <div class="form-group col-4  ">
                                             <label class="control-label" for="flatpickr01">Nhà sản xuất</label>
                                             <select name="supplier_id" id="" class="form-control">
-                                                <option value="">--Vui lòng chọn--</option>
+
                                                 @foreach ($suppliers as $supplier)
-                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                                    <option <?= $supplier->id == $product->supplier_id ? 'selected' : '' ?>
+                                                        value="{{ $supplier->id }}">
+                                                        {{ $supplier->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
-                                            @error('supplier_id ')
-                                                <div class="text text-danger">{{ $message }}</div>
-                                            @enderror
                                         </div><br>
-                                        @error('supplier_id')
-                                            <div class="alert alert-danger ">{{ $message }}</div>
-                                        @enderror
 
                                         <div class="mb-3">
                                             <label class="form-label">Mô tả</label>
@@ -78,21 +78,21 @@
                                         @enderror
                                         <div class="mb-3">
                                             <label for="inputCity" class="form-label">Ảnh</label>
-                                            <input accept="image/*" type='file' id="inputFile"
-                                                name="image" value="{{$items->image}}"
+                                            <input accept="image/*" type='file' id="inputFile" name="image"
+                                                value="{{ $items->image }}"
                                                 class="form-control @error('image') is-invalid @enderror"><br>
                                             @error('image')
                                                 <div class="text text-danger">{{ $message }}</div>
                                             @enderror
                                             <br>
-                                            <img type="hidden" width="120px" height="120px"
-                                                id="blah1" src="{{ asset('public/uploads/' .$items->image) }}" alt="" />
+                                            <img type="hidden" width="120px" height="120px" id="blah1"
+                                                src="{{ asset('public/uploads/' . $items->image) }}" alt="" />
 
                                         </div>
                                         @error('name')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
-                                        
+
                                         <div class="mb-3">
                                             <label for="file_name"><b>Hình ảnh liên quan</b></label>
                                             <div class="card_file_name">
