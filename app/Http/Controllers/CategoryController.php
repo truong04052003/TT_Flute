@@ -99,8 +99,8 @@ class CategoryController extends Controller
     public function deleteforever($id)
     {
         $this->authorize('deleteforever', Category::class);
-        $items = $this->categoryService->deleteforever($id);
         try {
+            $items = $this->categoryService->deleteforever($id);
             toast('Xóa Vĩnh Viễn Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {

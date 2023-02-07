@@ -31,7 +31,7 @@
                                                 </div>
                                             </div>
                                             <div class="overview-chart">
-                                                <canvas id="widgetChart1"></canvas>
+                                                <canvas id="widgetChart1" ></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                                 </div>
                                             </div>
                                             <div class="overview-chart">
-                                                <canvas id="widgetChart4"></canvas>
+                                                <canvas ></canvas>
                                             </div>
                                         </div>
                                     </div>
