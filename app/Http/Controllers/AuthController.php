@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\AuthRequest;
+use App\Http\Requests\User\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -20,23 +20,12 @@ class AuthController extends Controller
         }
     }
 
-    public function postLogin(AuthRequest $request)
+    public function postLogin(LoginRequest   $request)
     {
-        $messages = [
-            "email.exists" => "Email không đúng",
-            "password.exists" => "Mật khẩu không đúng",
-        ];
-        $validator = Validator::make($request->all(), [
-            'email' => 'exists:users,email',
-            'password' => 'exists:users,password',
-        ], $messages);
+       
         $data = $request->only('email', 'password');
-        if (Auth::attempt($data)) {
-            toast('Đăng Nhập Thành Công!','success','top-right');
-            return redirect()->route('dashboard');
-        } else {
-            return back()->withErrors($validator)->withInput();
-        }
+        return redirect()->route('dashboard');
+    
     }
 
     public function logout()

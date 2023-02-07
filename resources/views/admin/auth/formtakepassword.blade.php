@@ -55,6 +55,9 @@
                         <div class="form-outline mb-4">
                             <label class="form-label">Email</label>
                             <input type="text" name="email" class="form-control" />
+                            @error('email')
+                            <div class="text text-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
                     </form>
