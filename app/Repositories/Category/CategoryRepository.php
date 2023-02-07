@@ -27,7 +27,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     public function all($request)
     {
         $query = Category::select('*');
-        return $query->paginate(5);
+        return $query->orderBy('id', 'DESC')->paginate(5);
     }
 
     public function find($id)

@@ -53,7 +53,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
                
         }
         $products->Nameuser(request(['nameuser']));
-        return $products->paginate(5);
+        return $products->orderBy('id', 'DESC')->paginate(5);
     }
 
     public function find($id)
