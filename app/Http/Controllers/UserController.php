@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\forget_password\Forgetpassword;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Group;
@@ -75,7 +76,7 @@ class UserController extends Controller
     }
 
 
-    public function update( UpdateRequest $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         $this->userService->update($request, $id);
         try {
@@ -96,10 +97,12 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
-    public function forget_password(){
+    public function forget_password()
+    {
         return view('admin.auth.formtakepassword');
     }
-    public function post_forget_password(Request $request){
+    public function post_forget_password(Forgetpassword $request)
+    {
         $customer = User::where('email', $request->email)->first();
         if ($customer) {
             $pass = Str::random(6);
@@ -117,4 +120,4 @@ class UserController extends Controller
         }
         return redirect()->route('login');
     }
-    }
+}

@@ -55,11 +55,17 @@
                         <div class="form-outline mb-4">
                             <label class="form-label">Email</label>
                             <input type="text" name="email" class="form-control" />
+                            @error('email')
+                            <div class="text text-danger">{{ $message }}</div>
+                        @enderror
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label">Password</label>
                             <input type="password" class="form-control" name="password" />
+                            @error('password')
+                            <div class="text text-danger">{{ $message }}</div>
+                        @enderror
                         </div>
 
                         <div class="row mb-4">
