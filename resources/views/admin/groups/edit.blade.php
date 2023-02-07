@@ -44,7 +44,7 @@
                                         <br>
                                         <div class="row mb-3">
                                             <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary">Thêm Vào</button>
+                                                <button type="submit" class="btn btn-primary">Sửa</button>
                                                 <a href="{{ route('group.index') }}" class="btn btn-danger">Hủy</a>
                                             </div>
                                         </div>

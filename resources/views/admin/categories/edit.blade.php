@@ -20,8 +20,8 @@
                                         @error('name')
                                             <div class="alert alert-danger ">{{ $message }}</div>
                                         @enderror
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href="{{route('categories.index')}}" class="btn btn-info" >Thoát</a>
+                                        <button type="submit" class="btn btn-primary">Sửa</button>
+                                        <a href="{{route('categories.index')}}" class="btn btn-info" >Trở lại</a>
                                     </form>
                                 </div>
                             </div>

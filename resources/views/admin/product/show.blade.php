@@ -44,10 +44,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ route('products.index') }}" class="btn btn-danger">Back</a>
+                            <a href="{{ route('products.index') }}" class="btn btn-danger">Trở lại</a>
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
         </div>
     </div>

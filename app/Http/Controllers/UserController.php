@@ -94,7 +94,14 @@ class UserController extends Controller
     {
         $this->authorize('delete', User::class);
         $user = $this->userService->delete($id);
-        return redirect()->route('users.index');
+        try {
+            toast('Xóa Nhân Viên Thành Công!', 'success', 'top-right');
+            return redirect()->route('users.index');
+        } catch (\exception $e) {
+            Log::error($e->getMessage());
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
+            return redirect()->route('users.index');
+        }
     }
 
     public function forget_password()
