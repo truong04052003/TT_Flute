@@ -26,7 +26,6 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'address' => 'required',
             'phone' => 'required',
             'image' => 'required',
@@ -39,7 +38,6 @@ class UpdateRequest extends FormRequest
         return [
             'name.required' => 'Không được để trống!',
             'email.required' => 'Không được để trống!',
-            'password.required' => 'Không được để trống!',
             'address.required' => 'Không được để trống!',
             'phone.required' => 'Vui lòng nhập số điện thoại!',
             'image.required' => 'Vui lòng chọn ảnh!',
