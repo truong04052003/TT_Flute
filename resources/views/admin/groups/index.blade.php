@@ -28,12 +28,12 @@
                                     </h2><br>
                                     @if (Auth::user()->hasPermission('Group_create'))
                                         <a class="btn btn-primary" href="{{ route('group.create') }}"> Thêm Nhóm Quyền
+                                            <a class="btn btn-danger" href="{{ route('group.trash') }}"> Thùng rác </a><hr>
                                         @else
                                             <button type="button" class="btn btn-primary" disabled>Thêm Nhóm
                                                 Quyền</button>
                                     @endif
                                     </a>
-                                    <a class="btn btn-danger" href="{{ route('group.trash') }}"> Thùng rác </a><hr>
                                     <table class="table" style="text-align: center">
                                         <thead>
                                             <tr>

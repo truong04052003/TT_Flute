@@ -12,8 +12,17 @@
                                     <h2 style="text-align: center">Thể Loại Sản Phẩm</h2><br>
 
                                     <table class="table"style="text-align: center">
-                                        <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể loại</a>
-                                        <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng rác</a>
+                                        @if (Auth::user()->hasPermission('Category_create'))
+                                            <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm thể
+                                                loại</a>
+                                            <a href="{{ route('categories.trash') }}" class="btn btn-danger">Thùng rác</a>
+                                        @else
+                                            <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="Bạn không có quyền làm điều này!">
+                                                <button type="button" class="btn btn-primary" disabled>Thêm Loại Sản
+                                                    Phẩm</button>
+                                            </i>
+                                        @endif
                                         <hr>
                                         <thead>
                                             <tr>
@@ -35,10 +44,27 @@
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <a href="{{ route('categories.edit', [$item->id]) }}"
-                                                                class="btn btn-warning">Sửa</a>
-                                                            <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
-                                                                class="btn btn-danger">Xóa</button>
+                                                            @if (Auth::user()->hasPermission('Category_update'))
+                                                                <a href="{{ route('categories.edit', [$item->id]) }}"
+                                                                    class="btn btn-warning">Sửa</a>
+                                                            @else
+                                                                <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Bạn không có quyền làm điều này!">
+                                                                    <button type="button" class="btn btn-warning"
+                                                                        disabled>Sửa</button>
+                                                                </i>
+                                                            @endif
+                                                            @if (Auth::user()->hasPermission('Category_delete'))
+                                                                <button
+                                                                    onclick="return confirm('Bạn có chắc chắn xóa không?');"
+                                                                    class="btn btn-danger">Xóa</button>
+                                                            @else
+                                                                <i data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Bạn không có quyền làm điều này!">
+                                                                    <button type="button" class="btn btn-danger"
+                                                                        disabled>Xóa</button>
+                                                                </i>
+                                                            @endif
 
                                                         </form>
                                                     </td>
