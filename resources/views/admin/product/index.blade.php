@@ -17,10 +17,10 @@
                                         @if (Auth::user()->hasPermission('Product_create'))
                                             <a href="{{ route('products.create') }}" class="btn btn-primary">Thêm sản
                                                 phẩm</a>
+                                                <a href="{{ route('products.trash') }}" class="btn btn-danger">Thùng rác</a>
                                         @else
                                             <button type="button" class="btn btn-primary" disabled>Thêm sản phẩm</button>
                                         @endif
-                                        <a href="{{ route('products.trash') }}" class="btn btn-danger">Thùng rác</a>
                                         <a href="{{ route('products.export') }}" class="btn btn-info">Xuất file excel</a>
                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                             data-bs-target="#searchModal">Tìm chi tiết</button>
