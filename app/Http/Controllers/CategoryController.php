@@ -39,7 +39,7 @@ class CategoryController extends Controller
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Thêm Thể Loại Không Thành Công!','danger','top-right');
+            toast('Có Lỗi Xảy Ra!','error','top-right');
             return redirect()->route('categories.index');
         }
     }
@@ -60,7 +60,7 @@ class CategoryController extends Controller
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Sửa Thể Loại Không Thành Công!','danger','top-right');
+            toast('Có Lỗi Xảy Ra!','error','top-right');
             return redirect()->route('categories.index');
         }
     }
@@ -74,7 +74,7 @@ class CategoryController extends Controller
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra','danger','top-right');
+            toast('Có Lỗi Xảy Ra','error','top-right');
             return redirect()->route('categories.index');
         }
     }
@@ -92,7 +92,7 @@ class CategoryController extends Controller
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Khôi Phục Thể Loại Thành Công!','danger','top-right');
+            toast('Có Lỗi Xảy Ra!','error','top-right');
             return redirect()->route('categories.index');
         }
     }
@@ -105,7 +105,7 @@ class CategoryController extends Controller
             return redirect()->route('categories.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Xóa Vĩnh Viễn Thể Loại Không Thành Công!','danger','top-right');
+            toast('Có Lỗi Xảy Ra!','error','top-right');
             return redirect()->route('categories.index');
         }
     }

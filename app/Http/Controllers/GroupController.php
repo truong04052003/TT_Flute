@@ -40,7 +40,7 @@ class GroupController extends Controller
             return redirect()->route('group.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Thêm Quyền Không Thành Công!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('group.index');
         }
     }
@@ -61,7 +61,7 @@ class GroupController extends Controller
             return redirect()->route('group.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Sửa Quyền Không Thành Công!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('group.index');
         }
     }
@@ -74,7 +74,7 @@ class GroupController extends Controller
             return redirect()->route('group.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có lỗi xảy ra!', 'danger', 'top-right');
+            toast('Có lỗi xảy ra!', 'error', 'top-right');
             return redirect()->route('group.index');
         }
        
@@ -88,7 +88,7 @@ class GroupController extends Controller
             return redirect()->route('group.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('group.index');
         }
     }
@@ -101,7 +101,7 @@ class GroupController extends Controller
             return redirect()->route('group.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('group.index');
         }
     }
@@ -119,7 +119,7 @@ class GroupController extends Controller
             return redirect()->route('group.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('group.index');
         }
     }

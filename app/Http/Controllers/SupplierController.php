@@ -41,7 +41,7 @@ class SupplierController extends Controller
             return redirect()->route('suppliers.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('suppliers.index');
         }
     }
@@ -62,7 +62,7 @@ class SupplierController extends Controller
             return redirect()->route('suppliers.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('suppliers.index');
         }
     }
@@ -75,7 +75,7 @@ class SupplierController extends Controller
             return redirect()->route('suppliers.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('suppliers.index');
         }
     }
@@ -94,7 +94,7 @@ class SupplierController extends Controller
             return redirect()->route('suppliers.getTrashed');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('suppliers.getTrashed');
         }
     }
@@ -103,11 +103,11 @@ class SupplierController extends Controller
     {
         $category = $this->supplierService->force_destroy($id);
         try {
-            toast('Xóa Vĩnh Viễn Thành Công!', 'success', 'top-right');
+            toast('Xóa Vĩnh Viễn Nhà Cung Cấp Thành Công!', 'success', 'top-right');
             return redirect()->route('suppliers.getTrashed');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Có Lỗi Xảy Ra!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('suppliers.getTrashed');
         }
     }
