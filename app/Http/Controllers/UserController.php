@@ -55,7 +55,7 @@ class UserController extends Controller
             return redirect()->route('users.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Thêm Nhân Viên Không Thành Công!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('users.index');
         }
     }
@@ -84,7 +84,7 @@ class UserController extends Controller
             return redirect()->route('users.index');
         } catch (\exception $e) {
             Log::error($e->getMessage());
-            toast('Sửa Nhân Viên Không Thành Công!', 'danger', 'top-right');
+            toast('Có Lỗi Xảy Ra!', 'error', 'top-right');
             return redirect()->route('users.index');
         }
     }

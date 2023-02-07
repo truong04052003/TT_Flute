@@ -20,11 +20,17 @@ class AuthController extends Controller
         }
     }
 
-    public function postLogin(LoginRequest   $request)
+    public function postLogin(LoginRequest  $request)
     {
        
         $data = $request->only('email', 'password');
-        return redirect()->route('dashboard');
+        if (Auth::attempt($data)) {
+            toast('Đăng Nhập Thành Công!','success','top-right');
+            return redirect()->route('dashboard');
+        } else {
+            toast('Sai mật khẩu hoặc tài khoản!','error','top-right');
+            return redirect()->route('login');
+        }
     
     }
 

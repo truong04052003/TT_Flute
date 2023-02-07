@@ -1,4 +1,3 @@
-<!-- Section: Design Block -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +16,7 @@
 
 </html>
 <section class=" text-center text-lg-start">
+    @include('sweetalert::alert')
     <style>
         .rounded-t-5 {
             border-top-left-radius: 0.5rem;
