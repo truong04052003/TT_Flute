@@ -137,7 +137,7 @@
                                     </div>
                                    
                                 </div>
-                                <a href="{{ route('orders.index') }}" class="btn btn-danger">Back</a>
+                                <a href="{{ route('orders.index') }}" class="btn btn-danger">Trở lại</a>
                             </div>
                         </div>
                     </div>

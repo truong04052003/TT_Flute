@@ -57,7 +57,7 @@
                                         
                                     </div><br>
                                     <button type="submit" class="btn btn-primary">Thêm</button>
-                                    <a href="{{ route('suppliers.index') }}" class="btn btn-info">Back</a>
+                                    <a href="{{ route('suppliers.index') }}" class="btn btn-info">Trở lại</a>
 
                                 </div>
                             </form>

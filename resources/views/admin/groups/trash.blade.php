@@ -64,7 +64,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <a href="{{ route('group.index') }}" class="btn btn-secondary">Quay Lại</a>
+                                    <a href="{{ route('group.index') }}" class="btn btn-secondary">Trở lại</a>
                                     <div style="float:right">
                                         {{ $groups->onEachSide(5)->links() }}
                                     </div>
