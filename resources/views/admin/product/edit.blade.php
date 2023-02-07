@@ -61,7 +61,7 @@
                                         <div class="form-group col-4  ">
                                             <label class="control-label" for="flatpickr01">Nhà sản xuất</label>
                                             <select name="supplier_id" id="" class="form-control">
-
+                                                <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($suppliers as $supplier)
                                                     <option <?= $supplier->id == $product->supplier_id ? 'selected' : '' ?>
                                                         value="{{ $supplier->id }}">

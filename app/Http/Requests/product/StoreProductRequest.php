@@ -39,11 +39,11 @@ class StoreProductRequest extends FormRequest
             'name.required' => 'Tên sản phẩm bắt buộc phải nhập!',
             'name.unique' => 'Tên sản phẩm đã tồn tại!',
             'category_id.required' => 'Loại sản phẩm bắt buộc phải nhập!',
-            'quantity.required' => 'Số lượng Sản Phẩm bắt buộc nhập',
-            'quantity.min' => 'Số lượng Sản Phẩm lớn hơn hoặc bằng 1',
+            'quantity.required' => 'Số lượng sản phẩm bắt buộc nhập',
+            'quantity.min' => 'Số lượng sản phẩm lớn hơn hoặc bằng 1',
+            'price.required' => 'Giá sản phẩm bắt buộc nhập',
             'supplier_id.required' => 'sản xuất bắt buộc nhập',
-            'price.required' => 'Giá Sản Phẩm bắt buộc nhập',
-            'description.required' => 'Mô Tả Sản Phẩm bắt buộc nhập',
+            'description.required' => 'Mô tả sản phẩm bắt buộc nhập',
             'image.required' => 'Ảnh sản phẩm bắt buộc nhập',
         ];
     }

@@ -26,8 +26,8 @@ class UpdateSuppliersRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'address' => 'required',
+            'phone' => 'required|max:11',
         ];
     }
     public function messages()
@@ -35,8 +35,9 @@ class UpdateSuppliersRequest extends FormRequest
         return [
             'name.required' => 'Không được để trống!',
             'email.required' => 'Không được để trống!',
-            'password.required' => 'Không được để trống!',
             'address.required' => 'Không được để trống!',
+            'phone.required' => 'Không được để trống!',
+            'phone.max' => 'kí tự quá dài!',
         ];
     }
 }
