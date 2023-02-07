@@ -101,8 +101,8 @@ class SupplierController extends Controller
 
     public function force_destroy($id)
     {
-        $category = $this->supplierService->force_destroy($id);
         try {
+            $category = $this->supplierService->force_destroy($id);
             toast('Xóa Vĩnh Viễn Nhà Cung Cấp Thành Công!', 'success', 'top-right');
             return redirect()->route('suppliers.getTrashed');
         } catch (\exception $e) {

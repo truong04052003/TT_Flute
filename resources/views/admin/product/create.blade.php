@@ -17,22 +17,21 @@
                                             <input type="text" name="name" value="{{ old('name') }}" class="form-control">
                                         </div>
                                         @error('name')
-                                            <div class="alert alert-danger ">{{ $message }}</div>
-                                        @enderror
-
+                                            <div class="text text-danger ">{{ $message }}</div>
+                                        @enderror 
                                         <div class="mb-3">
                                             <label class="form-label">Giá</label>
                                             <input type="text" name="price"  value="{{ old('price') }}" class="form-control">
                                         </div>
                                         @error('price')
-                                            <div class="alert alert-danger ">{{ $message }}</div>
+                                            <div class="text text-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="mb-3">
                                             <label class="form-label">Số lượng</label>
                                             <input type="text" name="quantity" value="{{ old('quantity') }}" class="form-control">
                                         </div>
                                         @error('quantity')
-                                            <div class="alert alert-danger ">{{ $message }}</div>
+                                            <div class="text text-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="form-group col-4  ">
                                             <label class="control-label" for="flatpickr01">Loại sản phẩm</label>
@@ -65,7 +64,7 @@
                                             <textarea name="description"  class="form-control" rows="4" style="resize: none"></textarea>
                                         </div>
                                         @error('description')
-                                            <div class="alert alert-danger ">{{ $message }}</div>
+                                            <div class="text text-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="mb-3">
                                             <label for="inputCity" class="form-label">Ảnh</label>
