@@ -14,28 +14,31 @@
                                         <h2 style="text-align: center">Thêm Mới</h2>
                                         <div class="mb-3">
                                             <label class="form-label">Tên sản phẩm</label>
-                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control">
+                                            <input type="text" name="name" value="{{ old('name') }}"
+                                                class="form-control">
                                         </div>
                                         @error('name')
                                             <div class="text text-danger ">{{ $message }}</div>
-                                        @enderror 
+                                        @enderror
                                         <div class="mb-3">
                                             <label class="form-label">Giá</label>
-                                            <input type="text" name="price"  value="{{ old('price') }}" class="form-control">
+                                            <input type="text" name="price" value="{{ old('price') }}"
+                                                class="form-control">
                                         </div>
                                         @error('price')
                                             <div class="text text-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="mb-3">
                                             <label class="form-label">Số lượng</label>
-                                            <input type="text" name="quantity" value="{{ old('quantity') }}" class="form-control">
+                                            <input type="text" name="quantity" value="{{ old('quantity') }}"
+                                                class="form-control">
                                         </div>
                                         @error('quantity')
                                             <div class="text text-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="form-group col-4  ">
                                             <label class="control-label" for="flatpickr01">Loại sản phẩm</label>
-                                            <select name="category_id"  id="" class="form-control">
+                                            <select name="category_id" id="" class="form-control">
                                                 <option value="">--Vui lòng chọn--</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -61,14 +64,14 @@
 
                                         <div class="mb-3">
                                             <label class="form-label">Mô tả</label>
-                                            <textarea name="description"  class="form-control" rows="4" style="resize: none"></textarea>
+                                            <textarea name="description" class="form-control" rows="4" style="resize: none"></textarea>
                                         </div>
                                         @error('description')
                                             <div class="text text-danger ">{{ $message }}</div>
                                         @enderror
                                         <div class="mb-3">
                                             <label for="inputCity" class="form-label">Ảnh</label>
-                                            <input accept="image/*"  type='file' id="inputFile" name="image"
+                                            <input accept="image/*" type='file' id="inputFile" name="image"
                                                 class="form-control @error('image') is-invalid @enderror"><br>
                                             @error('image')
                                                 <div class="text text-danger">{{ $message }}</div>
@@ -83,7 +86,7 @@
                                             <div class="card_file_name">
                                                 <div
                                                     class="form-group form_input @error('file_names') border border-danger @enderror">
-                                                    <input type="file"  name="file_names[]" id="file_name" multiple
+                                                    <input type="file" name="file_names[]" id="file_name" multiple
                                                         class="form-control  @error('file_name') is-invalid @enderror">
                                                     <span class="inner">
                                                         <span class="select" style="color:red">Ctrl + click để chọn nhiều
@@ -101,6 +104,7 @@
                                             img#blah {
                                                 width: 100px;
                                                 height: 100px;
+                                                padding: 6px;
                                             }
                                         </style>
                                         <button type="submit" class="btn btn-primary">Thêm</button>
