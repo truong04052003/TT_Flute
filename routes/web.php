@@ -81,7 +81,7 @@ Route::prefix('/')->middleware(['auth', 'prevent-back-history'])->group(function
         Route::delete('/destroy/{id}', [GroupController::class, 'destroy'])->name('group.destroy');
         //thùng rác
         Route::get('/trash', [GroupController::class, 'trash'])->name('group.trash');
-        Route::put('/restore/{id}', [GroupController::class, 'restore'])->name('group.restore');
+        Route::get('/restore/{id}', [GroupController::class, 'restore'])->name('group.restore');
         Route::delete('/forcedelete/{id}', [GroupController::class, 'forcedelete'])->name('group.forcedelete');
         Route::get('/detail/{id}', [GroupController::class, 'detail'])->name('group.detail');
         Route::put('/group_detail/{id}', [GroupController::class, 'group_detail'])->name('group.group_detail');

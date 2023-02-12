@@ -73,9 +73,15 @@
                                                                 </i>
                                                             @endif
                                                             @if (Auth::user()->hasPermission('Group_delete'))
-                                                                <button data-href="{{route('group.destroy', $group->id)}}"
-                                                                    id="{{ $group->id }}"
-                                                                    class="btn btn-danger sm deleteIcon">Xóa</button>
+                                                                    <a href="">
+                                                                        <form action="{{route('group.destroy', $group->id)}}" method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button
+                                                                            onclick="return confirm('Bạn có chắc chắn xóa không?');"
+                                                                            class="btn btn-danger">Xóa</button>
+                                                                        </form>
+                                                                    </a>
                                                             @else
                                                                 <i data-bs-toggle="tooltip" data-bs-placement="top"
                                                                     title="Bạn không có quyền làm điều này!">
@@ -104,46 +110,3 @@
 </body>
 
 </html>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-{{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js'></script> --}}
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $(document).on('click', '.deleteIcon', function(e) {
-    //   console.log(123);
-        let id = $(this).attr('id');
-        let href = $(this).data('href');
-        let csrf = '{{ csrf_token() }}';
-        console.log(id);
-        Swal.fire({
-            title: 'Bạn có chắc không?',
-            text: "Bạn sẽ không thể hoàn nguyên điều này!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Có, xóa!'
-        }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    url: href,
-                    method: 'delete',
-                    data: {
-                        _token: csrf
-                    },
-                    success: function(res) {
-                        console.log(567);
-                        Swal.fire(
-                            'Deleted!',
-                            'Tệp của bạn đã bị xóa!',
-                            'success'
-                        )
-                        $('.item-' + id).remove();
-                    }
-                })
-                window.location.reload();
-            }
-        })
-    });
-</script>

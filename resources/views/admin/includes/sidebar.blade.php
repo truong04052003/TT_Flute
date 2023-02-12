@@ -28,12 +28,10 @@
                     <a href="{{ route('orders.index') }}" class="fas">
                         Quản lí đơn hàng</a>
                 </li>
-                @if (Auth::user()->hasPermission('Customer_viewAny'))
                     <li>
                         <a href="{{ route('customers.index') }}" class="fas">
                             Quản lí khách hàng</a>
                     </li>
-                @endif
                 <li>
                     <a href="{{ route('users.index') }}" class="fas">
                         Quản lí nhân viên</a>
