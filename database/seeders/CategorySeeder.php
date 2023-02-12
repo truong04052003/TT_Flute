@@ -19,21 +19,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Sáo Trúc',
             ],
-            [
-                'name' => 'Sáo Dọc',
-            ],
-            [
-                'name' => 'Sáo Hmoong',
-            ],
-            [
-                'name' => 'Sáo Dizi',
-            ],
-            [
-                'name' => 'Sáo Bầu',
-            ],
-            [
-                'name' => 'Tiêu',
-            ],
+          
         ]);
     }
 }

@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
+@include('admin.customers.advancedSearch')
+
     <div class="page-container">
         <div class="main-content">
             <div class="container">
@@ -10,7 +12,9 @@
                                 <div class="card-body">
                                     <table class="table"style="text-align: center"><br>
                                         <thead>
-                                            <h2 style="text-align: center">Danh Sách Khách Hàng</h2><br><hr>
+                                            <h2 style="text-align: center">Danh Sách Khách Hàng</h2><br>
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                            data-bs-target="#searchModal">Tìm chi tiết</button><hr>
                                             <tr>
                                                 <th colspan="2">STT</th>
                                                 <th colspan="2">Tên khách hàng</th>

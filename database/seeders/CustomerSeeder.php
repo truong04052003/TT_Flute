@@ -20,23 +20,10 @@ class CustomerSeeder extends Seeder
                 'name' => 'Mai Xuân Cường',
                 'address' => 'Cam Hiếu - Cam Lộ - Quảng Trị',
                 'email' => 'cuong12@gmail.com',
-                'phone' => '0123456789',
+                'phone' => '0368849',
                 'password' =>bcrypt('123456')
             ],
-            [
-                'name' => 'Nguyễn Đình Phong',
-                'address' => 'Triệu Phong - Quảng Trị',
-                'email' => 'phongdinh@gmail.com',
-                'phone' => '0123456789',
-                'password' =>bcrypt('123456')
-            ],
-            [
-                'name' => 'Nguyễn Văn Nho',
-                'address' => 'Triệu Phong',
-                'email' => 'nhonguyengmail.com',
-                'phone' => '0123456789',
-                'password' =>bcrypt('123')
-            ],
+          
         ]);
     }
 }

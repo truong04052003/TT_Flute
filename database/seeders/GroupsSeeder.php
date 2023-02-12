@@ -20,18 +20,7 @@ class GroupsSeeder extends Seeder
                 'name' => 'Supper Admin',
 
             ],
-            [
-                'name' => 'Quản Lý',
-
-            ],
-            [
-                'name' => 'Giám Đốc',
-
-            ],
-            [
-                'name' => 'Nhân Viên',
-
-            ],
+         
          
 
         ]);

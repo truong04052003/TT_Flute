@@ -23,18 +23,7 @@ class Order_DetailSeeder extends Seeder
                 'quantity' => 1,
                 'price' => 450000,
             ],
-            [
-                'product_id' => 2,
-                'order_id' => 1,
-                'quantity' => 2,
-                'price' => 450000,
-            ],
-            [
-                'product_id' => 1,
-                'order_id' => 2,                
-                'quantity' => 1,
-                'price' => 450000,
-            ],
+         
          
           
         ]);
