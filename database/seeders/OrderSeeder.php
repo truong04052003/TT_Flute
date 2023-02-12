@@ -24,22 +24,7 @@ class OrderSeeder extends Seeder
                 'status' =>0,
                 'customer_id' => 1,
             ],
-            [
-                'total' => 500000,
-                'date_at' => '2022-12-25',
-                'date_ship' => '2022-12-27',
-                'note' =>'giao hàng sau 17h00',
-                'status' =>0,
-                'customer_id' => 2,
-            ],
-            [
-                'total' => 2000000,
-                'date_at' => '2022-12-25',
-                'date_ship' => '2022-12-27',
-                'note' =>'giao hàng sau 17h00',
-                'status' =>0,
-                'customer_id' => 3,
-            ],
+        
         ]);
     }
 }
