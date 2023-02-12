@@ -15,13 +15,16 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
+
                                 <img src="{{ asset(auth()->user()->image )}}" alt="John Doe" />
+
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="{{ asset(auth()->user()->image )  }}" alt="John Doe" />
+
+
                                         </a>
                                     </div>
                                     <div class="content">

@@ -40,8 +40,8 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        $items = $this->productService->store($request);
         try {
+            $items = $this->productService->store($request);
             toast('Thêm Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
@@ -72,8 +72,8 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, $id)
     {
        
-        $items = $this->productService->update($request, $id);
         try {
+            $items = $this->productService->update($request, $id);
             toast('Sửa Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
@@ -86,8 +86,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $this->authorize('delete', Product::class);
-        $items = $this->productService->delete($id);
         try {
+            $items = $this->productService->delete($id);
             toast('Sản Phẩm Đã Đưa Vào Thùng Rác!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
@@ -103,8 +103,8 @@ class ProductController extends Controller
     }
     public function restore($id)
     {
-        $items = $this->productService->restore($id);
         try {
+            $items = $this->productService->restore($id);
             toast('Khôi phục Sản Phẩm Thành Công!', 'success', 'top-right');
             return redirect()->route('products.index');
         } catch (\exception $e) {
