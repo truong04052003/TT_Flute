@@ -33,8 +33,8 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
-        $items = $this->categoryService->store($request);
         try {
+            $items = $this->categoryService->store($request);
             toast('Thêm Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
@@ -54,8 +54,8 @@ class CategoryController extends Controller
 
     public function update(UpdateCategoryRequest $request, $id)
     {
-        $items = $this->categoryService->update($request, $id);
         try {
+            $items = $this->categoryService->update($request, $id);
             toast('Sửa Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
@@ -68,8 +68,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $this->authorize('delete', Category::class);
-        $items = $this->categoryService->delete($id);
         try {
+            $items = $this->categoryService->delete($id);
             toast('Thể Loại Đã Đưa Vào Thùng!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {
@@ -86,8 +86,8 @@ class CategoryController extends Controller
     public function restore($id)
     {
         $this->authorize('restore', Category::class);
-        $items = $this->categoryService->restore($id);
         try {
+            $items = $this->categoryService->restore($id);
             toast('Khôi Phục Thể Loại Thành Công!','success','top-right');
             return redirect()->route('categories.index');
         } catch (\exception $e) {

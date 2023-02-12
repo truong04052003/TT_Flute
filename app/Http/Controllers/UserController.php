@@ -49,8 +49,8 @@ class UserController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $this->userService->create($request);
         try {
+            $this->userService->create($request);
             toast('Thêm Nhân Viên Thành Công!', 'success', 'top-right');
             return redirect()->route('users.index');
         } catch (\exception $e) {
@@ -78,8 +78,8 @@ class UserController extends Controller
 
     public function update(UpdateRequest $request, $id)
     {
-        $this->userService->update($request, $id);
         try {
+            $this->userService->update($request, $id);
             toast('Sửa Nhân Viên Thành Công!', 'success', 'top-right');
             return redirect()->route('users.index');
         } catch (\exception $e) {
@@ -93,8 +93,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->authorize('delete', User::class);
-        $user = $this->userService->delete($id);
         try {
+            $user = $this->userService->delete($id);
             toast('Xóa Nhân Viên Thành Công!', 'success', 'top-right');
             return redirect()->route('users.index');
         } catch (\exception $e) {

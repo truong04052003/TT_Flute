@@ -20,6 +20,7 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
     public function create() {
+        // dd(1);
         try{
             return response()->json(200);
         }catch(\Exception $e){
@@ -36,6 +37,7 @@ class OrderController extends Controller
         $order->date_at = null;
         $order->date_ship = null;
         $order->save();
+        // dd($order);
         $carts = Cache::get('carts');
         $order_total_price = 0;
         foreach ($carts as $productId => $cart) {
@@ -51,6 +53,7 @@ class OrderController extends Controller
         $id_order = $order->id;
         $order->total= $order_total_price;
         $order->save();
+        // dd($order);
         Cache::forget('carts');
         $carts = Cache::get('carts');
         $customer = Customer::findOrFail($request->customer_id);
@@ -61,9 +64,10 @@ class OrderController extends Controller
             'orderDetails' => $orderDetails,
             'total' => $order->total,
         ];
+        // dd($params);
 
         Mail::send('mail.mailOders', compact('params'), function ($email) use($customer) {
-            $email->subject('TPN-Shop');
+            $email->subject('Tt-Flute');
             $email->to($customer->email,$customer->name);
         });
 
