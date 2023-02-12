@@ -34,8 +34,8 @@ class GroupController extends Controller
     }
     public function store(StoreGroupRequest $request)
     {
-        $this->groupService->create($request);
         try {
+            $this->groupService->create($request);
             toast('Thêm Quyền Thành Công!', 'success', 'top-right');
             return redirect()->route('group.index');
         } catch (\exception $e) {
@@ -55,8 +55,8 @@ class GroupController extends Controller
     }
     public function update(UpdateGroupRequest $request, $id)
     {
-        $this->groupService->update($id, $request);
         try {
+            $this->groupService->update($id, $request);
             toast('Sửa Quyền Thành Công!', 'success', 'top-right');
             return redirect()->route('group.index');
         } catch (\exception $e) {
@@ -68,8 +68,8 @@ class GroupController extends Controller
     public function destroy($id)
     {
         $this->authorize('delete', Group::class);
-        $group = $this->groupService->delete($id);
         try {
+            $group = $this->groupService->delete($id);
             toast('Nhóm Quyền Đã Đưa Vào Thùng Rác!', 'success', 'top-right');
             return redirect()->route('group.index');
         } catch (\exception $e) {
@@ -82,8 +82,8 @@ class GroupController extends Controller
     public function forcedelete($id)
     {
         $this->authorize('deleteforever', Group::class);
-        $this->groupService->forceDelete($id);
         try {
+            $this->groupService->forceDelete($id);
             toast('Xóa Vĩnh Viễn Thành Công!', 'success', 'top-right');
             return redirect()->route('group.index');
         } catch (\exception $e) {
@@ -113,8 +113,8 @@ class GroupController extends Controller
     public function group_detail(Request $request, $id)
     {
 
-        $this->groupService->group_detail($id, $request);
         try {
+            $this->groupService->group_detail($id, $request);
             toast('Cấp Quyền Thành Công!', 'success', 'top-right');
             return redirect()->route('group.index');
         } catch (\exception $e) {

@@ -55,9 +55,9 @@ class SupplierController extends Controller
     public function update(UpdateSuppliersRequest $request, $id)
     {
         // $data = $request->all();
-        $items = $this->supplierService->update($request, $id);
-
+        
         try {
+            $items = $this->supplierService->update($request, $id);
             toast('Sửa Nhà Cung Cấp Thành Công!', 'success', 'top-right');
             return redirect()->route('suppliers.index');
         } catch (\exception $e) {
@@ -69,8 +69,8 @@ class SupplierController extends Controller
 
     public function destroy($id)
     {
-        $category = $this->supplierService->delete($id);
         try {
+            $category = $this->supplierService->delete($id);
             toast('Đã Đưa Nhà Cung Cấp Vào Thùng Rác!', 'success', 'top-right');
             return redirect()->route('suppliers.index');
         } catch (\exception $e) {
@@ -88,8 +88,8 @@ class SupplierController extends Controller
 
     public function restore($id)
     {
-        $items = $this->supplierService->restore($id);
         try {
+            $items = $this->supplierService->restore($id);
             toast('Khôi Phục Thành Công!', 'success', 'top-right');
             return redirect()->route('suppliers.getTrashed');
         } catch (\exception $e) {
