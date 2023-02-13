@@ -1,5 +1,11 @@
 @extends('admin.layouts.master')
 @section('content')
+    <style>
+        img.act {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
     <div class="page-wrapper">
         <div class="page-container">
             <div class="main-content">
@@ -16,11 +22,10 @@
                                         </div>
                                         <div class="col mb-3">
                                             <dt>Giá</dt>
-                                            <p>{{ number_format($items->price)}} VNĐ</p>
+                                            <p>{{ number_format($items->price) }} VNĐ</p>
                                         </div>
                                     </div>
                                     <div class="row">
-
                                         <div class="col mb-3">
                                             <dt>Số lượng:</dt>
                                             <p>{{ $items->quantity }} sản phẩm</p>
@@ -40,14 +45,22 @@
                                             <dt>Mô tả</dt>
                                             <p>{{ $items->description }}</p>
                                         </div>
-                                       
+                                    </div>
+                                    <dt>Ảnh chi tiết</dt>
+                                    <div class="thumbnail_images">
+                                        <ul style="padding-left: 0rem;" id="thumbnail">
+                                            @foreach ($items->image_products as $file_name)
+                                                <img class="act" onclick="changeImage(this)"
+                                                    src="{{ asset($file_name->image) }}">
+                                            @endforeach
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                             <a href="{{ route('products.index') }}" class="btn btn-danger">Trở lại</a>
                         </div>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </div>
