@@ -52,8 +52,9 @@ class ProductController extends Controller
     }
     public function show($id)
     {
+        $categories = Category::get();
         $items = $this->productService->show($id);
-        return view('admin.product.show', compact('items'));
+        return view('admin.product.show', compact('items','categories'));
     }
 
     public function edit($id)
