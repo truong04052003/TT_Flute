@@ -35,8 +35,8 @@ class SupplierController extends Controller
     public function store(StoreSuppliersRequest $request)
     {
         $data = $request->all();
-        $this->supplierService->create($data);
         try {
+            $this->supplierService->create($data);
             toast('Thêm Nhà Cung Cấp Thành Công!', 'success', 'top-right');
             return redirect()->route('suppliers.index');
         } catch (\exception $e) {
@@ -54,7 +54,6 @@ class SupplierController extends Controller
 
     public function update(UpdateSuppliersRequest $request, $id)
     {
-        // $data = $request->all();
         
         try {
             $items = $this->supplierService->update($request, $id);

@@ -21,7 +21,7 @@ class SupplierSeeder extends Seeder
                 'name' => 'Sáo Trúc Hoàng Anh',
                 'email' => 'ht@gmail.com',
                 'address' => '133 Nguyễn Huệ',
-                'phone' => '0982444555',
+                'phone' => '0982448555',
             ],
             [
                 'name' => 'Sáo Trúc Mão Mèo',
