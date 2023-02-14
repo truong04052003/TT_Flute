@@ -60,7 +60,7 @@
                                                                 disabled>Sửa</button>
                                                         </i>
                                                     @endif
-                                                    @if (Auth::user()->hasPermission('PSupplier_delete'))
+                                                    @if (Auth::user()->hasPermission('Supplier_delete'))
                                                         <button onclick="return confirm('Bạn có chắc chắn xóa không?');"
                                                             class="btn btn-danger">Xóa</button>
                                                     @else

@@ -27,7 +27,7 @@ class StoreSuppliersRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:suppliers',
         ];
     }
     public function messages()
@@ -37,6 +37,7 @@ class StoreSuppliersRequest extends FormRequest
             'email.required' => 'Không được để trống!',
             'address.required' => 'Không được để trống!',
             'phone.required' => 'Vui lòng nhập số điện thoại!',
+            'phone.unique' => 'Đã có người sử dụng',
         ];
     }
 }
