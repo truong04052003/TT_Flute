@@ -40,7 +40,7 @@ Route::get('product_list/search', [ProductController::class, 'search']);
 Route::get('list-cart', [CartController::class, 'getAllCart']);
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart']);
 Route::get('remove-to-cart/{id}', [CartController::class, 'removeToCart']);
-Route::get('update-Cart/{id}/{quantity}', [CartController::class, 'updateCart']);
+Route::get('update-cart/{id}/{quantity}', [CartController::class, 'updateCart']);
 Route::get('remove-all-cart', [CartController::class, 'removeAllCart']);
 //order
 Route::get('order_create', [OrderController::class, 'create']);

@@ -46,6 +46,9 @@ class ApiProductRepository implements ApiProductRepositoryInterface
             },
             'image_products' => function ($query) {
                 $query->select('id', 'product_id', 'image');
+            },
+            'supplier' => function ($query) {
+                $query->select('id', 'name');
             }
         ])->find($id);
         return $product;
