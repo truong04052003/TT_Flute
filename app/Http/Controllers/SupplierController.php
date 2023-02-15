@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\supliers\StoreSuppliersRequest;
 use App\Http\Requests\supliers\UpdateSuppliersRequest;
+use App\Models\Supplier;
 use App\Services\Supplier\SupplierServiceInterface;
 use Exception;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class SupplierController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Supplier::class);
         $suppliers = $this->supplierService->all($request);
         return view('admin.suppliers.index', compact('suppliers'));
     }
@@ -29,6 +31,7 @@ class SupplierController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Supplier::class);
         return view('admin.suppliers.create');
     }
 
@@ -48,6 +51,7 @@ class SupplierController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('update', Supplier::class);
         $item = $this->supplierService->find($id);
         return view('admin.suppliers.edit', compact('item'));
     }
@@ -68,6 +72,7 @@ class SupplierController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('delete', Supplier::class);
         try {
             $category = $this->supplierService->delete($id);
             toast('Đã Đưa Nhà Cung Cấp Vào Thùng Rác!', 'success', 'top-right');
@@ -100,6 +105,7 @@ class SupplierController extends Controller
 
     public function force_destroy($id)
     {
+        $this->authorize('deleteforever', Supplier::class);
         try {
             $category = $this->supplierService->force_destroy($id);
             toast('Xóa Vĩnh Viễn Nhà Cung Cấp Thành Công!', 'success', 'top-right');
