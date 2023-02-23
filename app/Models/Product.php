@@ -12,7 +12,7 @@ class Product extends Model
     use softDeletes;
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withTrashed();
     }
     public function supplier()
     {
